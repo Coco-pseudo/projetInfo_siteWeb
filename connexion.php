@@ -1,9 +1,11 @@
 
 <?php 
 //partie pour test
+/*
 $_POST["mail"] = "coco@mailbidon.com";
 $_POST["mdp"]= "mdp";
 $_POST["indice"] = 0;
+*/
 
 //pour rappel, les données sont dans l'ordre mail, mdp, indice avec indice qui vaut 1 si on l'inscrit, 0 sinon
 $fentree = fopen("ID.txt","r+");
