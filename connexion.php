@@ -1,6 +1,11 @@
 
 <?php 
-//pour rappel, les données sont dans l'ordre mail, mdp, insc avec insc qui vaut 1 si on l'inscrit, 0 sinon
+//partie pour test
+$_POST["mail"] = "coco@mailbidon.com";
+$_POST["mdp"]= "mdp";
+$_POST["indice"] = 0;
+
+//pour rappel, les données sont dans l'ordre mail, mdp, indice avec indice qui vaut 1 si on l'inscrit, 0 sinon
 $fentree = fopen("ID.txt","r+");
 $mail; //va contenir le mail actif
 $mdp; //va contenir le mdp du mail actif
@@ -25,14 +30,18 @@ if($entree[2] == 0){
     echo 0;
 }else{
     if($entree[2] == 1){
-        while(fscanf($fentree,"%s   %s  %s", $mail, $mdp, $type) == 3){
+        $test = 0;
+        while(fscanf($fentree,"%s %s %s", $mail, $mdp, $type) == 3){
             if($entree[0] == $mail){
                 echo 0;
+                $test =1;
             }
         }
-        fprintf($fentree,"%s %s %s", $entree[0], $entree[1], "J");
-        fclose($fentree);
-        header("Location: $sortieJeune");
+        if($test == 0){
+            fprintf($fentree,"%s %s %s\n", $entree[0], $entree[1], "J");
+            fclose($fentree);
+            header("Location: $sortieJeune");
+        }
     }else{ //cas où entree[2] ne vaut ni 1 ni 0: valeur incorrecte
         echo 0;
     }
