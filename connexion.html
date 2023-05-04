@@ -34,28 +34,32 @@
                 }else{
                     insc = 0; //on n'inscrit pas l'adresse mail
                 }
-                var Ajax = new XMLHttpRequest();
+                var ajax = new XMLHttpRequest();
                 var liste = new FormData();
                 liste.set("mail", mail);
                 liste.set("mdp", mdp);
                 liste.set("indice", insc);
 
-                Ajax.onreadystatechange = function(){
-                    if(this.readyState ==4 && this.status == 200){
-                        if(this.responseText != ""){
+                ajax.onreadystatechange = function (){
+                    if(this.readyState == 4 && this.status == 200){
+                        if(this.responseText == "0"){
                             if(insc == 0){
                                 alert("mdp/mail incorrect ou non enregistré");
                             }else{//cas où insc ==1
                                 alert("adresse mail déjà utilisé, inscription invalide");
                             }
-                        }/*else{
-                            document.location.href=this.responseText;
-                        }*/
+                        }else{
+                            if(this.responseText == "1"){
+                                alert("erreur inconnue");
+                            }else{
+                                document.location.href=this.responseText;
+                            }
+                        }
                     }
                 }
-                Ajax.open("POST", "connexion.php", true);
-                Ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                Ajax.send(liste);
+                ajax.open("POST", "connexion.php", true);
+                //ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                ajax.send(liste);
             }
         </script>
     </body>
