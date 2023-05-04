@@ -42,7 +42,7 @@
 
                 Ajax.onreadystatechange = function(){
                     if(this.readyState ==4 && this.status == 200){
-                        if(this.responseText == 0){
+                        if(this.responseText != ""){
                             if(insc == 0){
                                 alert("mdp/mail incorrect ou non enregistré");
                             }else{//cas où insc ==1
@@ -54,6 +54,7 @@
                     }
                 }
                 Ajax.open("POST", "connexion.php", true);
+                Ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 Ajax.send(liste);
             }
         </script>

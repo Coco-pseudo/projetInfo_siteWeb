@@ -15,10 +15,11 @@ $type; //va contenir le type d'url a renvoyer (admin ou jeune) du mail actif
 $entree = [$_POST["mail"], $_POST["mdp"], $_POST["indice"]];
 fscanf($fentree, "%s %s", $sortieAdmin, $sortieJeune); //prise de la premiere ligne contenant les urls
 $entree[0] = strtolower($entree[0]);
-if($entree[2] == 0){
+if($entree[2] == 0){ //on verifie l'utilisateur
     while(fscanf($fentree, "%s %s %s", $mail, $mdp, $type) == 3){
         if($entree[0] == $mail){
             if($entree[1] == $mdp){
+                fclose($fentree);
                 if($type== "A"){
                     header("Location: $sortieAdmin");
                 }else{
@@ -31,7 +32,7 @@ if($entree[2] == 0){
     }
     echo 0;
 }else{
-    if($entree[2] == 1){
+    if($entree[2] == 1){ //on inscrit l'utilisateur
         $test = 0;
         while(fscanf($fentree,"%s %s %s", $mail, $mdp, $type) == 3){
             if($entree[0] == $mail){
