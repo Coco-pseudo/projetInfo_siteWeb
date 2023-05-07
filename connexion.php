@@ -23,13 +23,12 @@ if($entree[2] == 0){ //on verifie l'utilisateur
             if($entree[1] == $mdp){
                 fclose($fentree);
                 if($type== "A"){
-                    //header("Location: $sortieAdmin");
-                    $res = $sortieAdmin;
+                    header("Location: $sortieAdmin");
+                    //$res = $sortieAdmin;
                 }else{
-                    //header("Location: $sortieJeune");
-                    $res = $sortieJeune;
+                    header("Location: $sortieJeune");
+                    //$res = $sortieJeune;
                 }
-                exit();
             }else{
                 $test = $test + 1;
                 $res = 0;
@@ -51,7 +50,7 @@ if($entree[2] == 0){ //on verifie l'utilisateur
             fprintf($fentree,"%s %s %s\n", $entree[0], $entree[1], "J");
             fclose($fentree);
             header("Location: $sortieJeune");
-            exit();
+            //$res = $sortieJeune;
         }
     }else{ //cas où entree[2] ne vaut ni 1 ni 0: valeur incorrecte
         $res = 0;

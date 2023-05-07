@@ -1,22 +1,40 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
-        <title> Connexion jeunes 6.4</title>
+        <meta charset="utf-8">
+        <title>Jeune 6.4</title>
+        <link rel="icon" type="image/png" href="logo.png">
+        <link rel="stylesheet" type="text/css" href="Connexion.css">
     </head>
+    
+    <header>
+        <h1>Pour faire de l'engagement une valeur</h1>
+        <image src="logo.png" height="150" onclick="Accueil()"></image>
+    </header>
     <body>
-        <form method="post">
-            Mail :<input type="email" id="mail"><br>
-            Mot de passe :<input type="password" id="mdp"><br>
-            <p>inscription?</p>
-            <label for="oui">oui</label>
-            <input type="radio" name="inscription" value="oui"><br>
-            <label for="non">non</label>
-            <input type="radio" name="inscription" value="non" checked><br>
-            <button type="submit" onclick="Submit()">Connexion</button>
-            <button type="reset"> réinitialiser</button>
-        </form>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="Partenaires.html" class="dark-grey">Partenaires</a></li>
+                <!--<li><a href="Connexion.html" class="pink">Connexion</a></li>-->
+            </ul>
+        </nav>
+        <div id="body">
+            <form method="post">
+                Mail :<input type="email" id="mail"><br>
+                Mot de passe :<input type="password" id="mdp"><br>
+                <p>inscription?</p>
+                <label for="oui">oui</label>
+                <input type="radio" name="inscription" value="oui"><br>
+                <label for="non">non</label>
+                <input type="radio" name="inscription" value="non" checked><br>
+                <button type="submit" onclick="Submit()">Connexion</button>
+                <button type="reset"> réinitialiser</button>
+            </form>
+        </div>
         <script>
+            function Accueil(){
+                document.location.href="Visiteur.html";
+            }
             function Submit(){
                 var mdp = document.getElementById("mdp").value;
                 var mail = document.getElementById("mail").value;
@@ -51,9 +69,9 @@
                         }else{
                             if(this.responseText == "1"){
                                 alert("erreur inconnue");
-                            }else{
+                            }/*else{
                                 document.location.href=this.responseText;
-                            }
+                            }*/
                         }
                     }
                 }
