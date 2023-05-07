@@ -111,21 +111,21 @@ nav {
     border-color: violet;
     height:70%;
     width: 20%;
-    background-color:rgb(238, 180, 238) ;
+    background-color:rgb(238, 180, 238);
 }
 .carre2 {
     border-style: solid;
     border-color: green;
     height:70%;
     width: 20%;
-    background-color:rgb(149, 245, 149) ;    
+    background-color:rgb(149, 245, 149);    
 }
 .carre3 {
     border-style: solid;
     border-color: lightblue;
     height:70%;
     width: 20%;
-    background-color:rgb(159, 211, 245) ;    
+    background-color:rgb(159, 211, 245);    
 }
 .titre1 {
     background: linear-gradient(to right,#b90db9, rgb(228, 117, 209));

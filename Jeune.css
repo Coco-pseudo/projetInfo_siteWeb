@@ -57,9 +57,9 @@ nav {
     font-weight: bold;
     text-transform: uppercase;
 }
-.pink {
-    color: violet;
+.color1 {
+    color: darkgray;
 }
-.dark-grey {
-    color: rgb(129, 129, 129);
+.color2 {
+    color: violet;
 }
