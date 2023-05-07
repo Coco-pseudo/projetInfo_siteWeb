@@ -1,12 +1,29 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
+        <meta charset="utf-8">
         <title>Votre page jeune 6.4</title>
         <link rel="icon" type="image/png" href="logo.png">
         <link rel="stylesheet" type="text/css" href="Connexion.css">
     </head>
+    
+    <header>
+        <h1>Pour faire de l'engagement une valeur</h1>
+        <image src="logo.png" height="150" onclick="Accueil()"></image>
+    </header>
     <body>
-        <h1>TO DO</h1>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#" class="dark-grey">Profil</a></li>
+                <li><a href="#" class="pink">Référence</a></li>
+                <li><a href="#" class="pink">Liste</a></li>
+                <li><a href="#" class="pink">CV</a></li>
+            </ul>
+        </nav>
+        <script>
+            function Accueil(){
+                document.location.href="Visiteur.html";
+            }
+        </script>
     </body>
 </html>
