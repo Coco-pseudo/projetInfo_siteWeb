@@ -41,11 +41,11 @@ Savoir etre et savoir faire :
 <body>
     <!--<h1>TEST</h1>-->
     <div id="divTable">
-        <form method="POST" action="http://localhost/mesTravaux/Projet/PageDemandeBis.php">
+        <form method="POST" action="http://localhost:8080/PageDemandeBis.php">
             <table  align="center">
                 <tr>
                     <td>Description de l'engagement</td>
-                    <td><input type="text" name="Descpription"></input> </td>
+                    <td><input type="text" name="Description"></input> </td>
                 </tr>
 
                 <tr>
