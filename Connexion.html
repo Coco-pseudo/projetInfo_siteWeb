@@ -5,19 +5,19 @@
         <title> Connexion jeunes 6.4</title>
     </head>
     <body>
-        <form method="post">
-            Mail :<input type="email" id="mail"><br>
-            Mot de passe :<input type="password" id="mdp"><br>
+        <form method="post" action="http://localhost:8080/connexion.php">
+            Mail :<input type="email" name="mail"></input><br>
+            Mot de passe :<input type="password" name="mdp"></input><br>
             <p>inscription?</p>
             <label for="oui">oui</label>
-            <input type="radio" name="inscription" value="oui"><br>
+            <input type="radio" name="inscription" value="1"></input><br>
             <label for="non">non</label>
-            <input type="radio" name="inscription" value="non" checked><br>
+            <input type="radio" name="inscription" value="0" checked></input><br>
             <button type="submit" onclick="Submit()">Connexion</button>
             <button type="reset"> réinitialiser</button>
         </form>
         <script>
-            function Submit(){
+            /*function Submit(){
                 var mdp = document.getElementById("mdp").value;
                 var mail = document.getElementById("mail").value;
                 if(mail == ""){
@@ -61,6 +61,7 @@
                 //ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 ajax.send(liste);
             }
+            */
         </script>
     </body>
 </html>
