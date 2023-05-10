@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Jeune 6.4</title>
+        <title>Connexion jeune 6.4</title>
         <link rel="icon" type="image/png" href="logo.png">
         <link rel="stylesheet" type="text/css" href="Connexion.css">
     </head>
@@ -18,9 +18,66 @@
                 <li><a href="Connexion.html" class="pink">Connexion</a></li>
             </ul>
         </nav>
+        <div id="body">
+            <form method="post">
+                Mail :<input type="email" id="mail"><br>
+                Mot de passe :<input type="password" id="mdp"><br>
+                <p>inscription?</p>
+                <label for="oui">oui</label>
+                <input type="radio" name="inscription" value="oui"><br>
+                <label for="non">non</label>
+                <input type="radio" name="inscription" value="non" checked><br>
+                <button type="submit" onclick="Submit()">Connexion</button>
+                <button type="reset"> réinitialiser</button>
+            </form>
+        </div>
         <script>
             function Accueil(){
                 document.location.href="Visiteur.html";
+            }
+            function Submit(){
+                var mdp = document.getElementById("mdp").value;
+                var mail = document.getElementById("mail").value;
+                if(mail == ""){
+                    alert("merci de bien vouloir saisir une adresse mail");
+                    return;
+                }
+                if(mdp == ""){
+                    alert("merci de bien vouloir saisir votre mot de passe");
+                    return;
+                }
+                var insc = document.getElementsByName("inscription");
+                if (insc[0].checked){
+                    insc = 1; //1 veut dire que l'on veut inscrire le nom
+                }else{
+                    insc = 0; //on n'inscrit pas l'adresse mail
+                }
+                var ajax = new XMLHttpRequest();
+                var liste = new FormData();
+                liste.set("mail", mail);
+                liste.set("mdp", mdp);
+                liste.set("indice", insc);
+
+                ajax.onreadystatechange = function (){
+                    if(this.readyState == 4 && this.status == 200){
+                        if(this.responseText == "0"){
+                            if(insc == 0){
+                                alert("mdp/mail incorrect ou non enregistré");
+                            }else{//cas où insc ==1
+                                alert("adresse mail déjà utilisé, inscription invalide");
+                            }
+                        }else{
+                            if(this.responseText == "1"){
+                                alert("erreur inconnue");
+                            }/*else{
+                                document.location.href=this.responseText;
+                            }*/
+                        }
+                    }
+                }
+                ajax.open("POST", "connexion.php", true);
+                //ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                ajax.send(liste);
             }
         </script>
     </body>
