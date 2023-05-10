@@ -95,7 +95,7 @@
                 document.location.href="DemandeRef.php";
             }
             function CV(){
-                document.location.href="#.php";
+                document.location.href="CV.php";
             }
         </script>
     </body>

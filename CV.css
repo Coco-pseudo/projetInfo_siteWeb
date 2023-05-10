@@ -64,7 +64,7 @@ nav {
     color: violet;
 }
 
-.references{ 
+.cv{
     display:flex;
     flex-direction: row;
     justify-content: space-around;  
@@ -74,40 +74,3 @@ nav {
     margin: 250px auto 50px;
     padding: 0 120px;
 }
-.ref{
-    border-style: solid;
-    border-color: violet;
-    background: linear-gradient(to right,#e769e7, rgb(255, 255, 255));
-    border-collapse: collapse;
-    table-layout: fixed;
-    width: 900px; 
-}
-.bouton {
-    margin-top :150px;
-}
-.bd {
-    background: linear-gradient(to right,#b90db9, rgb(240, 149, 225));
-    border-style: solid;
-    border-color: violet;
-    width: 150px;
-    height: 50px;
-    margin-bottom: 20px;
-}
-.bcv {
-    background: linear-gradient(to right,#b90db9, rgb(240, 149, 225));
-    border-style: solid;
-    border-color: violet;
-    top: 25px;
-    width: 150px;
-    height: 50px;
-}
-/* td{
-    border : 1px  solid black;
-    align-items: center;
-}
-
-div.checkbox {
-    color:red;
-    background-color: blue;
-} */
-
