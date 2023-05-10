@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <title>Jeune 6.4</title>
         <link rel="icon" type="image/png" href="logo.png">
-        <link rel="stylesheet" type="text/css" href="References.css">
+        <link rel="stylesheet" type="text/css" href="DemandeRef.css">
     </head>
     
     <header>
@@ -15,17 +15,17 @@
         <nav>
             <ul class="nav-links">
                 <li><a href="Profil.html" class="color1">Profil</a></li>
-                <li><a href="References.html" class="color2">Références</a></li>
+                <li><a href="References.php" class="color2">Références</a></li>
             </ul>
         </nav>
 
         
-            <form method="POST" action="http://localhost/mesTravaux/Projet/PageDemandeBis.php">
+            <form method="POST" action="http://localhost:8080/PageDemandeBis.php">
                 <div class="formulaires">
                     <table  class="ref">
                         <tr>
                             <td>Description de l'engagement</td>
-                            <td><input type="text" name="Descpription"></input> </td>
+                            <td><input type="text" name="Description"></input> </td>
                         </tr>
                         <tr>
                             <td>Durée de l'engagement</td>
@@ -48,7 +48,6 @@
                             <td><input type="email" name="EmailRef"></input> </td>
                         </tr>
                     </table>
-                
                 
                     <table class="savoir">
                         <tr>
