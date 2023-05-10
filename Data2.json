@@ -1,13 +1,12 @@
 { "Reference": [
     {
-<<<<<<< Updated upstream
         "Descpription": "m'occuper d'enfant",
         "Duree": "6 mois",
         "milieu": "club sportif",
         "nomRef": "Test",
         "prenomRef": "prenomTest",
         "EmailRef": "Email@test"
-=======
+
         "Description": "Etre une pute",
         "Duree": "28 ans",
         "milieu": "Maison close",
@@ -54,6 +53,5 @@
         "nomRef": "Androny",
         "prenomRef": "Grosllaume",
         "EmailRef": "lasalopedu78@test"
->>>>>>> Stashed changes
     }
 ] }
