@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php 
+setcookie("mail","",1);//supprime le cookie de mail si existant
+setcookie("mdp","",1);//supprime le cookie de mdp si existant
+?>
 <html>
     <head>
         <meta charset="utf-8">
@@ -19,17 +23,18 @@
             </ul>
         </nav>
         <div id="body">
-            <form method="post">
-                Mail :<input type="email" id="mail"><br>
-                Mot de passe :<input type="password" id="mdp"><br>
+            <form method="post" action="localhost:8080/Connexion.php">
+                Mail :<input type="email" id="mail" required><br>
+                Mot de passe :<input type="password" id="mdp" required><br>
                 <p>inscription?</p>
                 <label for="oui">oui</label>
-                <input type="radio" name="inscription" value="oui"><br>
+                <input type="radio" name="indice" value="oui"><br>
                 <label for="non">non</label>
-                <input type="radio" name="inscription" value="non" checked><br>
+                <input type="radio" name="indice" value="non" checked><br>
                 <button type="submit" onclick="Submit()">Connexion</button>
                 <button type="reset"> réinitialiser</button>
             </form>
+            <div id="answer"></div>
         </div>
         <script>
             function Accueil(){
@@ -38,15 +43,16 @@
             function Submit(){
                 var mdp = document.getElementById("mdp").value;
                 var mail = document.getElementById("mail").value;
+                var ans = document.getElementById("answer");
                 if(mail == ""){
-                    alert("merci de bien vouloir saisir une adresse mail");
+                    ans.innerHTML = "merci de bien vouloir saisir une adresse mail";
                     return;
                 }
                 if(mdp == ""){
-                    alert("merci de bien vouloir saisir votre mot de passe");
+                    ans.innerHTML = "merci de bien vouloir saisir votre mot de passe";
                     return;
                 }
-                var insc = document.getElementsByName("inscription");
+                var insc = document.getElementsByName("indice");
                 if (insc[0].checked){
                     insc = 1; //1 veut dire que l'on veut inscrire le nom
                 }else{
@@ -59,23 +65,27 @@
                 liste.set("indice", insc);
 
                 ajax.onreadystatechange = function (){
-                    if(this.readyState == 4 && this.status == 200){
-                        if(this.responseText == "0"){
-                            if(insc == 0){
-                                alert("mdp/mail incorrect ou non enregistré");
-                            }else{//cas où insc ==1
-                                alert("adresse mail déjà utilisé, inscription invalide");
+                    if(this.readyState == ajax.DONE ){
+                        if(this.status == 200){
+                            if(this.responseText == 0){
+                                if(insc == 0){
+                                    ans.innerHTML = "mdp/mail incorrect ou non enregistré";
+                                }else{//cas où insc ==1
+                                    ans.innerHTML = "adresse mail déjà utilisé, inscription invalide";
+                                }
+                            }else{
+                                if(this.responseText == 1){
+                                    alert("erreur inconnue");
+                                }else{
+                                    document.location.href=this.responseText;
+                                }
                             }
                         }else{
-                            if(this.responseText == "1"){
-                                alert("erreur inconnue");
-                            }/*else{
-                                document.location.href=this.responseText;
-                            }*/
+                            ans.innerHTML = "erreur de la requete";
                         }
                     }
                 }
-                ajax.open("POST", "connexion.php", true);
+                ajax.open("POST", "Connexion.php", true);
                 //ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 ajax.send(liste);
             }
