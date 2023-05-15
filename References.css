@@ -82,6 +82,32 @@ nav {
     table-layout: fixed;
     width: 900px; 
 }
+.sve{
+    border-style: solid;
+    border-color: violet;
+    background: linear-gradient(to right,#e769e7, rgb(255, 255, 255));
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 200px; 
+}
+.svf{
+    border-style: solid;
+    border-color: violet;
+    background: linear-gradient(to right,#e769e7, rgb(255, 255, 255));
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 200px; 
+}
+.com{
+    border-style: solid;
+    border-color: violet;
+    background: linear-gradient(to right,#e769e7, rgb(255, 255, 255));
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 200px; 
+}
+
+
 .bouton {
     margin-top :150px;
 }
