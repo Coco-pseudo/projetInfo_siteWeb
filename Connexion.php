@@ -39,8 +39,10 @@ if($entree[2] == 0){ //on verifie l'utilisateur
             $test = $test + 1;
             if($entree[1] == $mdp){
                 fclose($fentree);
-                setcookie("mail",$mail,time()+3600);//valable une heure
-                setcookie("mdp",$mdp,time()+3600);//valable une heure
+                if($_COOKIE['mail'] == ""){
+                    setcookie("mail",$mail,time()+3600);//valable une heure
+                    setcookie("mdp",$mdp,time()+3600);//valable une heure
+                }
                 if($type== "A"){
                     //header("Location: $sortieAdmin");
                     $res = $sortieAdmin;
