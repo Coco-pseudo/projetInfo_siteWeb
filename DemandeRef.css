@@ -64,7 +64,7 @@ nav {
     color: violet;
 }
 
-.references{ 
+.formulaires{
     display:flex;
     flex-direction: row;
     justify-content: space-around;  
@@ -72,8 +72,9 @@ nav {
     height: auto;
     width:auto;
     margin: 250px auto 50px;
-    padding: 0 120px;
+    padding: 0 20px;
 }
+
 .ref{
     border-style: solid;
     border-color: violet;
@@ -82,50 +83,13 @@ nav {
     table-layout: fixed;
     width: 900px; 
 }
-.sve{
+.savoir{
     border-style: solid;
     border-color: violet;
     background: linear-gradient(to right,#e769e7, rgb(255, 255, 255));
     border-collapse: collapse;
     table-layout: fixed;
-    width: 200px; 
-}
-.svf{
-    border-style: solid;
-    border-color: violet;
-    background: linear-gradient(to right,#e769e7, rgb(255, 255, 255));
-    border-collapse: collapse;
-    table-layout: fixed;
-    width: 200px; 
-}
-.com{
-    border-style: solid;
-    border-color: violet;
-    background: linear-gradient(to right,#e769e7, rgb(255, 255, 255));
-    border-collapse: collapse;
-    table-layout: fixed;
-    width: 200px; 
-}
-
-
-.bouton {
-    margin-top :150px;
-}
-.bd {
-    background: linear-gradient(to right,#b90db9, rgb(240, 149, 225));
-    border-style: solid;
-    border-color: violet;
-    width: 150px;
-    height: 50px;
-    margin-bottom: 20px;
-}
-.bcv {
-    background: linear-gradient(to right,#b90db9, rgb(240, 149, 225));
-    border-style: solid;
-    border-color: violet;
-    top: 25px;
-    width: 150px;
-    height: 50px;
+    width: 900px; 
 }
 /* td{
     border : 1px  solid black;

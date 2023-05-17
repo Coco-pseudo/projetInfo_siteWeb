@@ -1,4 +1,3 @@
-
 <?php 
 //partie pour test
 /*
@@ -24,10 +23,10 @@ $res = "";
 $mail; //va contenir le mail actif
 $mdp; //va contenir le mdp du mail actif
 $type; //va contenir le type d'url a renvoyer (admin ou jeune) du mail actif
-if($_COOKIE['mail'] == ""){
-    $entree = [$_POST['mail'], $_POST['mdp'], $_POST['indice']];
-}else{
+if($_POST['mail'] == ""){
     $entree = [$_COOKIE['mail'], $_COOKIE['mdp'], 0]; //le cookie sert a la connexion donc l'indice est forcement 0
+}else{
+    $entree = [$_POST['mail'], $_POST['mdp'], $_POST['indice']];
 }
 
 fscanf($fentree, "%s %s", $sortieAdmin, $sortieJeune); //prise de la premiere ligne contenant les urls
@@ -39,8 +38,10 @@ if($entree[2] == 0){ //on verifie l'utilisateur
             $test = $test + 1;
             if($entree[1] == $mdp){
                 fclose($fentree);
-                setcookie("mail",$mail,time()+3600);//valable une heure
-                setcookie("mdp",$mdp,time()+3600);//valable une heure
+                if($_COOKIE['mail'] == ""){
+                    setcookie("mail",$mail,time()+3600);//valable une heure
+                    setcookie("mdp",$mdp,time()+3600);//valable une heure
+                }
                 if($type== "A"){
                     //header("Location: $sortieAdmin");
                     $res = $sortieAdmin;
