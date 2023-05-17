@@ -1,4 +1,4 @@
-Administrateur.html Jeune/Jeune.php
+Administrateur.html Jeune/Jeune.html
 coco@mailbidon.com mdp A
 clement@mailbidon.com mdp A
 quentin@mailbidon.com mdp A
