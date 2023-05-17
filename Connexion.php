@@ -1,4 +1,7 @@
 <?php 
+
+$connexion = "PageConnexion.php";
+
 //partie pour test
 /*
 $_POST["mail"] = "mail1@mailbidon.com";
@@ -13,6 +16,7 @@ setcookie('mdp', 'mdp', time()+3600 );
 echo ("valeur du cookie mail: ".$_COOKIE['mail']."<br>");
 echo ("valeur du cookie mdp: ".$_COOKIE['mdp']."<br>");
 */
+
 
 
 
@@ -41,22 +45,40 @@ if($entree[2] == 0){ //on verifie l'utilisateur
                 if($_COOKIE['mail'] == ""){
                     setcookie("mail",$mail,time()+3600);//valable une heure
                     setcookie("mdp",$mdp,time()+3600);//valable une heure
-                }
-                if($type== "A"){
-                    //header("Location: $sortieAdmin");
-                    $res = $sortieAdmin;
+                    if($type== "A"){ //profil admin
+                        if($_COOKIE['destination'] == 'Co'){
+                            setcookie('destination','',1);
+                            header("Location: $sortieAdmin");
+                        }
+                    }else{ //profil jeune
+                        if($_COOKIE['destination'] == 'Co'){
+                            setcookie('destination','',1);
+                            header("Location: $sortieJeune");
+                        }
+                    }
                 }else{
-                    //header("Location: $sortieJeune");
-                    $res = $sortieJeune;
+                    if($type== "A"){
+                        //header("Location: $sortieAdmin");
+                        $res = $sortieAdmin;
+                    }else{
+                        //header("Location: $sortieJeune");
+                        $res = $sortieJeune;
                 }
+                }
+                
             }else{
+                if($_COOKIE['mail'] != ""){
+                    setcookie("mail","",1); //suppression des cookies de connexion s'ils ne correspondent pas a un resultat
+                    setcookie("mdp","",1);
+                    header("Location: $connexion");
+                }
                 $res = 0;
                 //echo("erreur de mdp <br>");
             }
         }
     }
     if($test == 0){
-        $res = 0;
+        $res = 0; //aucune correspondance de mail lors de la boucle de parcours
     }
 }else{
     if($entree[2] == 1){ //on inscrit l'utilisateur
