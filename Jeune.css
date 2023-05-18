@@ -63,3 +63,45 @@ nav {
 .color2 {
     color: violet;
 }
+
+.info {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;  
+    top: 490px;
+    height: auto;
+    width:auto;
+    margin: 250px auto 50px;
+}
+
+.prfl{
+    border-style: solid;
+    border-color: violet;
+    background: linear-gradient(to right,#e769e7, rgb(255, 255, 255));
+    border-collapse: collapse;
+    width: 300px;
+    height: 85%;
+    overflow-inline: auto;
+    overflow-wrap: break-word;
+}
+
+.nbref{
+    border-style: solid;
+    border-color: violet;
+    background: linear-gradient(to right,#e769e7, rgb(255, 255, 255));
+    border-collapse: collapse;
+    width: 200px;
+    height: 25%;
+    overflow-inline: auto;
+    overflow-wrap: break-word;
+}
+
+.bouton {
+    margin-top :5%;
+    background: linear-gradient(to right,#b90db9, rgb(240, 149, 225));
+    border-style: solid;
+    border-color: violet;
+    top: 25px;
+    width: 180px;
+    height: 50px;
+}

@@ -90,6 +90,14 @@ nav {
     border-color: rgb(25, 173, 218);
 } */
 
+tr, td {
+    border-style: solid;
+    border-color: violet;
+    padding: 8px;
+}
+
+
+
 
 .ref{
     border-style: solid;
