@@ -22,24 +22,59 @@
         <nav>
             <ul class="nav-links">
                 <li><a href="Partenaires.html" class="dark-grey">Partenaires</a></li>
-                <li><a href="Connexion.html" class="pink">Connexion</a></li>
+                <li><a href="#" class="pink">Connexion</a></li>
             </ul>
         </nav>
         <div id="body">
             <form method="post" action="localhost:8080/Connexion.php">
-                Mail :<input type="email" id="mail" required><br>
-                Mot de passe :<input type="password" id="mdp" required><br>
-                <p>inscription?</p>
-                <label for="oui">oui</label>
-                <input type="radio" name="indice" value="oui"><br>
-                <label for="non">non</label>
-                <input type="radio" name="indice" value="non" checked><br>
-                <button type="submit" onclick="Submit()">Connexion</button>
-                <button type="reset"> réinitialiser</button>
+                <table>
+                    <tr class="inscription">
+                        <td>Nom :</td><td><input type="text" id="nom"></td>
+                    </tr>
+                    <tr class="inscription">
+                        <td>Prénom :</td><td><input type="text" id="prenom"></td>
+                    </tr>
+                    <tr class="inscription">
+                        <td>Date de naissance</td><td><input type="date" id="birthday"></td>
+                    </tr>
+                    <tr>
+                        <td>Mail :</td><td><input type="email" id="mail" required></td>
+                    </tr>
+                    <tr>
+                        <td>Mot de passe :</td><td><input type="password" id="mdp" required></td>
+                    </tr>
+                    <tr class="inscription">
+                        <td>Vérification du mot de passe</td><td><input type="password" id="mdp2"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" id="FullRow">inscription?</td>
+                    </tr>
+                    <tr>
+                        <td><label for="oui">oui</label><input type="radio" name="indice" value="oui" onclick="visible()"></td>
+                        <td><label for="non">non</label><input type="radio" name="indice" value="non" checked onclick="invisible()"></td>
+                    </tr>
+                    <tr>
+                        <td><button type="submit" onclick="Submit()">Connexion</button></td>
+                        <td><button type="reset"> réinitialiser</button></td>
+                    </tr>
+                </table>
             </form>
+                
             <div id="answer"></div>
         </div>
         <script>
+            function visible(){
+                let tab = document.getElementsByClassName("inscription");
+                for(i=0; i<tab.length; i++){
+                    tab[i].style.visibility = "visible";
+                }
+            }
+            function invisible(){
+                let tab = document.getElementsByClassName("inscription");
+                for(i=0; i<tab.length; i++){
+                    tab[i].style.visibility = "hidden";
+                }
+            }
             function Accueil(){
                 document.location.href="Visiteur.html";
             }
@@ -47,6 +82,7 @@
                 var mdp = document.getElementById("mdp").value;
                 var mail = document.getElementById("mail").value;
                 var ans = document.getElementById("answer");
+
                 if(mail == ""){
                     ans.innerHTML = "merci de bien vouloir saisir une adresse mail";
                     return;
@@ -55,18 +91,54 @@
                     ans.innerHTML = "merci de bien vouloir saisir votre mot de passe";
                     return;
                 }
-                var insc = document.getElementsByName("indice");
-                if (insc[0].checked){
-                    insc = 1; //1 veut dire que l'on veut inscrire le nom
-                }else{
-                    insc = 0; //on n'inscrit pas l'adresse mail
-                }
+                //creation de la variable qui sera envoyé a connexion.php
                 var ajax = new XMLHttpRequest();
                 var liste = new FormData();
                 liste.set("mail", mail);
                 liste.set("mdp", mdp);
-                liste.set("indice", insc);
 
+                var insc = document.getElementsByName("indice");
+
+                if (insc[0].checked){
+                    insc = 1; //1 veut dire que l'on veut inscrire le nom
+                    //recuperation de tout les elements du form
+                    var nom = document.getElementById("nom").value;
+                    var prenom = document.getElementById("prenom").value;
+                    var date = document.getElementById("birthday").value;
+                    var mdp2 = document.getElementById("mdp2").value;
+                    //verification de tout les champs
+                    var precision = "Tout les champs sont requis pour procéder à votre inscription";
+                    if(nom == ""){
+                        ans.innerHTML = "Merci de bien vouloir saisir un nom. <br>".precision;
+                        return;
+                    }
+                    if(prenom == ""){
+                        ans.innerHTML = "Merci de bien vouloir saisir un prénom. <br>".precision;
+                        return;
+                    }
+                    if(date == ""){
+                        ans.innerHTML = "Merci de bien vouloir saisir une date de naissance. <br>".precision;
+                        return;
+                    }
+                    if(mdp2 == ""){
+                        ans.innerHTML = "Merci de bien vouloir saisir un nom. <br>".precision;
+                        return;
+                    }else{  // mdp2 n'est pas vide
+                        if(mdp != mdp2){
+                            ans.innerHTML = "La \"vérification de mot de passe\" doit contenir le même mot de passe que celui au dessus";
+                            return;
+                        }
+                    }
+                    //ajout de tout les nouveaux éléments a liste
+                    liste.set("nom", nom);
+                    liste.set("prenom", prenom);
+                    liste.set("date", date);
+                }else{
+                    insc = 0; //on n'inscrit pas l'adresse mail
+                }
+                
+                liste.set("indice", insc);
+                //requete ajax
                 ajax.onreadystatechange = function (){
                     if(this.readyState == ajax.DONE ){
                         if(this.status == 200){
