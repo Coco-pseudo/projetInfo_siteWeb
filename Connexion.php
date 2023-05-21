@@ -91,11 +91,14 @@ if($entree[2] == 0){ //on verifie l'utilisateur
         }
         if($test == 0){
             fprintf($fentree,"%s %s %s\n", $entree[0], $entree[1], "J");
-
-            //création du dossier du jeune avec $_POST["nom"] $_POST["prenom"] $_POST[]
-
-
             fclose($fentree);
+
+
+            //création du dossier du jeune avec $_POST["nom"] $_POST["prenom"] $_POST["date"]
+            $creationP = fopen("Profil/$entree[0].JSON","w");
+            fprintf($creationP," { \"Profil\": [\n{\n\"Nom\": \"%s\",\n\"Prenom\": \"%s\",\n\"Date\": \"%s\",\n\"Mail\": \"%s\"}]}", $_POST["nom"], $_POST["prenom"], $_POST["date"], $entree[0]);
+            fclose($creationP);
+            
             setcookie("mail",$mail,time()+3600);//valable une heure
             setcookie("mdp",$mdp,time()+3600);//valable une heure
             //header("Location: $sortieJeune");
