@@ -46,6 +46,14 @@ if($entree[2] == 0){ //on verifie l'utilisateur
                 if($_COOKIE['mail'] == ""){
                     setcookie("mail",$mail,time()+3600);//valable une heure
                     setcookie("mdp",$mdp,time()+3600);//valable une heure
+                    if($type== "A"){
+                        //header("Location: $sortieAdmin");
+                        $res = $sortieAdmin;
+                    }else{
+                        //header("Location: $sortieJeune");
+                        $res = $sortieJeune;
+                    }
+                }else{
                     if($type== "A"){ //profil admin
                         if($_COOKIE['destination'] == 'Co'){
                             setcookie('destination','',1);
@@ -57,14 +65,6 @@ if($entree[2] == 0){ //on verifie l'utilisateur
                             header("Location: $sortieJeune");
                         }
                     }
-                }else{
-                    if($type== "A"){
-                        //header("Location: $sortieAdmin");
-                        $res = $sortieAdmin;
-                    }else{
-                        //header("Location: $sortieJeune");
-                        $res = $sortieJeune;
-                }
                 }
                 
             }else{
