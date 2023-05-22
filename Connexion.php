@@ -1,6 +1,6 @@
 <?php 
 
-$connexion = "PageConnexion.php";
+
 
 //partie pour test
 /*
@@ -22,6 +22,7 @@ echo ("valeur du cookie mdp: ".$_COOKIE['mdp']."<br>");
 
 //pour rappel, les données sont dans l'ordre mail, mdp, indice avec indice qui vaut 1 si on l'inscrit, 0 sinon
 
+$connexion = "PageConnexion.php";
 $fentree = fopen("ID.txt","r+");
 $res = "";
 $mail; //va contenir le mail actif
@@ -91,6 +92,13 @@ if($entree[2] == 0){ //on verifie l'utilisateur
         if($test == 0){
             fprintf($fentree,"%s %s %s\n", $entree[0], $entree[1], "J");
             fclose($fentree);
+
+
+            //création du dossier du jeune avec $_POST["nom"] $_POST["prenom"] $_POST["date"]
+            $creationP = fopen("Profil/$entree[0].JSON","w");
+            fprintf($creationP," { \"Profil\": [\n{\n\"Nom\": \"%s\",\n\"Prenom\": \"%s\",\n\"Date\": \"%s\",\n\"Mail\": \"%s\"}]}", $_POST["nom"], $_POST["prenom"], $_POST["date"], $entree[0]);
+            fclose($creationP);
+            
             setcookie("mail",$mail,time()+3600);//valable une heure
             setcookie("mdp",$mdp,time()+3600);//valable une heure
             //header("Location: $sortieJeune");
