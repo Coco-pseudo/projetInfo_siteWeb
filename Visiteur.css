@@ -57,11 +57,11 @@ nav {
     font-weight: bold;
     text-transform: uppercase;
 }
-.pink {
-    color: violet;
-}
-.dark-grey {
+.color1 {
     color: rgb(129, 129, 129);
+}
+.color2 {
+    color: violet;
 }
 
 
@@ -109,23 +109,29 @@ nav {
 .carre1 {
     border-style: solid;
     border-color: violet;
-    height:70%;
+    height:75%;
     width: 20%;
     background-color:rgb(238, 180, 238);
+    overflow-inline: auto;
+    overflow-wrap: break-word; 
 }
 .carre2 {
     border-style: solid;
     border-color: green;
-    height:70%;
+    height:75%;
     width: 20%;
-    background-color:rgb(149, 245, 149);    
+    background-color:rgb(149, 245, 149);
+    overflow-inline: auto;
+    overflow-wrap: break-word;     
 }
 .carre3 {
     border-style: solid;
     border-color: lightblue;
-    height:70%;
+    height:75%;
     width: 20%;
-    background-color:rgb(159, 211, 245);    
+    background-color:rgb(159, 211, 245);
+    overflow-inline: auto;
+    overflow-wrap: break-word;  
 }
 .titre1 {
     background: linear-gradient(to right,#b90db9, rgb(228, 117, 209));
@@ -135,48 +141,4 @@ nav {
 }
 .titre3 {
     background: linear-gradient(to right,lightblue, rgb(102, 182, 235));
-}
-
-/*.table1 {
-    background-color:lightgrey;
-    margin-right:auto;
-    margin-left:auto;
-}
-.co {
-    color: violet;
-}
-.parti {
-    color: gray;
-}
-
-.table3 {
-    margin-right:auto;
-    margin-left:auto;
-}
-.valo1 {
-    border: solid;
-    border-color: violet;
-    background-color: violet;
-}
-.confi1 {
-    border: solid;
-    border-color: green;
-    background-color: green;
-}
-.consul1 {
-    border: solid;
-    border-color: lightblue;
-    background-color: lightblue;
-}
-.valo2 {
-    border: solid;
-    border-color: violet;
-}
-.confi2 {
-    border: solid;
-    border-color: green;
-}
-.consul2 {
-    border: solid;
-    border-color: lightblue;
 }

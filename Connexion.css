@@ -63,3 +63,13 @@ nav {
 .dark-grey {
     color: rgb(129, 129, 129);
 }
+#body{
+    padding-left : 30%;
+    padding-top: 20%;
+}
+#answer{
+    color : red;
+}
+tr.inscription{
+    visibility: hidden;
+}

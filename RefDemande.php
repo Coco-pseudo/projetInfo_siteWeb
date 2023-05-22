@@ -14,8 +14,8 @@
     <body>
         <nav>
             <ul class="nav-links">
-                <li><a href="Jeune.php" class="color1">Profil</a></li>
-                <li><a href="References.php" class="color2">Références</a></li>
+                <li><a href="RefJeune.php" class="color1">Profil</a></li>
+                <li><a href="RefDemande.php" class="color2">Sa demande de Référence</a></li>
             </ul>
         </nav>
         <div class="references">
@@ -319,7 +319,7 @@
         </div>
         <script>
             function Accueil(){
-                document.location.href="Visiteur.html";
+                document.location.href="Referent.html";
             }
             function Demande(){
                 document.location.href="DemandeRef.php";
