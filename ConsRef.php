@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <title>Jeune 6.4</title>
         <link rel="icon" type="image/png" href="logo.png">
-        <link rel="stylesheet" type="text/css" href="References.css">
+        <link rel="stylesheet" type="text/css" href="ConsRef.css">
     </head>
     
     <header>
@@ -14,8 +14,8 @@
     <body>
         <nav>
             <ul class="nav-links">
-                <li><a href="Jeune.php" class="color1">Profil</a></li>
-                <li><a href="References.php" class="color2">Références</a></li>
+                <li><a href="ConsJeune.php" class="color1">Profil du Jeune</a></li>
+                <li><a href="ConsRef.php" class="color2">Liste des Références</a></li>
             </ul>
         </nav>
         <div class="references">
@@ -319,7 +319,7 @@
         </div>
         <script>
             function Accueil(){
-                document.location.href="Visiteur.html";
+                document.location.href="Consultant.html";
             }
             function Demande(){
                 document.location.href="DemandeRef.php";
