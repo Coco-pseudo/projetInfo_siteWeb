@@ -1,3 +1,11 @@
+<?php
+if($_COOKIE['verified'] == 1){
+    setcookie('verified','',1);
+}else{
+    setcookie('destination','Administrateur.php');
+    header('Location: ../Connexion.php');
+}
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -20,7 +28,7 @@
         </nav>
         <script>
             function Accueil(){
-                document.location.href="Visiteur.html";
+                document.location.href="Visiteur.php";
             }
         </script>
     </body>
