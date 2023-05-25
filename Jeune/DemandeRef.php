@@ -1,3 +1,12 @@
+<?php
+if($_COOKIE['verified'] == 1){
+    setcookie('verified','',1);
+}else{
+    setcookie('destination','/Jeune/Jeune.php',time()+3600);
+    header('Location: ../Connexion.php');
+}
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -98,7 +107,7 @@
                 //alert("Demande effectuée");
             }
             function Accueil(){
-                document.location.href="Jeune.html";
+                document.location.href="Jeune.php";
             }
         </script>
     </body>
