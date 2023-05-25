@@ -1,3 +1,7 @@
+<?php 
+setcookie('mail','',1);
+setcookie('mdp','',1);
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,7 +20,7 @@
         <nav>
             <ul class="nav-links">
                 <li><a href="Partenaires.html" class="color1">Partenaires</a></li>
-                <li><a href="Connexion.html" class="color2">Connexion</a></li>
+                <li><a href="PageConnexion.php" class="color2">Connexion</a></li>
             </ul>
         </nav>
         <div class="articles">

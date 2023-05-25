@@ -1,8 +1,16 @@
+<?php
+if($_COOKIE['verified'] == 1){
+    setcookie('verified','',1);
+}else{
+    setcookie('destination','Jeune/References.php',time()+3600);
+    header('Location: ../Connexion.php');
+}
+?>
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Jeune 6.4</title>
+        <title>Vos Références - Jeune 6.4</title>
         <link rel="icon" type="image/png" href="logo.png">
         <link rel="stylesheet" type="text/css" href="References.css">
     </head>
@@ -319,7 +327,7 @@
         </div>
         <script>
             function Accueil(){
-                document.location.href="Visiteur.html";
+                document.location.href="../Visiteur.php";
             }
             function Demande(){
                 document.location.href="DemandeRef.php";
