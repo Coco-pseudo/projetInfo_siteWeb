@@ -57,8 +57,9 @@ if($entree[2] == 0){ //on verifie l'utilisateur
                     if($type== "A"){ //profil admin
                         if($_COOKIE['destination'] != ''){
                             setcookie('destination','',1);
-                            header("Location: $sortieAdmin");
-                        }else{ // l'utilisateur a un cookie jeune mais pas de destination
+                            setcookie('verified','1',time()+3600);
+                            header("Location: $_COOKIE[destination]");
+                        }else{ // l'utilisateur a un cookie admin mais pas de destination
                             setcookie('mail','',1);
                             setcookie('mdp','',1);
                             header("Location: $connexion");
