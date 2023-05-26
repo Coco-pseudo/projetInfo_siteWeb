@@ -15,7 +15,7 @@
         <nav>
             <ul class="nav-links">
                 <li><a href="ConsJeune.php" class="color1">Profil du Jeune</a></li>
-                <li><a href="ConsRef.php" class="color2">Liste des Références</a></li>
+                <li><a href="ConsRef.php" class="color2">Liste de ses Références</a></li>
             </ul>
         </nav>
         <div class="info">
