@@ -2,7 +2,7 @@
 if($_COOKIE['verified'] == 1){
     setcookie('verified','',1);
 }else{
-    setcookie('destination','/Jeune/Jeune.php',time()+3600);
+    setcookie('destination','/Jeune/DemandeRef.php',time()+3600);
     header('Location: ../Connexion.php');
 }
 ?>
@@ -25,6 +25,7 @@ if($_COOKIE['verified'] == 1){
             <ul class="nav-links">
                 <li><a href="Profil.html" class="color1">Profil</a></li>
                 <li><a href="References.php" class="color2">Références</a></li>
+                <li><a href="Deco.php" class="color3">Déconnexion</a></li>
             </ul>
         </nav>
 
