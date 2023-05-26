@@ -52,7 +52,15 @@ if($_COOKIE['verified'] == 1){
             $nbref = count($ref['Reference']);
             
             for ($i = 1; $i <= $nbref; $i++) { // Boucle pour créer les tableaux
-                echo "<h2>Référence $i :</h2>";
+                if ($ref['Reference'][$i-1]['verif'] == 1){
+                    echo "<h2>";
+                    echo "<img src=checkmark.png height=14>Référence $i validé :";
+                    echo "</h2>";
+                }else{
+                    echo "<h2>";
+                    echo "<img src=uncheckmark.png height=14>Référence $i en attente de validation :";
+                    echo "</h2>";
+                }
                 echo "<table id=$i class=ref >";
                 
                 echo "<tr>";
@@ -98,6 +106,13 @@ if($_COOKIE['verified'] == 1){
                     echo "<td class=reponse>";
                     echo $ref['Reference'][$i-1]['EmailRef'];
                     echo "</td>";
+                echo "</tr>";
+
+                echo "<tr>";
+                echo "<td><button onclick=Envoie()>Envoie au Référent</button></td>";
+                echo "<td>";
+                echo "<button onclick=Envoie()>Archiver</button>";
+                echo "</td>";
                 echo "</tr>";
     
     
@@ -302,7 +317,7 @@ if($_COOKIE['verified'] == 1){
                     echo "</tr>";
                 }
 
-                if ($ref['Reference'][$i-1]['Capacité à sorganiser'] == 1){
+                if ($ref['Reference'][$i-1]['Capacite à sorganiser'] == 1){
                     echo "<tr>";
                         echo "<td class=reponse>";
                         echo "<img src=checkmark.png height=12>";

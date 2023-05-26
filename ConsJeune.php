@@ -58,7 +58,7 @@
         </div>
         <script>
             function Accueil(){
-                document.location.href="Consultant.html";
+                document.location.href="Consultant.php";
             }
         </script>
     </body>

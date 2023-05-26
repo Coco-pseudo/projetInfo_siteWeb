@@ -2,16 +2,18 @@
 <?php 
             //verification des cookies, si cookies, connecter directement
             if($_COOKIE['mail'] != ""){
-                setcookie("destination","Co",time()+3600);
-                header("Location: Connexion.php");
+                setcookie('mail','',1);
+                setcookie('mdp','',1);
+                // setcookie("destination","Co",time()+3600);
+                // header("Location: Connexion.php");
             }
         ?>
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Connexion jeune 6.4</title>
+        <title>Connexion - Jeune 6.4</title>
         <link rel="icon" type="image/png" href="logo.png">
-        <link rel="stylesheet" type="text/css" href="Connexion.css">
+        <link rel="stylesheet" type="text/css" href="PageConnexion.css">
     </head>
     
     <header>
@@ -21,13 +23,13 @@
     <body>
         <nav>
             <ul class="nav-links">
-                <li><a href="Partenaires.html" class="dark-grey">Partenaires</a></li>
-                <li><a href="#" class="pink">Connexion</a></li>
+                <li><a href="Partenaires.html" class="color1">Partenaires</a></li>
+                <li><a href="PageConnexion.php" class="color2">Connexion</a></li>
             </ul>
         </nav>
-        <div id="body">
+        <div class="body">
             <form method="post" action="localhost:8080/Connexion.php">
-                <table>
+                <table class="form">
                     <tr class="inscription">
                         <td>Nom :</td><td><input type="text" id="nom"></td>
                     </tr>
@@ -76,7 +78,7 @@
                 }
             }
             function Accueil(){
-                document.location.href="Visiteur.html";
+                document.location.href="Visiteur.php";
             }
             function Submit(){
                 var mdp = document.getElementById("mdp").value;

@@ -58,7 +58,7 @@
         </div>
         <script>
             function Accueil(){
-                document.location.href="Visiteur.html";
+                document.location.href="Visiteur.php";
             }
         </script>
     </body>        

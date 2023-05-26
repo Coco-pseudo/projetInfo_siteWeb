@@ -23,14 +23,14 @@ if($_COOKIE['verified'] == 1){
     <body>
         <nav>
             <ul class="nav-links">
-                <li><a href="Profil.html" class="color1">Profil</a></li>
+                <li><a href="Jeune.php" class="color1">Profil</a></li>
                 <li><a href="References.php" class="color2">Références</a></li>
                 <li><a href="Deco.php" class="color3">Déconnexion</a></li>
             </ul>
         </nav>
 
         
-            <form method="POST" action="http://localhost:8080/PageDemandeBis.php">
+        <form method="POST" action="http://localhost:8080/Jeune/PageDemandeBis.php">
                 <div class="formulaires">
                     <table  class="ref">
                         <tr>
@@ -59,46 +59,79 @@ if($_COOKIE['verified'] == 1){
                         </tr>
                     </table>
                 
-                    <table class="savoir">
+                    <table class="savoiretre">
                         <tr>
                             <td rowspan="11">"Savoir-être" démontrés pendant l'engagement</td>
-                            <td><input type="checkbox" name="SavoirEtre" value="Autonome" >Autonome </td>
                         </tr>
                         <tr>
-                            <td><input type="checkbox" name="SavoirEtre" value="AnalyseSynthese" >Capable d’analyse et de synthèse </td>
+                            <td><input type="checkbox" name="Autonome" value="Autonome" >Autonome </td>
                         </tr>
                         <tr>
-                            <td><input type="checkbox" name="SavoirEtre" value="A_lécoute" >A l’écoute </td>
+                            <td><input type="checkbox" name="A_lécoute" value="A_lécoute" >A l’écoute </td>
                         </tr>
                         <tr>
-                            <td><input type="checkbox" name="SavoirEtre" value="Organisé" >Organisé </td>
+                            <td><input type="checkbox" name="Organisé" value="Organisé" >Organisé </td>
                         </tr>
                         <tr>
-                            <td><input type="checkbox" name="SavoirEtre" value="Passionné" >Passionné </td>
+                            <td><input type="checkbox" name="Passionné" value="Passionné" >Passionné </td>
                         </tr>
                         <tr>
-                            <td><input type="checkbox" name="SavoirEtre" value="Fiable" >Fiable </td>
+                            <td><input type="checkbox" name="Fiable" value="Fiable" >Fiable </td>
                         </tr>
                         <tr>
-                            <td><input type="checkbox" name="SavoirEtre" value="Patient" >Patient </td>
+                            <td><input type="checkbox" name="Patient" value="Patient" >Patient </td>
                         </tr>
                         <tr>
-                            <td><input type="checkbox" name="SavoirEtre" value="Réfléchi" >Réfléchi </td>
+                            <td><input type="checkbox" name="Réfléchi" value="Réfléchi" >Réfléchi </td>
                         </tr>
                         <tr>
-                            <td><input type="checkbox" name="SavoirEtre" value="Responsable" >Responsable </td>
+                            <td><input type="checkbox" name="Responsable" value="Responsable" >Responsable </td>
                         </tr>
                         <tr>
-                            <td><input type="checkbox" name="SavoirEtre" value="Sociable" >Sociable </td>
+                            <td><input type="checkbox" name="Sociable" value="Sociable" >Sociable </td>
                         </tr>
                         <tr>
-                            <td><input type="checkbox" name="SavoirEtre" value="Optimiste" >Optimiste </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2"><button type="submit" onclick="Confirmation()">Valider</button>
-                            <button type="reset" >Réinitialiser</button></td>
+                            <td><input type="checkbox" name="Optimiste" value="Optimiste" >Optimiste </td>
                         </tr>
                     </table>
+                    <table class="savoirfaire">
+                        <tr>
+                            <td rowspan="11">"Savoir-faire" démontrés pendant l'engagement</td></tr>
+                        <tr>
+                            <td><input type="checkbox" name="GestionProjet" value="GestionProjet" >Gérer un projet </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name="AutreLangue" value="AutreLangue" >Parler une autre langue </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name="GererEquipe" value="GererEquipe" >Diriger une équipe </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name="Informatique" value="Informatique" >Maitrise de l'informatique </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name="Dessin" value="Dessin" >Savoir Dessiner </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name="Traduction" value="Traduction" >Savoir Traduire </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name="OrgaConf" value="OrgaConf" >Organiser une conférence </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name="ConcevoirFormation" value="ConcevoirFormation" >Concevoir une Formation </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name="TrierDonnées" value="TrierDonnées" >Trier des données </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name="CapaciteOrganisation" value="CapaciteOrganisation" >Capacité à s'organiser </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="bouton">
+                    <button type="submit" onclick="Confirmation()" class="bc">Valider</button>
+                    <button type="reset" class="br" >Réinitialiser</button>
                 </div>
             </form>
         
@@ -108,7 +141,7 @@ if($_COOKIE['verified'] == 1){
                 //alert("Demande effectuée");
             }
             function Accueil(){
-                document.location.href="Jeune.php";
+                document.location.href="../Visiteur.php";
             }
         </script>
     </body>

@@ -14,7 +14,7 @@
     <body>
         <nav>
             <ul class="nav-links">
-                <li><a href="Profil.html" class="color1">Profil</a></li>
+                <li><a href="Jeune.php" class="color1">Profil</a></li>
                 <li><a href="References.php" class="color2">Références</a></li>
             </ul>
         </nav>
@@ -32,7 +32,7 @@
         </div>
         <script>
             function Accueil(){
-                document.location.href="Jeune.html";
+                document.location.href="Visiteur.php";
             }
             function generatePDF(){
                 // Utiliser une bibliothèque JavaScript pour convertir le HTML en PDF

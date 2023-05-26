@@ -319,7 +319,7 @@
         </div>
         <script>
             function Accueil(){
-                document.location.href="Referent.html";
+                document.location.href="Referent.php";
             }
             function Demande(){
                 document.location.href="DemandeRef.php";
