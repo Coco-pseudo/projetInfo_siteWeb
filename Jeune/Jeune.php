@@ -3,7 +3,7 @@ if($_COOKIE['verified'] == 1){
     setcookie('verified','',1);
 }else{
     setcookie('destination','/Jeune/Jeune.php',time()+3600);
-    header('Location: Connexion.php');
+    header('Location: ../Connexion.php');
 }
 ?>
 <!DOCTYPE html>
@@ -24,6 +24,7 @@ if($_COOKIE['verified'] == 1){
             <ul class="nav-links">
                 <li><a href="Jeune.php" class="color1">Profil</a></li>
                 <li><a href="References.php" class="color2">Références</a></li>
+                <li><a href="Deco.php" class="color3">Déconnexion</a></li>
             </ul>
         </nav>
         <div class="info">
@@ -69,7 +70,7 @@ if($_COOKIE['verified'] == 1){
         </div>
         <script>
             function Accueil(){
-                document.location.href="Visiteur.php";
+                document.location.href="../Visiteur.php";
             }
             function Demande(){
                 document.location.href="ModifProfil.php";

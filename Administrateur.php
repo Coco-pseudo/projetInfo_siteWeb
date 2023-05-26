@@ -24,6 +24,7 @@ if($_COOKIE['verified'] == 1){
             <ul class="nav-links">
                 <li><a href="#" class="color1">Profils</a></li>
                 <li><a href="#" class="color2">Log</a></li>
+                <li><a href="Jeune/Deco.php" class="color3">Déconnexion</a></li>
             </ul>
         </nav>
         <script>
