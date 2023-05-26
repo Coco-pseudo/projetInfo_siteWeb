@@ -338,6 +338,9 @@ if($_COOKIE['verified'] == 1){
                 <div>
                     <button onclick="CV()" class="bcv">CV</button>
                 </div>
+                <div>
+                    <button onclick="Envoie()" class="bec">Envoie au Consultant</button>
+                </div>
             </div>
 
         </div>
@@ -350,6 +353,9 @@ if($_COOKIE['verified'] == 1){
             }
             function CV(){
                 document.location.href="CV.php";
+            }
+            function Envoie(){
+
             }
         </script>
     </body>
