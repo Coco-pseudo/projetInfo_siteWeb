@@ -154,22 +154,23 @@ nav {
     background: linear-gradient(to right,#b90db9, rgb(240, 149, 225));
     border-style: solid;
     border-color: violet;
+    top: 25px;
     width: 180px;
     height: 50px;
-    margin-bottom: 25px;
 }
 .bec {
     background: linear-gradient(to right,#b90db9, rgb(240, 149, 225));
     border-style: solid;
     border-color: violet;
+    top: 25px;
     width: 180px;
     height: 50px;
-    margin-bottom: 25px;
 }
 .ba {
     background: linear-gradient(to right,#b90db9, rgb(240, 149, 225));
     border-style: solid;
     border-color: violet;
+    top: 25px;
     width: 180px;
     height: 50px;
 }

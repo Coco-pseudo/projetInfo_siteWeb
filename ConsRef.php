@@ -22,7 +22,7 @@
 
             <div class="commentaire">
             <?php
-            $DATA="Data2.json";
+            $DATA="Jeune/Data2.json";
             $ref = json_decode(file_get_contents($DATA),true);
             $nbref = count($ref['Reference']);
 
@@ -293,7 +293,7 @@
                     echo "</tr>";
                 }
 
-                if ($ref['Reference'][$i-1]['Capacité à sorganiser'] == 1){
+                if ($ref['Reference'][$i-1]['Capacite à sorganiser'] == 1){
                     echo "<tr>";
                         echo "<td class=reponse>";
                         echo "<img src=checkmark.png height=12>";

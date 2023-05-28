@@ -30,7 +30,7 @@ if($_COOKIE['verified'] == 1){
         <div class="info">
             <div class=profil>
             <?php
-            $DATA="$_COOKIE[mail].json";
+            $DATA="Data3.json";
             $ref = json_decode(file_get_contents($DATA),true);
             echo "<h2> Votre Profil </h2>";
             echo "<div class=prfl>";
@@ -39,7 +39,7 @@ if($_COOKIE['verified'] == 1){
                     echo $ref['Profil'][0]['Nom'];
                 echo "</div>";
                 echo "<div>";
-                    echo "Prénom 1878 insertio: ";
+                    echo "Prénom : ";
                     echo $ref['Profil'][0]['Prenom'];
                 echo "</div>";
                 echo "<div>";

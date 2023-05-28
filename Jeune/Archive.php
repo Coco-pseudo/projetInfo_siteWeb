@@ -10,9 +10,9 @@ if($_COOKIE['verified'] == 1){
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Vos Références - Jeune 6.4</title>
+        <title>Vos Archive - Jeune 6.4</title>
         <link rel="icon" type="image/png" href="logo.png">
-        <link rel="stylesheet" type="text/css" href="References.css">
+        <link rel="stylesheet" type="text/css" href="Archive.css">
     </head>
     
     <header>
@@ -36,7 +36,7 @@ if($_COOKIE['verified'] == 1){
             $nbref = count($ref['Reference']);
 
             for ($i = 1; $i <= $nbref; $i++) {
-                if ($ref['Reference'][$i-1]['archiver'] == 0){
+                if ($ref['Reference'][$i-1]['archiver'] == 1){
                     echo "<h2>Commentaire $i :</h2>";
                     echo "<div class=com>";
                     if ($ref['Reference'][$i-1]['Commentaire'] != ""){
@@ -54,7 +54,7 @@ if($_COOKIE['verified'] == 1){
             $nbref = count($ref['Reference']);
             
             for ($i = 1; $i <= $nbref; $i++) { // Boucle pour créer les tableaux
-                if ($ref['Reference'][$i-1]['archiver'] == 0){
+                if ($ref['Reference'][$i-1]['archiver'] == 1){
 
                     if ($ref['Reference'][$i-1]['verif'] == 1){
                         echo "<h2>";
@@ -114,9 +114,10 @@ if($_COOKIE['verified'] == 1){
                     echo "</tr>";
 
                     echo "<tr>";
-                    echo "<td colspan=2><button onclick=EnvoieR() class=bt>Modifier la Référence</button><button onclick=EnvoieR() class=bt>Envoie au Référent</button><button onclick=Archiver() class=bt>Archiver</button></td>";
+                        echo "<td>";
+                        echo "<button onclick=Desarchiver() class=bt>Désarchiver</button>";
+                        echo "</td>";
                     echo "</tr>";
-        
         
                     echo "</table>";
                 }
@@ -130,7 +131,7 @@ if($_COOKIE['verified'] == 1){
             $nbref = count($ref['Reference']);
             
             for ($i = 1; $i <= $nbref; $i++) { // Boucle pour créer les tableaux de savoir-être
-                if ($ref['Reference'][$i-1]['archiver'] == 0){
+                if ($ref['Reference'][$i-1]['archiver'] == 1){
                     echo "<h2>Savoirs-être $i :</h2>";
                     echo "<table id=$i class=sve >";
                     
@@ -237,7 +238,7 @@ if($_COOKIE['verified'] == 1){
             $nbref = count($ref['Reference']);
             
             for ($i = 1; $i <= $nbref; $i++) { // Boucle pour créer les tableaux de savoir-faire
-                if ($ref['Reference'][$i-1]['archiver'] == 0){
+                if ($ref['Reference'][$i-1]['archiver'] == 1){
                     echo "<h2>Savoirs-faire $i :</h2>";
                     echo "<table id=$i class=svf >";
                     
@@ -340,16 +341,7 @@ if($_COOKIE['verified'] == 1){
 
             <div class="bouton">
                 <div>
-                    <button onclick="Demande()" class="bd">Nouvelle référence</button>
-                </div>
-                <div>
-                    <button onclick="CV()" class="bcv">CV</button>
-                </div>
-                <div>
-                    <button onclick="EnvoieC()" class="bec">Envoie au Consultant</button>
-                </div>
-                <div>
-                    <button onclick="Archive()" class="ba">Archive</button>
+                    <button onclick="Retour()" class="bd">Retour au références</button>
                 </div>
             </div>
 
@@ -358,22 +350,10 @@ if($_COOKIE['verified'] == 1){
             function Accueil(){
                 document.location.href="../Visiteur.php";
             }
-            function Demande(){
-                document.location.href="DemandeRef.php";
+            function Retour(){
+                document.location.href="References.php";
             }
-            function CV(){
-                document.location.href="CV.php";
-            }
-            function EnvoieR(){
-
-            }
-            function EnvoieC(){
-
-            }
-            function Archive(){
-                document.location.href="Archive.php";
-            }
-            function Archiver(){
+            function Desarchiver(){
                 document.location.href="$";
             }
         </script>
