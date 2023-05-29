@@ -25,6 +25,9 @@ echo ("valeur du cookie mdp: ".$_COOKIE['mdp']."<br>");
 $connexion = "PageConnexion.php";
 $fentree = fopen("ID.txt","r+");
 $res = "";
+if($_COOKIE['mail'] == '' && $_POST['mail'] == ''){
+    header("Location: $connexion");
+}
 $mail; //va contenir le mail actif
 $mdp; //va contenir le mdp du mail actif
 $type; //va contenir le type d'url a renvoyer (admin ou jeune) du mail actif
@@ -104,9 +107,7 @@ if($entree[2] == 0){ //on verifie l'utilisateur
     }
     if($test == 0){
         $res = 0; //aucune correspondance de mail lors de la boucle de parcours
-        if($_COOKIE['mail'] == '' && $_POST['mail'] == ''){
-            header("Location: $connexion");
-        }
+        
     }
 }else{
     if($entree[2] == 1){ //on inscrit l'utilisateur
