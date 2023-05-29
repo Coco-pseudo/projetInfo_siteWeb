@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <?php 
-            //verification des cookies, si cookies, connecter directement
-            if($_COOKIE['mail'] != ""){
-                setcookie('mail','',1);
-                setcookie('mdp','',1);
-                // setcookie("destination","Co",time()+3600);
-                // header("Location: Connexion.php");
-            }
-        ?>
+    //verification des cookies, si cookies, connecter directement
+    if($_COOKIE['mail'] != ""){
+        //setcookie('mail','',1);
+        //setcookie('mdp','',1);
+        setcookie("destination","Co",time()+3600);
+        header("Location: Connexion.php");
+    }
+?>
 <html>
     <head>
         <meta charset="utf-8">

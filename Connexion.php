@@ -56,9 +56,16 @@ if($entree[2] == 0){ //on verifie l'utilisateur
                 }else{ //cookies de connexion
                     if($type== "A"){ //profil admin
                         if($_COOKIE['destination'] != ''){
-                            setcookie('destination','',1);
-                            setcookie('verified','2',time()+3600); //verified = 2 ==> admin
-                            header("Location: $_COOKIE[destination]");
+                            if($_COOKIE['destination'] == 'Co'){
+                                setcookie('destination','',1);
+                                setcookie('verified','2',time()+3600);
+                                header("Location: $sortieAdmin");
+                            }else{
+                                setcookie('destination','',1);
+                                setcookie('verified','2',time()+3600); //verified = 2 ==> admin
+                                header("Location: $_COOKIE[destination]");
+                            }
+                            
                         }else{ // l'utilisateur a un cookie admin mais pas de destination
                             setcookie('mail','',1);
                             setcookie('mdp','',1);
@@ -66,9 +73,16 @@ if($entree[2] == 0){ //on verifie l'utilisateur
                         }
                     }else{ //profil jeune
                         if($_COOKIE['destination'] != ''){
-                            setcookie('destination','',1);
-                            setcookie('verified','1',time()+3600); //verified = 1 ==> jeune
-                            header("Location: $_COOKIE[destination]");
+                            if($_COOKIE['destination'] == 'Co'){
+                                setcookie('destination','',1);
+                                setcookie('verified','1',time()+3600);
+                                header("Location: $sortieJeune");
+                            }else{
+                                setcookie('destination','',1);
+                                setcookie('verified','1',time()+3600); //verified = 1 ==> jeune
+                                header("Location: $_COOKIE[destination]");
+                            }
+                            
                         }else{ // l'utilisateur a les cookies mais pas de destination
                             setcookie('mail','',1);
                             setcookie('mdp','',1);
