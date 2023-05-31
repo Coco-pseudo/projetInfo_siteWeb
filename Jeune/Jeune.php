@@ -30,7 +30,8 @@ if($_COOKIE['verified'] == 1){
         <div class="info">
             <div class=profil>
             <?php
-            $DATA="Data3.json";
+            $mail="270jluismetmongrosdoigtdpied@yahoo.fr";
+            $DATA="Profil/$mail/Profil.json";
             $ref = json_decode(file_get_contents($DATA),true);
             echo "<h2> Votre Profil </h2>";
             echo "<div class=prfl>";
@@ -58,7 +59,7 @@ if($_COOKIE['verified'] == 1){
             </div>
             <div class=nombreref>
             <?php
-            $DATA="Data2.json";
+            $DATA="Profil/270jluismetmongrosdoigtdpied@yahoo.fr/Reference.json";
             $ref = json_decode(file_get_contents($DATA),true);
             $nbref = count($ref['Reference']);
             echo "<h2> Vos Références </h2>";

@@ -90,12 +90,6 @@ nav {
     border-color: rgb(25, 173, 218);
 } */
 
-tr, td {
-    border-style: solid;
-    border-color: violet;
-    padding: 8px;
-}
-
 
 
 
@@ -143,10 +137,6 @@ tr, td {
     margin-bottom: 30px;
 }
 
-
-.bouton {
-    margin-top :5%;
-}
 .bd {
     background: linear-gradient(to right,#b90db9, rgb(240, 149, 225));
     border-style: solid;

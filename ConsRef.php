@@ -306,16 +306,6 @@
             }
             ?>
             </div>
-
-            <div class="bouton">
-                <div>
-                    <button onclick="Demande()" class="bd">Nouvelle référence</button>
-                </div>
-                <div>
-                    <button onclick="CV()" class="bcv">CV</button>
-                </div>
-            </div>
-
         </div>
         <script>
             function Accueil(){
