@@ -40,10 +40,10 @@
                         <td>Date de naissance</td><td><input type="date" id="birthday"></td>
                     </tr>-->
                     <tr>
-                        <td>Mail :</td><td><input type="email" id="mail" required></td>
+                        <td>Mail :</td><td><input type="email" name="mail" id="mail" required></td>
                     </tr>
                     <tr>
-                        <td>Mot de passe :</td><td><input type="password" id="mdp" required></td>
+                        <td>Mot de passe :</td><td><input type="password" name="mdp" id="mdp" required></td>
                     </tr>
                     <!--<tr class="inscription">
                         <td>Vérification du mot de passe</td><td><input type="password" id="mdp2"></td>
@@ -56,8 +56,8 @@
                         <td><label for="non">non</label><input type="radio" name="indice" value="non" checked onclick="invisible()"></td>
                     </tr>
                     <tr>
-                        <td><button type="submit" onclick="Submit()">Connexion</button></td>
-                        <td><button type="reset"> réinitialiser</button></td>
+                        <td><button type="submit">Connexion</button></td>
+                        <td><button type="reset" onclick="invisible()"> réinitialiser</button></td>
                     </tr>
                 </table>
             </form>
@@ -79,7 +79,7 @@
                 L1.appendChild(C1);
                 L1.appendChild(D1);
                 C1.textContent = "Nom";
-                let F1 = document.createElement("input", type="text", id="nom");
+                let F1 = document.createElement("input", type="text", name="nom", id="nom");
                 D1.appendChild(F1);
                 let L2 = document.createElement("tr");
                 L2.classList.add("inscription");
@@ -88,7 +88,7 @@
                 L2.appendChild(C2);
                 L2.appendChild(D2);
                 C2.textContent = "Prénom";
-                let F2 = document.createElement("input", type="text", id="prenom");
+                let F2 = document.createElement("input", type="text", name="prenom", id="prenom");
                 D2.appendChild(F2);
                 let L3 = document.createElement("tr");
                 L3.classList.add("inscription");
@@ -97,7 +97,7 @@
                 L3.appendChild(C3);
                 L3.appendChild(D3);
                 C3.textContent = "Date de naissance";
-                let F3 = document.createElement("input", type="date", id="birthday");
+                let F3 = document.createElement("input", type="date", name="date", id="birthday");
                 D3.appendChild(F3);
                 let L4 = document.createElement("tr");
                 L4.classList.add("inscription");
@@ -106,8 +106,13 @@
                 L4.appendChild(C4);
                 L4.appendChild(D4);
                 C4.textContent = "Vérification de mot de passe";
-                let F4 = document.createElement("input", type="password", id="mdp2");
+                let F4 = document.createElement("input", type="password", name="mdp2" , id="mdp2");
                 D4.appendChild(F4);
+                tableau.appendChild(L4);
+                let MailNode = document.getElementByID("mail");
+                L3 = tableau.insertBefore(L3,MailNode);
+                L2 = tableau.insertBefore(L2,L3);
+                tableau.insertBefore(L1,L2);
                 //let tab = document.getElementsByClassName("inscription");*/
                 /*for(i=0; i<tab.length; i++){
                     tab[i].style.visibility = "visible";
@@ -128,7 +133,7 @@
             }
             function Accueil(){
                 document.location.href="Visiteur.php";
-            }
+            }/*
             function Submit(){
                 var mdp = document.getElementById("mdp").value;
                 var mail = document.getElementById("mail").value;
@@ -214,7 +219,7 @@
                 ajax.open("POST", "Connexion.php", true);
                 //ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 ajax.send(liste);
-            }
+            }*/
         </script>
     </body>
 </html>
