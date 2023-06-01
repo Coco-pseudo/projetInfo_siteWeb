@@ -2,9 +2,16 @@
 if($_COOKIE['verified'] == 1){
     setcookie('verified');
     unset($_COOKIE["verified"]);
+    setcookie('destination');
+    unset($_COOKIE['destination']);
+    //var_dump($_COOKIE);exit();
 }else{
+    setcookie('destination');
     setcookie('destination','/Jeune/Jeune.php',time()+3600);
-    header('Location: ../Connexion.php');
+    //setcookie("blabla",test,time()+3600);
+    header('Location: ../Connexion.php');exit();
+    //var_dump($_COOKIE);
+    exit();
 }
 ?>
 <!DOCTYPE html>
@@ -16,11 +23,12 @@ if($_COOKIE['verified'] == 1){
         <link rel="stylesheet" type="text/css" href="Jeune.css">
     </head>
     
-    <header>
-        <h1>Pour faire de l'engagement une valeur</h1>
-        <image src="logo.png" height="150" onclick="Accueil()"></image>
-    </header>
+
     <body>
+        <header>
+            <h1>Pour faire de l'engagement une valeur</h1>
+            <image src="logo.png" height="150" onclick="Accueil()"></image>
+        </header>
         <nav>
             <ul class="nav-links">
                 <li><a href="Jeune.php" class="color1">Profil</a></li>

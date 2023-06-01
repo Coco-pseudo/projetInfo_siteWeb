@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <?php 
+//var_dump($_COOKIE);exit();
     //verification des cookies, si cookies, connecter directement
     if($_COOKIE['mail'] != ""){
         //setcookie('mail','',1);
         //setcookie('mdp','',1);
+        var_dump($_COOKIE);exit();
         setcookie("destination","Co",time()+3600);
-        header("Location: Connexion.php");
+        header("Location: Connexion.php");exit();
     }
 ?>
 <html>
@@ -16,11 +18,12 @@
         <link rel="stylesheet" type="text/css" href="PageConnexion.css">
     </head>
     
-    <header>
-        <h1>Pour faire de l'engagement une valeur</h1>
-        <image src="logo.png" height="150" onclick="Accueil()"></image>
-    </header>
+    
     <body>
+        <header>
+            <h1>Pour faire de l'engagement une valeur</h1>
+            <image src="logo.png" height="150" onclick="Accueil()"></image>
+        </header>
         <nav>
             <ul class="nav-links">
                 <li><a href="Partenaires.html" class="color1">Partenaires</a></li>
@@ -52,8 +55,8 @@
                         <td colspan="2" id="FullRow">inscription?</td>
                     </tr>
                     <tr>
-                        <td><label for="oui">oui</label><input type="radio" name="indice" value="oui" onclick="visible()"></td>
-                        <td><label for="non">non</label><input type="radio" name="indice" value="non" checked onclick="invisible()"></td>
+                        <td><label for="oui">oui</label><input type="radio" name="indice" value="1" onclick="visible()"></td>
+                        <td><label for="non">non</label><input type="radio" name="indice" value="0" checked onclick="invisible()"></td>
                     </tr>
                     <tr>
                         <td><button type="submit">Connexion</button></td>

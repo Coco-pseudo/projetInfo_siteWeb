@@ -1,6 +1,7 @@
 <?php
 if($_COOKIE['verified'] == 1){
     setcookie('verified','',1);
+    unset($_COOKIE["verified"]);
 }else{
     setcookie('destination','Jeune/ModifProfil.php',time()+3600);
     header('Location: ../Connexion.php');
