@@ -3,7 +3,7 @@ if($_COOKIE['verified'] == 2){
     setcookie('verified','',1);
 }else{
     setcookie('destination','Admin/Administrateur.php');
-    header('Location: ../Connexion.php');
+    header('Location: ../Connexion.php');exit();
 }
 ?>
 <!DOCTYPE html>
@@ -24,7 +24,7 @@ if($_COOKIE['verified'] == 2){
             <ul class="nav-links">
                 <li><a href="Liste.php" class="color1">Profils</a></li>
                 <li><a href="#" class="color2">Log</a></li>
-                <li><a href="../Jeune/Deco.php" class="color3">Déconnexion</a></li>
+                <li><a href="../Deco.php" class="color3">Déconnexion</a></li>
             </ul>
         </nav>
         <script>
