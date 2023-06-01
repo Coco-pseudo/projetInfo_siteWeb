@@ -111,7 +111,12 @@ if($_COOKIE['verified'] == 1){
                         echo "</tr>";
 
                         echo "<tr>";
-                        echo "<td colspan=2><input type=checkbox name=nbref value=$i ></td>";
+                        echo "<td colspan=2>";
+                        echo "<label class=container>Envoie cette référence";
+                        echo "<input type=checkbox name=nbref value=$i >";
+                        echo "<span class=checkmark></span>";
+                        echo "</label>";
+                        echo "</td>";
                         echo "</tr>";
             
             

@@ -186,19 +186,19 @@ function Tab($nomFichier,$Description,$Durée,$milieu,$nomRef,$prenomRef,$EmailR
         "Patient"=>$SavoirEtre[5],"Reflechi"=>$SavoirEtre[6],"Responsable"=>$SavoirEtre[7],"Sociable"=>$SavoirEtre[8],"Optimiste"=>$SavoirEtre[9],
         "Commentaire"=>"","Gerer un projet"=>$SavoirFaire[0],"Parler une autre langue"=>$SavoirFaire[1],"Diriger une equipe"=>$SavoirFaire[2],
         "Maitriser de linformatique"=>$SavoirFaire[3],"Savoir dessiner"=>$SavoirFaire[4],"Savoir traduire"=>$SavoirFaire[5],"Organiser une conference"=>$SavoirFaire[6],
-        "Concevoir une formation"=>$SavoirFaire[7],"Trier des donnees"=>$SavoirFaire[8],"Capacite à sorganiser"=>$SavoirFaire[9])
+        "Concevoir une formation"=>$SavoirFaire[7],"Trier des donnees"=>$SavoirFaire[8],"Capacite a sorganiser"=>$SavoirFaire[9], "verif"=>0,"archiver"=>0)
     );
-    //echo (json_encode($Ref, JSON_PRETTY_PRINT));
+    
     if (empty($old)){
-        $new="{ \"Reference\": ". json_encode($Ref, JSON_PRETTY_PRINT). " } ";
+        $new=" { \"Reference\": ". json_encode($Ref, JSON_PRETTY_PRINT). " } ";
         file_put_contents($nomFichier,$new);
     }else{
         $chaine = convert($old);
         $str=" { \"Reference\": ".$chaine.",". json_encode($Ref, JSON_PRETTY_PRINT). " }";
         $new="";
         $i=0;
-        $tmp=str_replace("[","",$str);
-        $new=str_replace("]","",$tmp);
+        $tmp=str_replace("[","  ",$str);
+        $new=str_replace("]"," ",$tmp);
         $new[15]="[ ";
         $new[strlen($new)-2]="] ";
     
@@ -217,9 +217,9 @@ function convert($str){
     if (!empty($str)){
         $i=0;
         for ($i=0;$i<strlen($str);$i++){
-            if ($i>15 && $i<strlen($str)-4){
+            if ($i>15 && $i<strlen($str)-5){
                 $chaine=$chaine.$str[$i];
-
+                
             }
         }
     }
@@ -230,7 +230,7 @@ function convert($str){
 
 
 if($test==1){
-Tab("Data2.0.json",$Description,$Durée,$milieu,$nomRef,$prenomRef,$EmailRef,$SavoirEtre,$SavoirFaire);
+    Tab("Data2.json",$Description,$Durée,$milieu,$nomRef,$prenomRef,$EmailRef,$SavoirEtre,$SavoirFaire);
 }
 
 header("Location: References.php");

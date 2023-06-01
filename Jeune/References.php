@@ -115,7 +115,7 @@ if($_COOKIE['verified'] == 1){
                     echo "</tr>";
 
                     echo "<tr>";
-                    echo "<td colspan=2><button onclick=EnvoieR() class=bt>Modifier la Référence</button><button onclick=EnvoieR() class=bt>Envoie au Référent</button><button onclick=Archiver() class=bt>Archiver</button></td>";
+                    echo "<td colspan=2><button onclick=EnvoieR() class=bt>Modifier la Référence</button><button onclick=EnvoieR() class=bt>Envoie au Référent</button><button onclick=Archiver($i) class=bt>Archiver</button></td>";
                     echo "</tr>";
         
         
@@ -374,8 +374,15 @@ if($_COOKIE['verified'] == 1){
             function Archive(){
                 document.location.href="Archive.php";
             }
-            function Archiver(){
-                document.location.href="$";
+            function Archiver(a){
+                alert("Archivage de la Réference n°"+a);
+                
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", "AlgoModifRef.php", true);
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xhr.send("a=" + escape(a) +"& b=1");
+                document.location.href="References.php";
+            
             }
         </script>
     </body>

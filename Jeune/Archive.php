@@ -115,7 +115,7 @@ if($_COOKIE['verified'] == 1){
 
                     echo "<tr>";
                         echo "<td>";
-                        echo "<button onclick=Desarchiver() class=bt>Désarchiver</button>";
+                        echo "<button onclick=Desarchiver($i) class=bt>Désarchiver</button>";
                         echo "</td>";
                     echo "</tr>";
         
@@ -353,8 +353,14 @@ if($_COOKIE['verified'] == 1){
             function Retour(){
                 document.location.href="References.php";
             }
-            function Desarchiver(){
-                document.location.href="$";
+            function Desarchiver(a){
+                alert("Désarchivage de la Réference n°"+a);
+                
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", "AlgoModifRef.php", true);
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xhr.send("a=" + escape(a) +"& b=2");
+                document.location.href="Archive.php";
             }
         </script>
     </body>
