@@ -1,6 +1,9 @@
 <?php
-phpinfo();
+//phpinfo();
 $q = $_REQUEST["q"];
+$tab = explode(" ",$q);
 $q = strtolower($q);
-echo("hello $q");
+
+var_dump($tab);
+echo("<br>hello $q");
 ?>

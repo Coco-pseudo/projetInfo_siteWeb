@@ -57,33 +57,12 @@ nav {
     font-weight: bold;
     text-transform: uppercase;
 }
-.color2 {
+.color1 {
     color: violet;
 }
-.color1 {
+.color2 {
     color: rgb(129, 129, 129);
 }
-.body{
-    display:flex;
-    flex-direction: row;
-    justify-content: space-around;  
-    top: 490px;
-    height: auto;
-    width:auto;
-    margin: 250px auto 50px;
-    padding: 0 20px;
-    margin-right: 25%;
-    margin-left: 35%;
+.color3 {
+    color: red;
 }
-
-.form{
-    border-style: solid;
-    border-color: violet;
-    background: linear-gradient(to right,#e769e7, rgb(255, 255, 255));
-}
-#answer{
-    color : red;
-}
-/*tr.inscription{
-    visibility: hidden;
-}*/

@@ -1,20 +1,18 @@
 <?php
-if($_COOKIE['verified'] == 1){
+if($_COOKIE['verified'] == 2){
     setcookie('verified','',1);
-    unset($_COOKIE["verified"]);
 }else{
-    setcookie('destination','Jeune/ModifProfil.php',time()+3600);
+    setcookie('destination','Admin/Administrateur.php');
     header('Location: ../Connexion.php');
 }
 ?>
-
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
         <title>Jeune 6.4</title>
         <link rel="icon" type="image/png" href="logo.png">
-        <link rel="stylesheet" type="text/css" href="ModifProfil.css">
+        <link rel="stylesheet" type="text/css" href="Administrateur.css">
     </head>
     
     <header>
@@ -24,9 +22,9 @@ if($_COOKIE['verified'] == 1){
     <body>
         <nav>
             <ul class="nav-links">
-                <li><a href="Jeune.php" class="color1">Profil</a></li>
-                <li><a href="References.php" class="color2">Références</a></li>
-                <li><a href="Deco.php" class="color3">Déconnexion</a></li>
+                <li><a href="Liste.php" class="color1">Profils</a></li>
+                <li><a href="#" class="color2">Log</a></li>
+                <li><a href="../Jeune/Deco.php" class="color3">Déconnexion</a></li>
             </ul>
         </nav>
         <script>
