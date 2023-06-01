@@ -102,7 +102,6 @@ nav {
     table-layout: fixed;
     width: 900px;
     height: 272px;
-    /* height: 25%; */
     overflow-wrap: break-word; 
     margin-bottom: 30px;
 }
@@ -143,7 +142,7 @@ nav {
 .bouton {
     margin-top :5%;
 }
-.bd {
+.br {
     background: linear-gradient(to right,#b90db9, rgb(240, 149, 225));
     border-style: solid;
     border-color: violet;
@@ -183,13 +182,3 @@ nav {
     margin-right:14px;
     margin-left:14px;
 }
-/* td{
-    border : 1px  solid black;
-    align-items: center;
-}
-
-div.checkbox {
-    color:red;
-    background-color: blue;
-} */
-

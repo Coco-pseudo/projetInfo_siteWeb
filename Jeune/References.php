@@ -32,7 +32,7 @@ if($_COOKIE['verified'] == 1){
 
             <div class="commentaire">
             <?php
-            $DATA="Data2.json";
+            $DATA="Profil/270jluismetmongrosdoigtdpied@yahoo.fr/Reference.json";
             $ref = json_decode(file_get_contents($DATA),true);
             $nbref = count($ref['Reference']);
 
@@ -40,9 +40,9 @@ if($_COOKIE['verified'] == 1){
                 if ($ref['Reference'][$i-1]['archiver'] == 0){
                     echo "<h2>Commentaire $i :</h2>";
                     echo "<div class=com>";
-                    if ($ref['Reference'][$i-1]['Commentaire'] != ""){
-                        echo $ref['Reference'][$i-1]['Commentaire'];
-                    }
+                        if ($ref['Reference'][$i-1]['Commentaire'] != ""){
+                            echo $ref['Reference'][$i-1]['Commentaire'];
+                        }
                     echo "</div>";
                 }
             }
@@ -369,7 +369,7 @@ if($_COOKIE['verified'] == 1){
 
             }
             function EnvoieC(){
-
+                document.location.href="EnvoieConsul.php";
             }
             function Archive(){
                 document.location.href="Archive.php";
