@@ -71,12 +71,12 @@ if($entree[2] == 0){ //on verifie l'utilisateur
                     setcookie("mdp",$mdp,time()+3600);//valable une heure
                     if($type== "A"){
                         //echo("sortie admin");
-                        setcookie('verified',2,time()+3600);
+                        setcookie('verified',2,time()+3600);//valable une heure
                         header("Location: $sortieAdmin");exit();
                         //$res = $sortieAdmin;
                     }else{
                         //echo("sortie Jeune");
-                        setcookie('verified',1,time()+3600);
+                        setcookie('verified',1,time()+3600);//valable une heure
                         header("Location: $sortieJeune");exit();
                         //$res = $sortieJeune;
                     }
@@ -87,12 +87,12 @@ if($entree[2] == 0){ //on verifie l'utilisateur
                             if($_COOKIE['destination'] == 'Co'){
                                 setcookie('destination');
                                 unset($_COOKIE['destination']);
-                                setcookie('verified',2,time()+3600);
+                                setcookie('verified',2,time()+3600);//valable une heure
                                 //echo("sortie admin <br>");
                                 header("Location: $sortieAdmin");exit();
                             }else{
                                 
-                                setcookie('verified',2,time()+3600); //verified = 2 ==> admin
+                                setcookie('verified',2,time()+3600); //verified = 2 ==> admin //valable une heure
                                 //echo("sortie destination<br>");
                                 header("Location: $_COOKIE[destination]");
                                 setcookie('destination');
@@ -106,7 +106,7 @@ if($entree[2] == 0){ //on verifie l'utilisateur
                             unset($_COOKIE['mail']);
                             unset($_COOKIE['mdp']);
                             //echo("pas de destination sortie connexion <br>");
-                            setcookie("erreur de redirection, temps alloué expiré"); //peu probable que ça arrive :)
+                            setcookie("erreur de redirection, temps alloué expiré"); 
                             header("Location: $connexion");exit();
                         }
                     }else{ //profil jeune
@@ -114,12 +114,12 @@ if($entree[2] == 0){ //on verifie l'utilisateur
                             if($_COOKIE['destination'] == 'Co'){
                                 setcookie('destination','',1);
                                 unset($_COOKIE['destination']);
-                                setcookie('verified',1,time()+3600);
+                                setcookie('verified',1,time()+3600);//valable une heure
                                 //echo("sortie jeune<br>");
                                 header("Location: $sortieJeune");exit();
                             }else{
                                 //echo("sortie destination");
-                                setcookie('verified',1,time()+3600); //verified = 1 ==> jeune
+                                setcookie('verified',1,time()+3600); //verified = 1 ==> jeune //valable une heure
                                 header("Location: $_COOKIE[destination]");
                                 setcookie('destination','',1);
                                 unset($_COOKIE['destination']);
@@ -146,7 +146,7 @@ if($entree[2] == 0){ //on verifie l'utilisateur
                     unset($_COOKIE['mail']);
                     unset($_COOKIE['mdp']);
                 }
-                setcookie('erreur','mot de passe incorrect',time()+3600);
+                setcookie('erreur','mot de passe incorrect',time()+3600);//valable une heure
                 header("Location: $connexion");exit();
                 $res = 0;
                 //echo("erreur de mdp <br>");
@@ -159,22 +159,56 @@ if($entree[2] == 0){ //on verifie l'utilisateur
     }
 }else{
     if($entree[2] == 1){ //on inscrit l'utilisateur
+        //tests des données d'entree de l'utilisateur
+        $precision = "tout les champs sont requis pour procéder à votre inscription";
+        if($_POST['nom'] == ""){
+            setcookie('erreur',"Merci de bien vouloir saisir un nom. <br>".$precision,time+3600);
+            header("Location: $connexion");exit();
+        }
+        if($_POST['prenom'] == ""){
+            setcookie('erreur',"Merci de bien vouloir saisir un prénom. <br>".$precision,time+3600); 
+            header("Location: $connexion");exit();
+        }
+        if($_POST['date'] == ""){
+            setcookie('erreur',"Merci de bien vouloir saisir une date de naissance. <br>".$precision,time+3600);
+            header("Location: $connexion");exit();
+        }
+        if($_POST['mdp2'] == ""){
+            setcookie('erreur',"Merci de bien vouloir remplir la verification de mot de passe <br>".$precision,time+3600); //valable une heure
+            header("Location: $connexion");exit();
+        }else{  // mdp2 n'est pas vide
+            if($_POST['mdp'] != $_POST['mdp2']){
+                setcookie('erreur',"La \"vérification de mot de passe\" doit contenir le même mot de passe que celui au dessus",time+3600); //valable une heure
+                header("Location: $connexion");exit();
+            }
+        }
+
+
         //echo("inscription <br>");
-        while(fscanf($fentree,"%s %s %s", $mail, $mdp, $type) == 3){
+        while(fscanf($fentree,"%s %s %s", $mail, $mdp, $type) == 3){//boucle de verification que le mail n'est pas déjà présent
             if($entree[0] == $mail){
+                setcookie('erreur','votre mail fait déjà parti de la base de donnée',time()+3600);//valable une heure
+                header("Location: $connexion");exit();
                 $res = 0;
                 $test =1;
             }
         }
         //echo("<br> $test <br>");
         if($test == 0){
+            if(!is_dir("Jeune/Profil")){
+                mkdir("Jeune/Profil");
+            }
+            if(!is_dir("Jeune/Profil/$entree[0]")){//on teste si le dossier du jeune existe déjà (il ne fait pas partie de la liste des mails)
+                setcookie('erreur','vous avez un dossier a votre nom sans faire partie de la base de donné, merci de contacter un administrateur',time()+3600);//valable une heure
+            }
+            mkdir("Jeune/Profil/$entree[0]");
             fprintf($fentree,"%s %s %s\n", $entree[0], $entree[1], "J");
             fclose($fentree);
 
 
             //création du dossier du jeune avec $_POST["nom"] $_POST["prenom"] $_POST["date"]
             
-            $creationP = fopen("Profil/$entree[0].JSON","w");
+            $creationP = fopen("Jeune/Profil/$entree[0]/Profil.Json","w");
             fprintf($creationP," { \"Profil\": [\n{\n\"Nom\": \"%s\",\n\"Prenom\": \"%s\",\n\"Date\": \"%s\",\n\"Mail\": \"%s\"\n}\n]\n}", $_POST["nom"], $_POST["prenom"], $_POST["date"], $entree[0]);
             fclose($creationP);
             
