@@ -84,6 +84,9 @@ nav {
 #answer{
     color : red;
 }
+.invisible{
+    display: none;
+}
 /*tr.inscription{
     visibility: hidden;
 }*/
