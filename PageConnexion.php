@@ -2,6 +2,7 @@
 <?php 
 //var_dump($_COOKIE);exit();
     //verification des cookies, si cookies, connecter directement
+    //setcookie('erreur','message test',time()+3600);
     if($_COOKIE['mail'] != ""){
         //setcookie('mail','',1);
         //setcookie('mdp','',1);
@@ -65,7 +66,13 @@
                 </table>
             </form>
                 
-            <div id="answer"></div>
+            <div id="answer"><?php 
+            if($_COOKIE['erreur']!= null){
+                echo($_COOKIE['erreur']);
+                setcookie('erreur');
+                unset($_COOKIE['erreur']);
+            }
+            ?></div>
         </div>
         <script>
             function visible(){
