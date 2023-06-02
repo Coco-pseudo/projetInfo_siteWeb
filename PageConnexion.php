@@ -5,7 +5,7 @@
     if($_COOKIE['mail'] != ""){
         //setcookie('mail','',1);
         //setcookie('mdp','',1);
-        var_dump($_COOKIE);exit();
+        //var_dump($_COOKIE);exit();
         setcookie("destination","Co",time()+3600);
         header("Location: Connexion.php");exit();
     }
