@@ -35,13 +35,13 @@
             <form method="post" action="Connexion.php">
                 <table class="form">
                     <tr class="inscription invisible">
-                        <td>Nom :</td><td><input type="text" id="nom"></td>
+                        <td>Nom :</td><td><input type="text" name="nom" id="nom"></td>
                     </tr>
                     <tr class="inscription invisible">
-                        <td>Prénom :</td><td><input type="text" id="prenom"></td>
+                        <td>Prénom :</td><td><input type="text" name="prenom" id="prenom"></td>
                     </tr>
                     <tr class="inscription invisible">
-                        <td>Date de naissance</td><td><input type="date" id="birthday"></td>
+                        <td>Date de naissance</td><td><input type="date" name="date" id="birthday"></td>
                     </tr>
                     <tr>
                         <td>Mail :</td><td><input type="email" name="mail" id="mail" required></td>
@@ -50,7 +50,7 @@
                         <td>Mot de passe :</td><td><input type="password" name="mdp" id="mdp" required></td>
                     </tr>
                     <tr class="inscription invisible">
-                        <td>Vérification du mot de passe</td><td><input type="password" id="mdp2"></td>
+                        <td>Vérification du mot de passe</td><td><input type="password" name="mdp2" id="mdp2"></td>
                     </tr>
                     <tr>
                         <td colspan="2" id="FullRow">inscription?</td>
