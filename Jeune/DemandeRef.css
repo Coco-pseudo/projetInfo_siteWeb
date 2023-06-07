@@ -63,6 +63,9 @@ nav {
 .color2 {
     color: violet;
 }
+.color3 {
+    color: red;
+}
 
 .formulaires{
     display:flex;
@@ -81,15 +84,50 @@ nav {
     background: linear-gradient(to right,#e769e7, rgb(255, 255, 255));
     border-collapse: collapse;
     table-layout: fixed;
-    width: 900px; 
+    width: 900px;
+    margin-right: 20px;
 }
-.savoir{
+.savoiretre{
+    border-style: solid;
+    border-color: violet;
+    background: linear-gradient(to right,#e769e7, rgb(255, 255, 255));
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 900px;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+.savoirfaire{
     border-style: solid;
     border-color: violet;
     background: linear-gradient(to right,#e769e7, rgb(255, 255, 255));
     border-collapse: collapse;
     table-layout: fixed;
     width: 900px; 
+    margin-left: 20px;
+}
+
+
+.bouton{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.bc{
+    background: linear-gradient(to right,#b90db9, rgb(240, 149, 225));
+    border-style: solid;
+    border-color: violet;
+    width: 150px;
+    height: 30px;
+    margin-right:20px;
+
+}
+.br{
+    background: linear-gradient(to right,#b90db9, rgb(240, 149, 225));
+    border-style: solid;
+    border-color: violet;
+    width: 150px;
+    height: 30px;
 }
 /* td{
     border : 1px  solid black;

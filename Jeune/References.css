@@ -63,6 +63,9 @@ nav {
 .color2 {
     color: violet;
 }
+.color3 {
+    color: red;
+}
 
 .references{
     display:flex;
@@ -98,7 +101,8 @@ nav {
     border-collapse: collapse;
     table-layout: fixed;
     width: 900px;
-    height: 25%;
+    height: 272px;
+    /* height: 25%; */
     overflow-wrap: break-word; 
     margin-bottom: 30px;
 }
@@ -109,7 +113,7 @@ nav {
     border-collapse: collapse;
     table-layout: fixed;
     width: 150px;
-    height: 25%;
+    height: 272px;
     margin-bottom: 30px;
 }
 .svf{
@@ -119,7 +123,7 @@ nav {
     border-collapse: collapse;
     table-layout: fixed;
     width: 150px;
-    height: 25%;
+    height: 272px;
     margin-bottom: 30px;
 }
 .com{
@@ -129,7 +133,7 @@ nav {
     border-collapse: collapse;
     table-layout: fixed;
     width: 200px;
-    height: 25%;
+    height: 272px;
     overflow-inline: auto;
     overflow-wrap: break-word;
     margin-bottom: 30px;
@@ -145,15 +149,41 @@ nav {
     border-color: violet;
     width: 180px;
     height: 50px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 .bcv {
     background: linear-gradient(to right,#b90db9, rgb(240, 149, 225));
     border-style: solid;
     border-color: violet;
-    top: 25px;
     width: 180px;
     height: 50px;
+    margin-bottom: 25px;
+}
+.bec {
+    background: linear-gradient(to right,#b90db9, rgb(240, 149, 225));
+    border-style: solid;
+    border-color: violet;
+    width: 180px;
+    height: 50px;
+    margin-bottom: 25px;
+}
+.ba {
+    background: linear-gradient(to right,#b90db9, rgb(240, 149, 225));
+    border-style: solid;
+    border-color: violet;
+    width: 180px;
+    height: 50px;
+}
+
+
+.bt {
+    background: white;
+    border-style: solid;
+    border-color: violet;
+    width: 30%;
+    height: 40px;
+    margin-right:14px;
+    margin-left:14px;
 }
 /* td{
     border : 1px  solid black;

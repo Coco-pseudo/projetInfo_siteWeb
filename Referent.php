@@ -54,7 +54,7 @@
         </div>
         <script>
             function Accueil(){
-                document.location.href="Referent.html";
+                document.location.href="Referent.php";
             }
         </script>
     </body>

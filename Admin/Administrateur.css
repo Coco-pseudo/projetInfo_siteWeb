@@ -58,8 +58,11 @@ nav {
     text-transform: uppercase;
 }
 .color1 {
-    color: darkgray;
+    color: violet;
 }
 .color2 {
-    color: violet;
+    color: rgb(129, 129, 129);
+}
+.color3 {
+    color: red;
 }

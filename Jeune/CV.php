@@ -7,11 +7,12 @@
         <link rel="stylesheet" type="text/css" href="CV.css">
     </head>
     
-    <header>
-        <h1>Pour faire de l'engagement une valeur</h1>
-        <image src="logo.png" height="150" onclick="Accueil()"></image>
-    </header>
+    
     <body>
+        <header>
+            <h1>Pour faire de l'engagement une valeur</h1>
+            <image src="logo.png" height="150" onclick="Accueil()"></image>
+        </header>
         <nav>
             <ul class="nav-links">
                 <li><a href="Profil.html" class="color1">Profil</a></li>
@@ -32,7 +33,7 @@
         </div>
         <script>
             function Accueil(){
-                document.location.href="Jeune.html";
+                document.location.href="../Visiteur.php";
             }
             function generatePDF(){
                 // Utiliser une bibliothèque JavaScript pour convertir le HTML en PDF

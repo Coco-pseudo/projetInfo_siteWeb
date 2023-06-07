@@ -1,3 +1,18 @@
+<?php 
+if($_COOKIE['verified'] == 1){
+    setcookie('verified');
+    unset($_COOKIE["verified"]);
+    /*setcookie('destination');
+    unset($_COOKIE['destination']);*/
+    //var_dump($_COOKIE);exit();
+}else{
+    setcookie('destination');
+    setcookie('destination','/Jeune/Jeune.php',time()+3600);
+    //setcookie("blabla",test,time()+3600);
+    header('Location: ../Connexion.php');exit();
+    //var_dump($_COOKIE);exit();
+}
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -7,21 +22,24 @@
         <link rel="stylesheet" type="text/css" href="Jeune.css">
     </head>
     
-    <header>
-        <h1>Pour faire de l'engagement une valeur</h1>
-        <image src="logo.png" height="150" onclick="Accueil()"></image>
-    </header>
+
     <body>
+        <header>
+            <h1>Pour faire de l'engagement une valeur</h1>
+            <image src="logo.png" height="150" onclick="Accueil()"></image>
+        </header>
         <nav>
             <ul class="nav-links">
                 <li><a href="Jeune.php" class="color1">Profil</a></li>
                 <li><a href="References.php" class="color2">Références</a></li>
+                <li><a href="../Deco.php" class="color3">Déconnexion</a></li>
             </ul>
         </nav>
         <div class="info">
             <div class=profil>
             <?php
-            $DATA="Data3.json";
+            $mail="270jluismetmongrosdoigtdpied@yahoo.fr";
+            $DATA="Profil/$mail/Profil.json";
             $ref = json_decode(file_get_contents($DATA),true);
             echo "<h2> Votre Profil </h2>";
             echo "<div class=prfl>";
@@ -49,7 +67,7 @@
             </div>
             <div class=nombreref>
             <?php
-            $DATA="Data2.json";
+            $DATA="Profil/270jluismetmongrosdoigtdpied@yahoo.fr/Reference.json";
             $ref = json_decode(file_get_contents($DATA),true);
             $nbref = count($ref['Reference']);
             echo "<h2> Vos Références </h2>";
@@ -61,7 +79,7 @@
         </div>
         <script>
             function Accueil(){
-                document.location.href="Visiteur.html";
+                document.location.href="../Visiteur.php";
             }
             function Demande(){
                 document.location.href="ModifProfil.php";

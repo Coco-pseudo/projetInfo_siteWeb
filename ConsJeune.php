@@ -15,13 +15,13 @@
         <nav>
             <ul class="nav-links">
                 <li><a href="ConsJeune.php" class="color1">Profil du Jeune</a></li>
-                <li><a href="ConsRef.php" class="color2">Liste des Références</a></li>
+                <li><a href="ConsRef.php" class="color2">Liste de ses Références</a></li>
             </ul>
         </nav>
         <div class="info">
             <div class=profil>
             <?php
-            $DATA="Data3.json";
+            $DATA="Jeune/Data3.json";
             $ref = json_decode(file_get_contents($DATA),true);
             echo "<h2> Son Profil </h2>";
             echo "<div class=prfl>";
@@ -46,10 +46,10 @@
             </div>
             <div class=nombreref>
             <?php
-            $DATA="Data2.json";
+            $DATA="Jeune/Data2.json";
             $ref = json_decode(file_get_contents($DATA),true);
             $nbref = count($ref['Reference']);
-            echo "<h2> Vos Références </h2>";
+            echo "<h2> Ces Références </h2>";
             echo "<div class=nbref>";
                 echo "Nombre de référence : $nbref";
             echo "</div>";
@@ -58,7 +58,7 @@
         </div>
         <script>
             function Accueil(){
-                document.location.href="Consultant.html";
+                document.location.href="Consultant.php";
             }
         </script>
     </body>

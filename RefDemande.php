@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <title>Jeune 6.4</title>
         <link rel="icon" type="image/png" href="logo.png">
-        <link rel="stylesheet" type="text/css" href="References.css">
+        <link rel="stylesheet" type="text/css" href="RefDemande.css">
     </head>
     
     <header>
@@ -22,18 +22,16 @@
 
             <div class="commentaire">
             <?php
-            $DATA="Data2.json";
+            $DATA="Jeune/Data2.json";
             $ref = json_decode(file_get_contents($DATA),true);
             $nbref = count($ref['Reference']);
 
-            for ($i = 1; $i <= $nbref; $i++) {
                 echo "<h2>Commentaire $i :</h2>";
                 echo "<div class=com>";
                 if ($ref['Reference'][$i-1]['Commentaire'] != ""){
                     echo $ref['Reference'][$i-1]['Commentaire'];
                 }
                 echo "</div>";
-            }
             ?>
             </div>
 
@@ -41,8 +39,7 @@
             <?php
             $ref = json_decode(file_get_contents($DATA),true);
             $nbref = count($ref['Reference']);
-            
-            for ($i = 1; $i <= $nbref; $i++) { // Boucle pour créer les tableaux
+            $i=2;
                 echo "<h2>Référence $i :</h2>";
                 echo "<table id=$i class=ref >";
                 
@@ -90,10 +87,13 @@
                     echo $ref['Reference'][$i-1]['EmailRef'];
                     echo "</td>";
                 echo "</tr>";
+
+                echo "<tr>";
+                    echo "<td colspan=2><button onclick=EnvoieR() class=btd>Modifier la Référence</button><button onclick=EnvoieR() class=bt>Valider</button></td>";
+                echo "</tr>";
     
     
                 echo "</table>";
-            }
             ?>
             </div>
 
@@ -102,7 +102,6 @@
             $ref = json_decode(file_get_contents($DATA),true);
             $nbref = count($ref['Reference']);
             
-            for ($i = 1; $i <= $nbref; $i++) { // Boucle pour créer les tableaux de savoir-être
                 echo "<h2>Savoirs-être $i :</h2>";
                 echo "<table id=$i class=sve >";
                 
@@ -198,7 +197,6 @@
                 }
     
                 echo "</table>";
-            }
             ?>
             </div>
 
@@ -207,7 +205,6 @@
             $ref = json_decode(file_get_contents($DATA),true);
             $nbref = count($ref['Reference']);
             
-            for ($i = 1; $i <= $nbref; $i++) { // Boucle pour créer les tableaux de savoir-faire
                 echo "<h2>Savoirs-faire $i :</h2>";
                 echo "<table id=$i class=svf >";
                 
@@ -303,29 +300,15 @@
                 }
     
                 echo "</table>";
-            }
             ?>
             </div>
-
-            <div class="bouton">
-                <div>
-                    <button onclick="Demande()" class="bd">Nouvelle référence</button>
-                </div>
-                <div>
-                    <button onclick="CV()" class="bcv">CV</button>
-                </div>
-            </div>
-
         </div>
         <script>
             function Accueil(){
-                document.location.href="Referent.html";
+                document.location.href="Referent.php";
             }
             function Demande(){
                 document.location.href="DemandeRef.php";
-            }
-            function CV(){
-                document.location.href="CV.php";
             }
         </script>
     </body>

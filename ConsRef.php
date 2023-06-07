@@ -22,7 +22,7 @@
 
             <div class="commentaire">
             <?php
-            $DATA="Data2.json";
+            $DATA="Jeune/Data2.json";
             $ref = json_decode(file_get_contents($DATA),true);
             $nbref = count($ref['Reference']);
 
@@ -293,7 +293,7 @@
                     echo "</tr>";
                 }
 
-                if ($ref['Reference'][$i-1]['Capacité à sorganiser'] == 1){
+                if ($ref['Reference'][$i-1]['Capacite à sorganiser'] == 1){
                     echo "<tr>";
                         echo "<td class=reponse>";
                         echo "<img src=checkmark.png height=12>";
@@ -306,20 +306,10 @@
             }
             ?>
             </div>
-
-            <div class="bouton">
-                <div>
-                    <button onclick="Demande()" class="bd">Nouvelle référence</button>
-                </div>
-                <div>
-                    <button onclick="CV()" class="bcv">CV</button>
-                </div>
-            </div>
-
         </div>
         <script>
             function Accueil(){
-                document.location.href="Consultant.html";
+                document.location.href="Consultant.php";
             }
             function Demande(){
                 document.location.href="DemandeRef.php";

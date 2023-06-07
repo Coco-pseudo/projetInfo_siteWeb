@@ -1,3 +1,13 @@
+<?php
+if($_COOKIE['verified'] == 1){
+    setcookie('verified','',1);
+    unset($_COOKIE["verified"]);
+}else{
+    setcookie('destination','Jeune/ModifProfil.php',time()+3600);
+    header('Location: ../Connexion.php');
+}
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,11 +26,12 @@
             <ul class="nav-links">
                 <li><a href="Jeune.php" class="color1">Profil</a></li>
                 <li><a href="References.php" class="color2">Références</a></li>
+                <li><a href="Deco.php" class="color3">Déconnexion</a></li>
             </ul>
         </nav>
         <script>
             function Accueil(){
-                document.location.href="Visiteur.html";
+                document.location.href="../Visiteur.php";
             }
         </script>
     </body>
