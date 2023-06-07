@@ -39,6 +39,7 @@ if($_COOKIE['mail'] == '' && $_POST['mail'] == ''){
     header("Location: $connexion");exit();
     if($_POST['mail'] == ''){
         setcookie('erreur','merci de remplir le champ du mail',time()+3600);
+        header("Location: $connexion");exit();
     }
 }
 $mail; //va contenir le mail actif
@@ -154,31 +155,35 @@ if($entree[2] == 0){ //on verifie l'utilisateur
         }
     }
     if($test == 0){
+        setcookie('erreur','mail incorrect',time()+3600);
+        header("Location: $connexion");exit();
         $res = 0; //aucune correspondance de mail lors de la boucle de parcours
         
     }
 }else{
     if($entree[2] == 1){ //on inscrit l'utilisateur
+        //var_dump($_POST);exit();
+        
         //tests des données d'entree de l'utilisateur
         $precision = "tout les champs sont requis pour procéder à votre inscription";
         if($_POST['nom'] == ""){
-            setcookie('erreur',"Merci de bien vouloir saisir un nom. <br>".$precision,time+3600);
+            setcookie('erreur',"Merci de bien vouloir saisir un nom. <br>".$precision,time()+3600);//valable une heure
             header("Location: $connexion");exit();
         }
         if($_POST['prenom'] == ""){
-            setcookie('erreur',"Merci de bien vouloir saisir un prénom. <br>".$precision,time+3600); 
+            setcookie('erreur',"Merci de bien vouloir saisir un prénom. <br>".$precision,time()+3600); //valable une heure
             header("Location: $connexion");exit();
         }
         if($_POST['date'] == ""){
-            setcookie('erreur',"Merci de bien vouloir saisir une date de naissance. <br>".$precision,time+3600);
+            setcookie('erreur',"Merci de bien vouloir saisir une date de naissance. <br>".$precision,time()+3600);//valable une heure
             header("Location: $connexion");exit();
         }
         if($_POST['mdp2'] == ""){
-            setcookie('erreur',"Merci de bien vouloir remplir la verification de mot de passe <br>".$precision,time+3600); //valable une heure
+            setcookie('erreur',"Merci de bien vouloir remplir la verification de mot de passe <br>".$precision,time()+3600); //valable une heure
             header("Location: $connexion");exit();
         }else{  // mdp2 n'est pas vide
             if($_POST['mdp'] != $_POST['mdp2']){
-                setcookie('erreur',"La \"vérification de mot de passe\" doit contenir le même mot de passe que celui au dessus",time+3600); //valable une heure
+                setcookie('erreur',"La \"vérification de mot de passe\" doit contenir le même mot de passe que celui au dessus",time()+3600); //valable une heure
                 header("Location: $connexion");exit();
             }
         }
@@ -198,22 +203,30 @@ if($entree[2] == 0){ //on verifie l'utilisateur
             if(!is_dir("Jeune/Profil")){
                 mkdir("Jeune/Profil");
             }
-            if(!is_dir("Jeune/Profil/$entree[0]")){//on teste si le dossier du jeune existe déjà (il ne fait pas partie de la liste des mails)
+            if(is_dir("Jeune/Profil/$entree[0]")){//on teste si le dossier du jeune existe déjà (il ne fait pas partie de la liste des mails)
                 setcookie('erreur','vous avez un dossier a votre nom sans faire partie de la base de donné, merci de contacter un administrateur',time()+3600);//valable une heure
+                header("Location: $connexion");exit();
             }
             mkdir("Jeune/Profil/$entree[0]");
             fprintf($fentree,"%s %s %s\n", $entree[0], $entree[1], "J");
             fclose($fentree);
 
 
-            //création du dossier du jeune avec $_POST["nom"] $_POST["prenom"] $_POST["date"]
+            //création du fichier json du jeune avec $_POST["nom"] $_POST["prenom"] $_POST["date"]
             
-            $creationP = fopen("Jeune/Profil/$entree[0]/Profil.Json","w");
+            $creationP = fopen("Jeune/Profil/$entree[0]/Profil.json","w");
             fprintf($creationP," { \"Profil\": [\n{\n\"Nom\": \"%s\",\n\"Prenom\": \"%s\",\n\"Date\": \"%s\",\n\"Mail\": \"%s\"\n}\n]\n}", $_POST["nom"], $_POST["prenom"], $_POST["date"], $entree[0]);
             fclose($creationP);
+
+            //création du fichier vide de reference du jeune
+            $creationR = fopen("Jeune/Profil/$entree[0]/Reference.json","w");
+            fclose($creationR);
+
             
-            setcookie("mail",$mail,time()+3600);//valable une heure
-            setcookie("mdp",$mdp,time()+3600);//valable une heure
+            setcookie("mail",$entree[0],time()+3600);//valable une heure
+            setcookie("mdp",$entree[1],time()+3600);//valable une heure
+            setcookie("verified",1,time()+3600); //valable une heure
+            //var_dump($_COOKIE);exit();
             header("Location: $sortieJeune");exit();
             //echo("sortieJeune");
             //$res = $sortieJeune;
