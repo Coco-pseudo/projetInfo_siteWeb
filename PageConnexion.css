@@ -65,7 +65,7 @@ nav {
 }
 .body{
     display:flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-around;  
     top: 490px;
     height: auto;
@@ -73,9 +73,8 @@ nav {
     margin: 250px auto 50px;
     padding: 0 20px;
     margin-right: 25%;
-    margin-left: 35%;
+    margin-left: 40%;
 }
-
 .form{
     border-style: solid;
     border-color: violet;
@@ -83,6 +82,9 @@ nav {
 }
 #answer{
     color : red;
+}
+.invisible{
+    display: none;
 }
 /*tr.inscription{
     visibility: hidden;

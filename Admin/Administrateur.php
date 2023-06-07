@@ -17,7 +17,7 @@ if($_COOKIE['verified'] == 2){
     
     <header>
         <h1>Pour faire de l'engagement une valeur</h1>
-        <image src="logo.png" height="150" onclick="Accueil()"></image>
+        <image src="../logo.png" height="150" onclick="Accueil()"></image>
     </header>
     <body>
         <nav>

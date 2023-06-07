@@ -2,8 +2,8 @@
 if($_COOKIE['verified'] == 1){
     setcookie('verified');
     unset($_COOKIE["verified"]);
-    setcookie('destination');
-    unset($_COOKIE['destination']);
+    /*setcookie('destination');
+    unset($_COOKIE['destination']);*/
     //var_dump($_COOKIE);exit();
 }else{
     setcookie('destination');
