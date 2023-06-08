@@ -1,0 +1,141 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    background-color: rgb(255, 255, 255); /* Fond blanc */
+    margin: 0;
+    padding: 0;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+
+header {
+    background: linear-gradient(to right,#ccc, rgb(155, 145, 145)); /* Dégradé de gris du foncé au clair pour le header */
+    height: 150px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+h1  {
+    color: white;
+    position: fixed;
+    right: 90px;
+    top: 60px;
+    font-size: 300%;
+}
+
+
+nav {
+    background-color: #dfdcdc; /* Navbar en fond gris clair */
+    height: 50px;
+    max-width: 960px; /* La navbar ne prend pas toute la largeur de la page */
+    margin: 0 auto; /* Centrage horizontal de la navbar */
+    position: fixed;
+    top: 150px; /* la navbar commence après le header */
+    left: 0;
+    right: 0;
+    z-index: 1;
+} 
+.nav-links {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+} 
+.nav-links li {
+    padding: 10px;
+}
+.nav-links a {
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.color1 {
+    color: darkgray;
+}
+.color2 {
+    color: violet;
+}
+.color3 {
+    color: red;
+}
+
+.formulaires{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;  
+    top: 490px;
+    height: auto;
+    width:auto;
+    margin: 250px auto 50px;
+    padding: 0 20px;
+}
+
+.ref{
+    border-style: solid;
+    border-color: violet;
+    background: linear-gradient(to right,#e769e7, rgb(255, 255, 255));
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 900px;
+    margin-right: 20px;
+}
+.savoiretre{
+    border-style: solid;
+    border-color: violet;
+    background: linear-gradient(to right,#e769e7, rgb(255, 255, 255));
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 900px;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+.savoirfaire{
+    border-style: solid;
+    border-color: violet;
+    background: linear-gradient(to right,#e769e7, rgb(255, 255, 255));
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 900px; 
+    margin-left: 20px;
+}
+
+
+.bouton{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.bc{
+    background: linear-gradient(to right,#b90db9, rgb(240, 149, 225));
+    border-style: solid;
+    border-color: violet;
+    width: 150px;
+    height: 30px;
+    margin-right:20px;
+
+}
+.br{
+    background: linear-gradient(to right,#b90db9, rgb(240, 149, 225));
+    border-style: solid;
+    border-color: violet;
+    width: 150px;
+    height: 30px;
+}
+/* td{
+    border : 1px  solid black;
+    align-items: center;
+}
+
+div.checkbox {
+    color:red;
+    background-color: blue;
+} */
+
