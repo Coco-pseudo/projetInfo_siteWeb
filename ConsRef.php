@@ -1,3 +1,8 @@
+<?php
+$q = $_REQUEST["q"];
+$tab = explode(" ",$q);
+$q = strtolower($q);
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -22,9 +27,11 @@
 
             <div class="commentaire">
             <?php
-            $DATA="Jeune/Data2.json";
+            // $mail=$_COOKIE['mail'];
+            $mail=$tab[0];
+            $DATA="Jeune/Profil/$mail/Reference.json";
             $ref = json_decode(file_get_contents($DATA),true);
-            $nbref = count($ref['Reference']);
+            $nbref = count($tab)-1;
 
             for ($i = 1; $i <= $nbref; $i++) {
                 echo "<h2>Commentaire $i :</h2>";
@@ -40,7 +47,7 @@
             <div class="tab">
             <?php
             $ref = json_decode(file_get_contents($DATA),true);
-            $nbref = count($ref['Reference']);
+            $nbref = count($tab)-1;
             
             for ($i = 1; $i <= $nbref; $i++) { // Boucle pour créer les tableaux
                 echo "<h2>Référence $i :</h2>";
@@ -100,7 +107,7 @@
             <div class="savoir-etre">
             <?php
             $ref = json_decode(file_get_contents($DATA),true);
-            $nbref = count($ref['Reference']);
+            $nbref = count($tab)-1;
             
             for ($i = 1; $i <= $nbref; $i++) { // Boucle pour créer les tableaux de savoir-être
                 echo "<h2>Savoirs-être $i :</h2>";
@@ -205,7 +212,7 @@
             <div class="savoir-faire">
             <?php
             $ref = json_decode(file_get_contents($DATA),true);
-            $nbref = count($ref['Reference']);
+            $nbref = count($tab)-1;
             
             for ($i = 1; $i <= $nbref; $i++) { // Boucle pour créer les tableaux de savoir-faire
                 echo "<h2>Savoirs-faire $i :</h2>";
@@ -293,7 +300,7 @@
                     echo "</tr>";
                 }
 
-                if ($ref['Reference'][$i-1]['Capacite à sorganiser'] == 1){
+                if ($ref['Reference'][$i-1]['Capacite a sorganiser'] == 1){
                     echo "<tr>";
                         echo "<td class=reponse>";
                         echo "<img src=checkmark.png height=12>";

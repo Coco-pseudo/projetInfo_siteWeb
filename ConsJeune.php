@@ -21,32 +21,50 @@
         <div class="info">
             <div class=profil>
             <?php
-            $DATA="Jeune/Data3.json";
+            // $mail=$_COOKIE['mail'];
+            $mail="monadresse@gmail.com";
+            $DATA="Jeune/Profil/$mail/Profil.json";
             $ref = json_decode(file_get_contents($DATA),true);
             echo "<h2> Son Profil </h2>";
-            echo "<div class=prfl>";
-                echo "<div>"; 
+            echo "<table class=prfl>";
+                echo "<tr>";
+                    echo "<td>";
                     echo "Nom : ";
+                    echo "</td>";
+                    echo "<td>";
                     echo $ref['Profil'][0]['Nom'];
-                echo "</div>";
-                echo "<div>";
+                    echo "</td>";
+                echo "</tr>";
+                echo "<tr>";
+                    echo "<td>";
                     echo "Prénom : ";
+                    echo "</td>";
+                    echo "<td>";
                     echo $ref['Profil'][0]['Prenom'];
-                echo "</div>";
-                echo "<div>";
+                    echo "</td>";
+                echo "</tr>";
+                echo "<tr>";
+                    echo "<td>";
                     echo "Date de naissance : ";
+                    echo "</td>";
+                    echo "<td>";
                     echo $ref['Profil'][0]['Date'];
-                echo "</div>";
-                echo "<div>";
+                    echo "</td>";
+                echo "</tr>";
+                echo "<tr>";
+                    echo "<td>";
                     echo "Email : ";
-                    echo $ref['Profil'][0]['EmailRef'];
-                echo "</div>";
-            echo "</div>";
+                    echo "</td>";
+                    echo "<td>";
+                    echo $ref['Profil'][0]['Mail'];
+                    echo "</td>";
+                echo "</tr>";
+            echo "</table>";
             ?>
             </div>
             <div class=nombreref>
             <?php
-            $DATA="Jeune/Data2.json";
+            $DATA="Jeune/Profil/$mail/Reference.json";
             $ref = json_decode(file_get_contents($DATA),true);
             $nbref = count($ref['Reference']);
             echo "<h2> Ces Références </h2>";

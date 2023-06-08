@@ -100,7 +100,8 @@ nav {
     border-collapse: collapse;
     table-layout: fixed;
     width: 900px;
-    height: 25%;
+    height: 272px;
+    /* height: 25%; */
     overflow-wrap: break-word; 
     margin-bottom: 30px;
 }
@@ -111,7 +112,7 @@ nav {
     border-collapse: collapse;
     table-layout: fixed;
     width: 150px;
-    height: 25%;
+    height: 272px;
     margin-bottom: 30px;
 }
 .svf{
@@ -121,7 +122,7 @@ nav {
     border-collapse: collapse;
     table-layout: fixed;
     width: 150px;
-    height: 25%;
+    height: 272px;
     margin-bottom: 30px;
 }
 .com{
@@ -131,7 +132,7 @@ nav {
     border-collapse: collapse;
     table-layout: fixed;
     width: 200px;
-    height: 25%;
+    height: 272px;
     overflow-inline: auto;
     overflow-wrap: break-word;
     margin-bottom: 30px;

@@ -35,97 +35,97 @@ if($_COOKIE['verified'] == 1){
                     <table  class="ref">
                         <tr>
                             <td>Description de l'engagement</td>
-                            <td><input type="text" name="Description"></input> </td>
+                            <td><input type="text" name="Description" required></input> </td>
                         </tr>
                         <tr>
                             <td>Durée de l'engagement</td>
-                            <td><input type="text" name="Durée"></input> </td>
+                            <td><input type="text" name="Durée"required></input> </td>
                         </tr>
                         <tr>
                             <td>Le milieu de l'engagement (association, club de sport, etc.)</td>
-                            <td><input type="text" name="milieu"></input> </td>
+                            <td><input type="text" name="milieu"required></input> </td>
                         </tr>
                         <tr>
                             <td>Nom du référent</td>
-                            <td><input type="text" name="nomRef"></input> </td>
+                            <td><input type="text" name="nomRef"required></input> </td>
                         </tr>
                         <tr>
                             <td>Prénom du référent</td>
-                            <td><input type="text" name="prenomRef"></input> </td>
+                            <td><input type="text" name="prenomRef"required></input> </td>
                         </tr>
                         <tr>
                             <td>Email du référent</td>
-                            <td><input type="email" name="EmailRef"></input> </td>
+                            <td><input type="email" name="EmailRef"required></input> </td>
                         </tr>
                     </table>
                 
                     <table class="savoiretre">
                         <tr>
-                            <td rowspan="11">"Savoir-être" démontrés pendant l'engagement</td>
+                            <td rowspan="11">"Savoir-être" démontrés pendant l'engagement (max 4)</td>
                         </tr>
                         <tr>
-                            <td><input type="checkbox" name="Autonome" value="Autonome" >Autonome </td>
+                            <td><input type="checkbox" class="SavoirEtre" name="Autonome" value="Autonome" >Autonome </td>
                         </tr>
                         <tr>
-                            <td><input type="checkbox" name="A_lécoute" value="A_lécoute" >A l’écoute </td>
+                            <td><input type="checkbox" class="SavoirEtre" name="A_lécoute" value="A_lécoute" >A l’écoute </td>
                         </tr>
                         <tr>
-                            <td><input type="checkbox" name="Organisé" value="Organisé" >Organisé </td>
+                            <td><input type="checkbox" class="SavoirEtre" name="Organisé" value="Organisé" >Organisé </td>
                         </tr>
                         <tr>
-                            <td><input type="checkbox" name="Passionné" value="Passionné" >Passionné </td>
+                            <td><input type="checkbox" class="SavoirEtre" name="Passionné" value="Passionné" >Passionné </td>
                         </tr>
                         <tr>
-                            <td><input type="checkbox" name="Fiable" value="Fiable" >Fiable </td>
+                            <td><input type="checkbox" class="SavoirEtre" name="Fiable" value="Fiable" >Fiable </td>
                         </tr>
                         <tr>
-                            <td><input type="checkbox" name="Patient" value="Patient" >Patient </td>
+                            <td><input type="checkbox" class="SavoirEtre" name="Patient" value="Patient" >Patient </td>
                         </tr>
                         <tr>
-                            <td><input type="checkbox" name="Réfléchi" value="Réfléchi" >Réfléchi </td>
+                            <td><input type="checkbox" class="SavoirEtre" name="Réfléchi" value="Réfléchi" >Réfléchi </td>
                         </tr>
                         <tr>
-                            <td><input type="checkbox" name="Responsable" value="Responsable" >Responsable </td>
+                            <td><input type="checkbox" class="SavoirEtre" name="Responsable" value="Responsable" >Responsable </td>
                         </tr>
                         <tr>
-                            <td><input type="checkbox" name="Sociable" value="Sociable" >Sociable </td>
+                            <td><input type="checkbox" class="SavoirEtre" name="Sociable" value="Sociable" >Sociable </td>
                         </tr>
                         <tr>
-                            <td><input type="checkbox" name="Optimiste" value="Optimiste" >Optimiste </td>
+                            <td><input type="checkbox" class="SavoirEtre" name="Optimiste" value="Optimiste" >Optimiste </td>
                         </tr>
                     </table>
                     <table class="savoirfaire">
                         <tr>
-                            <td rowspan="11">"Savoir-faire" démontrés pendant l'engagement</td></tr>
+                            <td rowspan="11">"Savoir-faire" démontrés pendant l'engagement (max 4)</td></tr>
                         <tr>
-                            <td><input type="checkbox" name="GestionProjet" value="GestionProjet" >Gérer un projet </td>
+                            <td><input type="checkbox" class="SavoirFaire" name="GestionProjet" value="GestionProjet" >Gérer un projet </td>
                         </tr>
                         <tr>
-                            <td><input type="checkbox" name="AutreLangue" value="AutreLangue" >Parler une autre langue </td>
+                            <td><input type="checkbox" class="SavoirFaire" name="AutreLangue" value="AutreLangue" >Parler une autre langue </td>
                         </tr>
                         <tr>
-                            <td><input type="checkbox" name="GererEquipe" value="GererEquipe" >Diriger une équipe </td>
+                            <td><input type="checkbox" class="SavoirFaire" name="GererEquipe" value="GererEquipe" >Diriger une équipe </td>
                         </tr>
                         <tr>
-                            <td><input type="checkbox" name="Informatique" value="Informatique" >Maitrise de l'informatique </td>
+                            <td><input type="checkbox" class="SavoirFaire" name="Informatique" value="Informatique" >Maitrise de l'informatique </td>
                         </tr>
                         <tr>
-                            <td><input type="checkbox" name="Dessin" value="Dessin" >Savoir Dessiner </td>
+                            <td><input type="checkbox" class="SavoirFaire" name="Dessin" value="Dessin" >Savoir Dessiner </td>
                         </tr>
                         <tr>
-                            <td><input type="checkbox" name="Traduction" value="Traduction" >Savoir Traduire </td>
+                            <td><input type="checkbox" class="SavoirFaire" name="Traduction" value="Traduction" >Savoir Traduire </td>
                         </tr>
                         <tr>
-                            <td><input type="checkbox" name="OrgaConf" value="OrgaConf" >Organiser une conférence </td>
+                            <td><input type="checkbox" class="SavoirFaire" name="OrgaConf" value="OrgaConf" >Organiser une conférence </td>
                         </tr>
                         <tr>
-                            <td><input type="checkbox" name="ConcevoirFormation" value="ConcevoirFormation" >Concevoir une Formation </td>
+                            <td><input type="checkbox" class="SavoirFaire" name="ConcevoirFormation" value="ConcevoirFormation" >Concevoir une Formation </td>
                         </tr>
                         <tr>
-                            <td><input type="checkbox" name="TrierDonnées" value="TrierDonnées" >Trier des données </td>
+                            <td><input type="checkbox" class="SavoirFaire" name="TrierDonnées" value="TrierDonnées" >Trier des données </td>
                         </tr>
                         <tr>
-                            <td><input type="checkbox" name="CapaciteOrganisation" value="CapaciteOrganisation" >Capacité à s'organiser </td>
+                            <td><input type="checkbox" class="SavoirFaire" name="CapaciteOrganisation" value="CapaciteOrganisation" >Capacité à s'organiser </td>
                         </tr>
                     </table>
                 </div>
@@ -143,6 +143,31 @@ if($_COOKIE['verified'] == 1){
             function Accueil(){
                 document.location.href="../Visiteur.php";
             }
+            //Empécher selectionner plus que 4 savoir etre
+            var checks = document.querySelectorAll(".SavoirEtre");
+            var max1 = 4;
+            for (var i = 0; i < checks.length; i++)
+                checks[i].onclick = selectiveCheck1;
+            function selectiveCheck1 (event) {
+                var checkedChecks = document.querySelectorAll(".SavoirEtre:checked");
+                if (checkedChecks.length >= max1 + 1)
+                    return false;
+            }
+
+
+            //Empécher selectionner plus que 4 savoir etre
+            var checks = document.querySelectorAll(".SavoirFaire");
+            var max2 = 4;
+            for (var i = 0; i < checks.length; i++)
+                checks[i].onclick = selectiveCheck2;
+            function selectiveCheck2 (event) {
+                var checkedChecks = document.querySelectorAll(".SavoirFaire:checked");
+                if (checkedChecks.length >= max2 + 1)
+                    return false;
+            }
+
+
+
         </script>
     </body>
 </html>
