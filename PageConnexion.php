@@ -67,7 +67,12 @@
             </form>
                 
             <div id="answer"><?php 
+            
+            
+            
+            
             if(/*count($_COOKIE) == 1*/isset($_COOKIE['erreur'])){
+            //if($_COOKIE['erreur']!= null){
                 echo($_COOKIE['erreur']);
                 setcookie('erreur');
                 unset($_COOKIE['erreur']);
