@@ -31,7 +31,8 @@ if($_COOKIE['verified'] == 1){
 
             <div class="commentaire">
             <?php
-            $DATA="Profil/270jluismetmongrosdoigtdpied@yahoo.fr/Reference.json";
+            $mail=$_COOKIE['mail'];
+            $DATA="Profil/$mail/Reference.json";
             $ref = json_decode(file_get_contents($DATA),true);
             $nbref = count($ref['Reference']);
 

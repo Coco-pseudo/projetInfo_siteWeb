@@ -38,28 +38,44 @@ if($_COOKIE['verified'] == 1){
         <div class="info">
             <div class=profil>
             <?php
-            $mail="270jluismetmongrosdoigtdpied@yahoo.fr";
+            $mail=$_COOKIE['mail'];
             $DATA="Profil/$mail/Profil.json";
             $ref = json_decode(file_get_contents($DATA),true);
             echo "<h2> Votre Profil </h2>";
-            echo "<div class=prfl>";
-                echo "<div>"; 
+            echo "<table class=prfl>";
+                echo "<tr>";
+                    echo "<td>";
                     echo "Nom : ";
+                    echo "</td>";
+                    echo "<td>";
                     echo $ref['Profil'][0]['Nom'];
-                echo "</div>";
-                echo "<div>";
+                    echo "</td>";
+                echo "</tr>";
+                echo "<tr>";
+                    echo "<td>";
                     echo "Prénom : ";
+                    echo "</td>";
+                    echo "<td>";
                     echo $ref['Profil'][0]['Prenom'];
-                echo "</div>";
-                echo "<div>";
+                    echo "</td>";
+                echo "</tr>";
+                echo "<tr>";
+                    echo "<td>";
                     echo "Date de naissance : ";
+                    echo "</td>";
+                    echo "<td>";
                     echo $ref['Profil'][0]['Date'];
-                echo "</div>";
-                echo "<div>";
+                    echo "</td>";
+                echo "</tr>";
+                echo "<tr>";
+                    echo "<td>";
                     echo "Email : ";
-                    echo $ref['Profil'][0]['EmailRef'];
-                echo "</div>";
-            echo "</div>";
+                    echo "</td>";
+                    echo "<td>";
+                    echo $ref['Profil'][0]['Mail'];
+                    echo "</td>";
+                echo "</tr>";
+            echo "</table>";
             ?>
             <div >
                 <button onclick="Demande()" class="bouton">Modifier le profil</button>
@@ -67,7 +83,7 @@ if($_COOKIE['verified'] == 1){
             </div>
             <div class=nombreref>
             <?php
-            $DATA="Profil/270jluismetmongrosdoigtdpied@yahoo.fr/Reference.json";
+            $DATA="Profil/$mail/Reference.json";
             $ref = json_decode(file_get_contents($DATA),true);
             $nbref = count($ref['Reference']);
             echo "<h2> Vos Références </h2>";

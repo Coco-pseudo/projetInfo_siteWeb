@@ -2,17 +2,18 @@
 if($_COOKIE['verified'] == 1){
     setcookie('verified','',1);
 }else{
-    setcookie('destination','Jeune/Archive.php',time()+3600);
+    setcookie('destination','/Jeune/DemandeRef.php',time()+3600);
     header('Location: ../Connexion.php');
 }
 ?>
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Vos Archive - Jeune 6.4</title>
+        <title>Jeune 6.4</title>
         <link rel="icon" type="image/png" href="logo.png">
-        <link rel="stylesheet" type="text/css" href="Archive.css">
+        <link rel="stylesheet" type="text/css" href="ModifRef.css">
     </head>
     
     <header>
@@ -27,125 +28,63 @@ if($_COOKIE['verified'] == 1){
                 <li><a href="Deco.php" class="color3">Déconnexion</a></li>
             </ul>
         </nav>
-        <div class="references">
 
-            <div class="commentaire">
-            <?php
-            $mail=$_COOKIE['mail'];
-            $DATA="Profil/$mail/Reference.json";
-            $ref = json_decode(file_get_contents($DATA),true);
-            $nbref = count($ref['Reference']);
-
-            for ($i = 1; $i <= $nbref; $i++) {
-                if ($ref['Reference'][$i-1]['archiver'] == 1){
-                    echo "<h2>Commentaire $i :</h2>";
-                    echo "<div class=com>";
-                    if ($ref['Reference'][$i-1]['Commentaire'] != ""){
-                        echo $ref['Reference'][$i-1]['Commentaire'];
-                    }
-                    echo "</div>";
-                }
-            }
-            ?>
-            </div>
-
-            <div class="tab">
-            <?php
-            $ref = json_decode(file_get_contents($DATA),true);
-            $nbref = count($ref['Reference']);
-            
-            for ($i = 1; $i <= $nbref; $i++) { // Boucle pour créer les tableaux
-                if ($ref['Reference'][$i-1]['archiver'] == 1){
-
-                    if ($ref['Reference'][$i-1]['verif'] == 1){
-                        echo "<h2>";
-                        echo "<img src=checkmark.png height=14>Référence $i validé :";
-                        echo "</h2>";
-                    }else{
-                        echo "<h2>";
-                        echo "<img src=uncheckmark.png height=14>Référence $i en attente de validation :";
-                        echo "</h2>";
-                    }
-
-                    echo "<table id=$i class=ref >";
-
-                    echo "<tr>";
-                        echo "<td>Description de l'engagement</td>";
-                        echo "<td class=reponse>";
-                        echo $ref['Reference'][$i-1]['Description'];
-                        echo "</td>";
-                    echo "</tr>";
-                    
-                    echo "<tr>";
-                        echo "<td>Durée de l'engagement</td>";
-                        echo "<td class=reponse>";
-                        echo $ref['Reference'][$i-1]['Duree'];
-                        echo "</td>";
-                    echo "</tr>";
-                    
-                    echo "<tr>";
-                        echo "<td>Le milieu de l'engagement (association, club de sport, etc.)</td>";
-                        echo "<td class=reponse>";
-                        echo $ref['Reference'][$i-1]['milieu'];
-                        echo "</td>";
-                    echo "</tr>";
-                    
-                    
-                    echo "<tr>";
-                        echo "<td>Nom du référent</td>";
-                        echo "<td class=reponse>";
-                        echo $ref['Reference'][$i-1]['nomRef'];
-                        echo "</td>";
-                    echo "</tr>";
-                    
-                    
-                    echo "<tr>";
-                        echo "<td>Prénom du référent</td>";
-                        echo "<td class=reponse>";
-                        echo $ref['Reference'][$i-1]['prenomRef'];
-                        echo "</td>";
-                    echo "</tr>";
-                    
+        <?php
+        $mail=$_COOKIE['mail'];
+        $DATA="Profil/$mail/Reference.json";
+        $ref = json_decode(file_get_contents($DATA),true);
+        $i=0;
+        $d=$ref['Reference'][$i]['Description'];
+        $du=$ref['Reference'][$i]['Duree'];
+        $a=$ref['Reference'][$i]['milieu'];
+        $n=$ref['Reference'][$i]['nomRef'];
+        $p=$ref['Reference'][$i]['prenomRef'];
+        $e=$ref['Reference'][$i]['EmailRef'];
+        ?>
+        <form method=POST action=http://localhost:8080/Jeune/PageDemandeBis.php>
+            <div class="formulaires">
+                <table  class="ref">
+                    <tr>
+                        <td>Description de l'engagement</td>
+                        <td><input type="text" name="Description" value="<?php echo $d; ?>"></input> </td>
+                    </tr>
+                    <tr>
+                        <td>Durée de l'engagement</td>
+                        <td><input type="text" name="Durée" value="<?php echo $du; ?>"></input> </td>
+                    </tr>
+                    <tr>
+                        <td>Le milieu de l'engagement (association, club de sport, etc.)</td>
+                        <td><input type="text" name="milieu" value="<?php echo $a; ?>"></input> </td>
+                    </tr>
+                    <tr>
+                        <td>Nom du référent</td>
+                        <td><input type="text" name="nomRef" value="<?php echo $n; ?>"></input> </td>
+                    </tr>
+                    <tr>
+                        <td>Prénom du référent</td>
+                        <td><input type="text" name="prenomRef" value="<?php echo $p; ?>"></input> </td>
+                    </tr>
+                    <tr>
+                        <td>Email du référent</td>
+                        <td><input type="email" name="EmailRef" value="<?php echo $e; ?>"></input> </td>
+                    </tr>
+                </table>
         
-                    echo "<tr>";
-                        echo "<td>Email du référent</td>";
-                        echo "<td class=reponse>";
-                        echo $ref['Reference'][$i-1]['EmailRef'];
-                        echo "</td>";
-                    echo "</tr>";
-
-                    echo "<tr>";
-                        echo "<td>";
-                        echo "<button onclick=Desarchiver($i) class=bt>Désarchiver</button>";
-                        echo "</td>";
-                    echo "</tr>";
-        
-                    echo "</table>";
-                }
-            }
-            ?>
-            </div>
-
-            <div class="savoir-etre">
-            <?php
-            $ref = json_decode(file_get_contents($DATA),true);
-            $nbref = count($ref['Reference']);
-            
-            for ($i = 1; $i <= $nbref; $i++) { // Boucle pour créer les tableaux de savoir-être
-                if ($ref['Reference'][$i-1]['archiver'] == 1){
+               
+                <div class="savoir-etre">
+                    <?php
+                    $ref = json_decode(file_get_contents($DATA),true);
                     echo "<h2>Savoirs-être $i :</h2>";
                     echo "<table id=$i class=sve >";
                     
-                    if ($ref['Reference'][$i-1]['Autonome'] == 1){
+                    if ($ref['Reference'][$i]['Autonome'] == 1){
                         echo "<tr>";
-                            echo "<td class=reponse>";
-                            echo "<img src=checkmark.png height=12>";
+                            echo "<td><input type=checkbox name=Autonome value=Autonome >Autonome </td>";
                             echo "Autonome";
-                            echo "</td>";
                         echo "</tr>";
                     }
                     
-                    if ($ref['Reference'][$i-1]['Passionne'] == 1){
+                    if ($ref['Reference'][$i]['Passionne'] == 1){
                         echo "<tr>";
                             echo "<td class=reponse>";
                             echo "<img src=checkmark.png height=12>";
@@ -154,7 +93,7 @@ if($_COOKIE['verified'] == 1){
                         echo "</tr>";
                     }
                     
-                    if ($ref['Reference'][$i-1]['Reflechi'] == 1){
+                    if ($ref['Reference'][$i]['Reflechi'] == 1){
                         echo "<tr>";
                             echo "<td class=reponse>";
                             echo "<img src=checkmark.png height=12>";
@@ -163,7 +102,7 @@ if($_COOKIE['verified'] == 1){
                         echo "</tr>";
                     }
                     
-                    if ($ref['Reference'][$i-1]['Alecoute'] == 1){
+                    if ($ref['Reference'][$i]['Alecoute'] == 1){
                         echo "<tr>";
                             echo "<td class=reponse>";
                             echo "<img src=checkmark.png height=12>";
@@ -172,7 +111,7 @@ if($_COOKIE['verified'] == 1){
                         echo "</tr>";
                     }
                     
-                    if ($ref['Reference'][$i-1]['Organise'] == 1){
+                    if ($ref['Reference'][$i]['Organise'] == 1){
                         echo "<tr>";
                             echo "<td class=reponse>";
                             echo "<img src=checkmark.png height=12>";
@@ -182,7 +121,7 @@ if($_COOKIE['verified'] == 1){
                     }
                     
         
-                    if ($ref['Reference'][$i-1]['Fiable'] == 1){
+                    if ($ref['Reference'][$i]['Fiable'] == 1){
                         echo "<tr>";
                             echo "<td class=reponse>";
                             echo "<img src=checkmark.png height=12>";
@@ -191,7 +130,7 @@ if($_COOKIE['verified'] == 1){
                         echo "</tr>";
                     }
 
-                    if ($ref['Reference'][$i-1]['Patient'] == 1){
+                    if ($ref['Reference'][$i]['Patient'] == 1){
                         echo "<tr>";
                             echo "<td class=reponse>";
                             echo "<img src=checkmark.png height=12>";
@@ -200,7 +139,7 @@ if($_COOKIE['verified'] == 1){
                         echo "</tr>";
                     }
 
-                    if ($ref['Reference'][$i-1]['Responsable'] == 1){
+                    if ($ref['Reference'][$i]['Responsable'] == 1){
                         echo "<tr>";
                             echo "<td class=reponse>";
                             echo "<img src=checkmark.png height=12>";
@@ -209,7 +148,7 @@ if($_COOKIE['verified'] == 1){
                         echo "</tr>";
                     }
 
-                    if ($ref['Reference'][$i-1]['Sociable'] == 1){
+                    if ($ref['Reference'][$i]['Sociable'] == 1){
                         echo "<tr>";
                             echo "<td class=reponse>";
                             echo "<img src=checkmark.png height=12>";
@@ -218,7 +157,7 @@ if($_COOKIE['verified'] == 1){
                         echo "</tr>";
                     }
 
-                    if ($ref['Reference'][$i-1]['Optimiste'] == 1){
+                    if ($ref['Reference'][$i]['Optimiste'] == 1){
                         echo "<tr>";
                             echo "<td class=reponse>";
                             echo "<img src=checkmark.png height=12>";
@@ -228,22 +167,18 @@ if($_COOKIE['verified'] == 1){
                     }
         
                     echo "</table>";
-                }
-            }
-            ?>
-            </div>
+                    ?>
+                </div>
 
-            <div class="savoir-faire">
-            <?php
-            $ref = json_decode(file_get_contents($DATA),true);
-            $nbref = count($ref['Reference']);
-            
-            for ($i = 1; $i <= $nbref; $i++) { // Boucle pour créer les tableaux de savoir-faire
-                if ($ref['Reference'][$i-1]['archiver'] == 1){
+                <div class="savoir-faire">
+                    <?php
+                    $ref = json_decode(file_get_contents($DATA),true);
+                    $nbref = count($ref['Reference']);
+                
                     echo "<h2>Savoirs-faire $i :</h2>";
                     echo "<table id=$i class=svf >";
                     
-                    if ($ref['Reference'][$i-1]['Gerer un projet'] == 1){
+                    if ($ref['Reference'][$i]['Gerer un projet'] == 1){
                         echo "<tr>";
                             echo "<td class=reponse>";
                             echo "<img src=checkmark.png height=12>";
@@ -252,7 +187,7 @@ if($_COOKIE['verified'] == 1){
                         echo "</tr>";
                     }
                     
-                    if ($ref['Reference'][$i-1]['Parler une autre langue'] == 1){
+                    if ($ref['Reference'][$i]['Parler une autre langue'] == 1){
                         echo "<tr>";
                             echo "<td class=reponse>";
                             echo "<img src=checkmark.png height=12>";
@@ -261,7 +196,7 @@ if($_COOKIE['verified'] == 1){
                         echo "</tr>";
                     }
                     
-                    if ($ref['Reference'][$i-1]['Diriger une equipe'] == 1){
+                    if ($ref['Reference'][$i]['Diriger une equipe'] == 1){
                         echo "<tr>";
                             echo "<td class=reponse>";
                             echo "<img src=checkmark.png height=12>";
@@ -270,7 +205,7 @@ if($_COOKIE['verified'] == 1){
                         echo "</tr>";
                     }
                     
-                    if ($ref['Reference'][$i-1]['Maitriser de linformatique'] == 1){
+                    if ($ref['Reference'][$i]['Maitriser de linformatique'] == 1){
                         echo "<tr>";
                             echo "<td class=reponse>";
                             echo "<img src=checkmark.png height=12>";
@@ -279,7 +214,7 @@ if($_COOKIE['verified'] == 1){
                         echo "</tr>";
                     }
                     
-                    if ($ref['Reference'][$i-1]['Savoir dessiner'] == 1){
+                    if ($ref['Reference'][$i]['Savoir dessiner'] == 1){
                         echo "<tr>";
                             echo "<td class=reponse>";
                             echo "<img src=checkmark.png height=12>";
@@ -289,7 +224,7 @@ if($_COOKIE['verified'] == 1){
                     }
                     
         
-                    if ($ref['Reference'][$i-1]['Savoir traduire'] == 1){
+                    if ($ref['Reference'][$i]['Savoir traduire'] == 1){
                         echo "<tr>";
                             echo "<td class=reponse>";
                             echo "<img src=checkmark.png height=12>";
@@ -298,7 +233,7 @@ if($_COOKIE['verified'] == 1){
                         echo "</tr>";
                     }
 
-                    if ($ref['Reference'][$i-1]['Organiser une conference'] == 1){
+                    if ($ref['Reference'][$i]['Organiser une conference'] == 1){
                         echo "<tr>";
                             echo "<td class=reponse>";
                             echo "<img src=checkmark.png height=12>";
@@ -307,7 +242,7 @@ if($_COOKIE['verified'] == 1){
                         echo "</tr>";
                     }
 
-                    if ($ref['Reference'][$i-1]['Concevoir une formation'] == 1){
+                    if ($ref['Reference'][$i]['Concevoir une formation'] == 1){
                         echo "<tr>";
                             echo "<td class=reponse>";
                             echo "<img src=checkmark.png height=12>";
@@ -316,7 +251,7 @@ if($_COOKIE['verified'] == 1){
                         echo "</tr>";
                     }
 
-                    if ($ref['Reference'][$i-1]['Trier des donnees'] == 1){
+                    if ($ref['Reference'][$i]['Trier des donnees'] == 1){
                         echo "<tr>";
                             echo "<td class=reponse>";
                             echo "<img src=checkmark.png height=12>";
@@ -325,7 +260,7 @@ if($_COOKIE['verified'] == 1){
                         echo "</tr>";
                     }
 
-                    if ($ref['Reference'][$i-1]['Capacite à sorganiser'] == 1){
+                    if ($ref['Reference'][$i]['Capacite à sorganiser'] == 1){
                         echo "<tr>";
                             echo "<td class=reponse>";
                             echo "<img src=checkmark.png height=12>";
@@ -335,33 +270,24 @@ if($_COOKIE['verified'] == 1){
                     }
         
                     echo "</table>";
-                }
-            }
-            ?>
-            </div>
-
-            <div class="bouton">
-                <div>
-                    <button onclick="Retour()" class="bd">Retour au références</button>
+                    ?>
                 </div>
             </div>
 
-        </div>
+                <div class="bouton">
+                    <button type="submit" onclick="Confirmation()" class="bc">Valider</button>
+                    <button type="reset" class="br" >Réinitialiser</button>
+                </div>   
+                
+        </form>
+        
         <script>
+            function Confirmation(){
+                //var str= document.getElementById("txt1").value;
+                //alert("Demande effectuée");
+            }
             function Accueil(){
                 document.location.href="../Visiteur.php";
-            }
-            function Retour(){
-                document.location.href="References.php";
-            }
-            function Desarchiver(a){
-                alert("Désarchivage de la Réference n°"+a);
-                
-                var xhr = new XMLHttpRequest();
-                xhr.open("POST", "AlgoModifRef.php", true);
-                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                xhr.send("a=" + escape(a) +"& b=2");
-                document.location.href="Archive.php";
             }
         </script>
     </body>

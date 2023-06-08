@@ -26,7 +26,7 @@
         "Organiser une conference": 1,
         "Concevoir une formation": 1,
         "Trier des donnees": 1,
-        "Capacite à sorganiser": 0,
+        "Capacite a sorganiser": 0,
         "verif": 1,
         "archiver": 0
     },
@@ -57,7 +57,7 @@
         "Organiser une conference": 0,
         "Concevoir une formation": 1,
         "Trier des donnees": 0,
-        "Capacite à sorganiser": 0,
+        "Capacite a sorganiser": 0,
         "verif": 0,
         "archiver": 0
     },
@@ -88,7 +88,7 @@
         "Organiser une conference": 0,
         "Concevoir une formation": 0,
         "Trier des donnees": 0,
-        "Capacite à sorganiser": 0,
+        "Capacite a sorganiser": 0,
         "verif": 1,
         "archiver": 1
     },
@@ -119,7 +119,7 @@
         "Organiser une conference": 0,
         "Concevoir une formation": 0,
         "Trier des donnees": 0,
-        "Capacite à sorganiser": 1,
+        "Capacite a sorganiser": 1,
         "verif": 0,
         "archiver": 0
     },
@@ -150,7 +150,7 @@
         "Organiser une conference": 0,
         "Concevoir une formation": 0,
         "Trier des donnees": 0,
-        "Capacite à sorganiser": 0,
+        "Capacite a sorganiser": 0,
         "verif": 0,
         "archiver": 0
     },
@@ -181,7 +181,7 @@
         "Organiser une conference": 0,
         "Concevoir une formation": 0,
         "Trier des donnees": 1,
-        "Capacite à sorganiser": 1,
+        "Capacite a sorganiser": 1,
         "verif": 0,
         "archiver": 0
     }

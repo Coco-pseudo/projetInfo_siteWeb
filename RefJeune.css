@@ -79,10 +79,14 @@ nav {
     border-color: violet;
     background: linear-gradient(to right,#e769e7, rgb(255, 255, 255));
     border-collapse: collapse;
-    width: 300px;
+    width: 500px;
     height: 85%;
     overflow-inline: auto;
     overflow-wrap: break-word;
+}
+
+td {
+    padding: 15px;
 }
 
 .nbref{
@@ -90,18 +94,7 @@ nav {
     border-color: violet;
     background: linear-gradient(to right,#e769e7, rgb(255, 255, 255));
     border-collapse: collapse;
-    width: 200px;
-    height: 25%;
     overflow-inline: auto;
     overflow-wrap: break-word;
-}
-
-.bouton {
-    margin-top :5%;
-    background: linear-gradient(to right,#b90db9, rgb(240, 149, 225));
-    border-style: solid;
-    border-color: violet;
-    top: 25px;
-    width: 180px;
-    height: 50px;
+    padding: 30px;
 }
