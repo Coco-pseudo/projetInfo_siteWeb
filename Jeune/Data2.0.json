@@ -6,7 +6,7 @@
         "milieu": "club sportif",
         "nomRef": "GAGNEUX",
         "prenomRef": "Quentin",
-        "EmailRef": "quentingag@gmail.com"
+        "Mail": "quentingag@gmail.com"
     },
     {
         "Description": "1m'occuper d'enfant",
@@ -14,7 +14,7 @@
         "milieu": "club sportif",
         "nomRef": "GAGNEUX",
         "prenomRef": "Quentin",
-        "EmailRef": "quentingag@gmail.com"
+        "Mail": "quentingag@gmail.com"
     },
     {
         "Description": "2m'occuper d'enfant",
@@ -22,6 +22,6 @@
         "milieu": "club sportif",
         "nomRef": "GAGNEUX",
         "prenomRef": "Quentin",
-        "EmailRef": "quentingag@gmail.com"
+        "Mail": "quentingag@gmail.com"
     }
 ] }

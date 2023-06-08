@@ -32,7 +32,8 @@ if($_COOKIE['verified'] == 1){
 
             <div class="commentaire">
             <?php
-            $DATA="Profil/270jluismetmongrosdoigtdpied@yahoo.fr/Reference.json";
+            $mail=$_COOKIE['mail'];
+            $DATA="Profil/$mail/Reference.json";
             $ref = json_decode(file_get_contents($DATA),true);
             $nbref = count($ref['Reference']);
 
@@ -115,7 +116,11 @@ if($_COOKIE['verified'] == 1){
                     echo "</tr>";
 
                     echo "<tr>";
-                    echo "<td colspan=2><button onclick=EnvoieR() class=bt>Modifier la Référence</button><button onclick=EnvoieR() class=bt>Envoie au Référent</button><button onclick=Archiver($i) class=bt>Archiver</button></td>";
+                    echo "<td colspan=2>";
+                    if ($ref['Reference'][$i-1]['verif'] == 0){
+                    echo "<button onclick=ModifR($i) class=bt>Modifier la Référence</button><button onclick=EnvoieR() class=bt>Envoie au Référent</button>";
+                    }
+                    echo"<button onclick=Archiver($i) class=bt>Archiver</button></td>";
                     echo "</tr>";
         
         
@@ -324,7 +329,7 @@ if($_COOKIE['verified'] == 1){
                         echo "</tr>";
                     }
 
-                    if ($ref['Reference'][$i-1]['Capacite à sorganiser'] == 1){
+                    if ($ref['Reference'][$i-1]['Capacite a sorganiser'] == 1){
                         echo "<tr>";
                             echo "<td class=reponse>";
                             echo "<img src=checkmark.png height=12>";
@@ -365,8 +370,9 @@ if($_COOKIE['verified'] == 1){
             function CV(){
                 document.location.href="CV.php";
             }
-            function EnvoieR(){
-
+            function ModifR(a){
+                
+                document.location.href="ModifRef.php";
             }
             function EnvoieC(){
                 document.location.href="EnvoieConsul.php";
@@ -382,7 +388,6 @@ if($_COOKIE['verified'] == 1){
                 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xhr.send("a=" + escape(a) +"& b=1");
                 document.location.href="References.php";
-            
             }
         </script>
     </body>

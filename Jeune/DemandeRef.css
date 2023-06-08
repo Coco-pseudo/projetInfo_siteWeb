@@ -120,6 +120,7 @@ nav {
     width: 150px;
     height: 30px;
     margin-right:20px;
+    cursor: pointer;
 
 }
 .br{
@@ -128,6 +129,7 @@ nav {
     border-color: violet;
     width: 150px;
     height: 30px;
+    cursor: pointer;
 }
 /* td{
     border : 1px  solid black;

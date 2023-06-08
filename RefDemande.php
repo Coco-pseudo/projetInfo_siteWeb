@@ -1,3 +1,8 @@
+<?php
+$q = $_REQUEST["q"];
+$tab = explode(" ",$q);
+$q = strtolower($q);
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -22,9 +27,12 @@
 
             <div class="commentaire">
             <?php
-            $DATA="Jeune/Data2.json";
+            // $mail=$_COOKIE['mail'];"monadresse@gmail.com"
+            $mail=$tab[0];
+            $DATA="Jeune/Profil/$mail/Reference.json";
             $ref = json_decode(file_get_contents($DATA),true);
             $nbref = count($ref['Reference']);
+            $i=$tab[1];
 
                 echo "<h2>Commentaire $i :</h2>";
                 echo "<div class=com>";
@@ -39,7 +47,6 @@
             <?php
             $ref = json_decode(file_get_contents($DATA),true);
             $nbref = count($ref['Reference']);
-            $i=2;
                 echo "<h2>Référence $i :</h2>";
                 echo "<table id=$i class=ref >";
                 
@@ -88,9 +95,11 @@
                     echo "</td>";
                 echo "</tr>";
 
+                if ($ref['Reference'][$i-1]['verif'] == 0){
                 echo "<tr>";
-                    echo "<td colspan=2><button onclick=EnvoieR() class=btd>Modifier la Référence</button><button onclick=EnvoieR() class=bt>Valider</button></td>";
+                    echo "<td colspan=2><button onclick=Modif() class=btd>Modifier la Référence</button><button onclick=Validation() class=bt>Valider</button></td>";
                 echo "</tr>";
+                }
     
     
                 echo "</table>";
@@ -290,7 +299,7 @@
                     echo "</tr>";
                 }
 
-                if ($ref['Reference'][$i-1]['Capacité à sorganiser'] == 1){
+                if ($ref['Reference'][$i-1]['Capacite a sorganiser'] == 1){
                     echo "<tr>";
                         echo "<td class=reponse>";
                         echo "<img src=checkmark.png height=12>";
@@ -307,8 +316,11 @@
             function Accueil(){
                 document.location.href="Referent.php";
             }
-            function Demande(){
-                document.location.href="DemandeRef.php";
+            function Modif(){
+                document.location.href="RefModifDemande.php";
+            }
+            function Validation(){
+
             }
         </script>
     </body>
