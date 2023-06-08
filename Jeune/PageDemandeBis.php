@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <?php
+<<<<<<< HEAD
 $mail=$_COOKIE['mail'];
 $DATA="Profil/$mail/Reference.json";
+=======
+    $mail=$_COOKIE['mail'];
+    $DATA="Profil/$mail/Reference.json";
+>>>>>>> Coco
 ?>
 <html>
 <body>
@@ -127,7 +132,11 @@ function Tab($nomFichier,$Description,$Durée,$milieu,$nomRef,$prenomRef,$EmailR
         $i=0;
         $tmp=str_replace("[","  ",$str);
         $new=str_replace("]"," ",$tmp);
+<<<<<<< HEAD
         $new[17]="[ ";
+=======
+        $new[15]="[ ";
+>>>>>>> Coco
         $new[strlen($new)-2]="] ";
     
     

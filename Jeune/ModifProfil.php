@@ -40,6 +40,7 @@ $DATA='Profil/'.$mail.'/Profil.json';
             $email=$ref['Profil'][0]['Mail'];
         ?>
 
+<<<<<<< HEAD
         
         <div class='formulaires'>
             <table  class='prfl'>
@@ -62,16 +63,44 @@ $DATA='Profil/'.$mail.'/Profil.json';
             </table>
         </div>
         
+=======
+        <form>
+            <div class='formulaires'>
+                <table  class='prfl'>
+                    <tr>
+                        <td>Nom</td>
+                        <td><input type='text' name='Nom' id="Nom" value="<?php echo $nom; ?>"required></input></td>
+                    </tr>
+                    <tr>
+                        <td>Prenom</td>
+                        <td><input type='text' name='Prenom' id="Prenom" value="<?php echo $prenom; ?>"required></input></td>
+                    </tr>
+                    <tr>
+                        <td>Date de naissance</td>
+                        <td><input type='date' name='date' id="Date" value="<?php echo $date; ?>"required></input></td>
+                    </tr>
+                    <!--<tr><td>Email</td><td><input type='text' name='Email' id="Email" value="<?php //echo $email; ?>"required></input> </td></tr>-->
+                    <tr >
+                        <td colspan=2><button onclick=EnvoiModif() class='boutons'>Modifier</button> <button type='reset' class='boutons'>Supprimer</button></td>
+                    </tr>  
+                </table>
+            </div>
+        </form>
+>>>>>>> Coco
         <script>
             function Accueil(){
                 document.location.href="../Visiteur.php";
             }
             function EnvoiModif(){
+<<<<<<< HEAD
 
+=======
+>>>>>>> Coco
                 var nom = document.getElementById("Nom").value;
                 var prenom = document.getElementById("Prenom").value;
                 var date = document.getElementById("Date").value;
                 //var email = document.getElementById("Email").value;
+<<<<<<< HEAD
                 if (nom== '' || prenom ==''){
                    alert("Merci de remplir tout les champs");
                 }else{
@@ -82,6 +111,16 @@ $DATA='Profil/'.$mail.'/Profil.json';
                     document.location.href="Jeune.php";
                     alert("modification enregistrée");
                 }
+=======
+                
+                
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", "AlgoModifRef.php", true);
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xhr.send("b=5"+"& nom="+escape(nom)+"& prenom="+escape(prenom)+"& date="+escape(date));
+                document.location.href="Jeune.php";
+                alert("modification enregistrée");
+>>>>>>> Coco
             }
         </script>
     </body>
