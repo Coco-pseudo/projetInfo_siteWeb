@@ -47,7 +47,15 @@
                     }
                 }
             }
-            var_dump($RefV);exit();
+            if($nbref ==0){
+                echo("vous n'avez pas de reference validé non archivé");
+            }else{
+                echo("<p> Veuillez selectionner les références que vous souhaitez imprimer </p>");
+                echo("<input type='checkbox' name='selection' onclick='Selection()'><label for'selection'> tout selectionner</label><br>");
+                for($i = 0; $i<$nbref; $i++){
+                    echo("<input type='checkbox' class=''");
+                }
+            }
             ?>
         </form>
         </div>
@@ -55,14 +63,14 @@
             function Accueil(){
                 document.location.href="../Visiteur.php";
             }
-            function generatePDF(){
+            /*function generatePDF(){
                 // Utiliser une bibliothèque JavaScript pour convertir le HTML en PDF
                 // Par exemple, vous pouvez utiliser jsPDF ou html2pdf
                 // Voici un exemple avec jsPDF :
                 var pdf = new jsPDF();
                 pdf.fromHTML(document.body, 15, 15);
                 pdf.save('output.pdf');
-            }
+            }*/
         </script>
     </body>
 </html>

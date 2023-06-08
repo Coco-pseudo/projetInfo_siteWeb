@@ -71,14 +71,16 @@ $DATA='Profil/'.$mail.'/Profil.json';
                 var prenom = document.getElementById("Prenom").value;
                 var date = document.getElementById("Date").value;
                 //var email = document.getElementById("Email").value;
-                
-                
-                var xhr = new XMLHttpRequest();
-                xhr.open("POST", "AlgoModifRef.php", true);
-                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                xhr.send("b=5"+"& nom="+escape(nom)+"& prenom="+escape(prenom)+"& date="+escape(date));
-                document.location.href="Jeune.php";
-                alert("modification enregistrée");
+                if (nom== '' || prenom ==''){
+                   alert("Merci de remplir tout les champs");
+                }else{
+                    var xhr = new XMLHttpRequest();
+                    xhr.open("POST", "AlgoModifRef.php", true);
+                    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                    xhr.send("b=5"+"& nom="+escape(nom)+"& prenom="+escape(prenom)+"& date="+escape(date));
+                    document.location.href="Jeune.php";
+                    alert("modification enregistrée");
+                }
             }
         </script>
     </body>
