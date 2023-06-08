@@ -127,7 +127,7 @@ function Tab($nomFichier,$Description,$Durée,$milieu,$nomRef,$prenomRef,$EmailR
         $i=0;
         $tmp=str_replace("[","  ",$str);
         $new=str_replace("]"," ",$tmp);
-        $new[15]="[ ";
+        $new[17]="[ ";
         $new[strlen($new)-2]="] ";
     
     

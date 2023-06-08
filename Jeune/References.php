@@ -6,6 +6,8 @@ if($_COOKIE['verified'] == 1){
     setcookie('destination','Jeune/References.php',time()+3600);
     header('Location: ../Connexion.php');
 }
+$mail=$_COOKIE['mail'];
+$DATA="Profil/$mail/Reference.json";
 ?>
 <!DOCTYPE html>
 <html>
@@ -32,8 +34,7 @@ if($_COOKIE['verified'] == 1){
 
             <div class="commentaire">
             <?php
-            $mail=$_COOKIE['mail'];
-            $DATA="Profil/$mail/Reference.json";
+            
             $ref = json_decode(file_get_contents($DATA),true);
             $nbref = count($ref['Reference']);
 
@@ -116,11 +117,7 @@ if($_COOKIE['verified'] == 1){
                     echo "</tr>";
 
                     echo "<tr>";
-                    echo "<td colspan=2>";
-                    if ($ref['Reference'][$i-1]['verif'] == 0){
-                    echo "<button onclick=ModifR($i) class=bt>Modifier la Référence</button><button onclick=EnvoieR() class=bt>Envoie au Référent</button>";
-                    }
-                    echo"<button onclick=Archiver($i) class=bt>Archiver</button></td>";
+                    echo "<td colspan=2><button onclick=ModifRef($i) class=bt>Modifier la Référence</button><button onclick=EnvoieR() class=bt>Envoie au Référent</button><button onclick=Archiver($i) class=bt>Archiver</button></td>";
                     echo "</tr>";
         
         
@@ -329,7 +326,7 @@ if($_COOKIE['verified'] == 1){
                         echo "</tr>";
                     }
 
-                    if ($ref['Reference'][$i-1]['Capacite a sorganiser'] == 1){
+                    if ($ref['Reference'][$i-1]['Capacite à sorganiser'] == 1){
                         echo "<tr>";
                             echo "<td class=reponse>";
                             echo "<img src=checkmark.png height=12>";
@@ -370,9 +367,20 @@ if($_COOKIE['verified'] == 1){
             function CV(){
                 document.location.href="CV.php";
             }
-            function ModifR(a){
+            function ModifRef(a){
+                alert("Modification de la Réference n°"+a);
+
+
+                //creation de cookie pour savoir quelle reference modifier(laquelle afficher sur la page suivante)
                 
-                document.location.href="ModifRef.php";
+                document.cookie="Reference = "+a;
+
+                //passage vers la page avec le nouveau 'formulaire'
+
+                document.location.href="ModifRef.php"
+            }
+            function EnvoieR(){
+
             }
             function EnvoieC(){
                 document.location.href="EnvoieConsul.php";
@@ -388,6 +396,7 @@ if($_COOKIE['verified'] == 1){
                 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xhr.send("a=" + escape(a) +"& b=1");
                 document.location.href="References.php";
+            
             }
         </script>
     </body>
