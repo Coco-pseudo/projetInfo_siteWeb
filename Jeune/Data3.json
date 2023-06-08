@@ -1,18 +1,8 @@
-<<<<<<< HEAD
 { "Profil": [
     {
         "Nom": "Androny",
         "Prenom": "Aigrisllaume",
-        "Date": "1/04/2003",
-        "EmailRef": "lafilledelasalopedu78@gmail.com"
-    }
-=======
-{ "Profil": [
-    {
-        "Nom": "Androny",
-        "Prenom": "Aigrisllaume",
-        "Date": "1/04/2003",
+        "Date": "2003-01-14",
         "Mail": "lafilledelasalopedu78@gmail.com"
     }
->>>>>>> Coco
 ] }

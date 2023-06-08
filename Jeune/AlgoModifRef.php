@@ -1,31 +1,22 @@
 <?php
 //----------------------
-<<<<<<< HEAD
 //b:mode
 //a:numero de reference a traiter
 //
-=======
->>>>>>> Coco
 //---Variables--------------
 //----------------------
 $mail=$_COOKIE['mail'];
 $Data="Profil/$mail/Reference.json";
 $Data2="Profil/$mail/Profil.json";
-<<<<<<< HEAD
 
 $i=$_POST['a'];
 $mode=$_POST['b'];
 
-=======
-$i=$_POST['a'];
-$mode=$_POST['b'];
->>>>>>> Coco
 $nom1=$_POST['nom'];
 $prenom1=$_POST['prenom'];
 $date1=$_POST['date'];
 //$email=$_POST['email'];
 
-<<<<<<< HEAD
 $description=$_POST["Description"];
 $duree=$_POST["duree"];
 $milieu=$_POST['milieu'];
@@ -54,8 +45,6 @@ $SavoirFaire[6]=$_POST["Organiseruneconference"];
 $SavoirFaire[7]=$_POST["Concevoiruneformation"];
 $SavoirFaire[8]=$_POST["Trierdesdonnees"];
 $SavoirFaire[9]=$_POST["Capaciteàsorganiser"];
-=======
->>>>>>> Coco
 /*
 différents modes:
 1 => Archivage
@@ -149,7 +138,6 @@ function EditProfil($Data2,$nom,$prenom,$date){
     }
 }
 
-<<<<<<< HEAD
 function EditRef($Data,$i,$description,$duree,$milieu,$nomRef,$prenomRef,$EmailRef,$SavoirEtre,$SavoirFaire){
     $old=json_decode(file_get_contents($Data),true);
     if(empty($old)){
@@ -190,10 +178,6 @@ function EditRef($Data,$i,$description,$duree,$milieu,$nomRef,$prenomRef,$EmailR
         file_put_contents($Data,$chaine);
 
     }
-=======
-function EditRef(){
-    
->>>>>>> Coco
 }
 //-----------------------
 //---Execution------------
@@ -219,11 +203,7 @@ switch ($mode){
         EditProfil($Data2,$nom,$prenom,$date);
         break;
     case 6 : 
-<<<<<<< HEAD
         EditRef($Data,$i,$description,$duree,$milieu,$nomRef,$prenomRef,$EmailRef,$SavoirEtre,$SavoirFaire);
-=======
-        EditRef();
->>>>>>> Coco
         break;
     default  :
         exit();
