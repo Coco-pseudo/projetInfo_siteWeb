@@ -67,11 +67,14 @@
             </form>
                 
             <div id="answer"><?php 
-            if($_COOKIE['erreur']!= null){
-                echo($_COOKIE['erreur']);
-                setcookie('erreur');
-                unset($_COOKIE['erreur']);
+            if(count($_COOKIE) == 1){
+               if($_COOKIE['erreur']!= null){
+                    echo($_COOKIE['erreur']);
+                    setcookie('erreur');
+                    unset($_COOKIE['erreur']);
+                } 
             }
+            
             ?></div>
         </div>
         <script>
