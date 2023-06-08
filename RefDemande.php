@@ -1,7 +1,5 @@
 <?php
-$q = $_REQUEST["q"];
-$tab = explode(" ",$q);
-$q = strtolower($q);
+    session_start();
 ?>
 <!DOCTYPE html>
 <html>
@@ -19,7 +17,7 @@ $q = strtolower($q);
     <body>
         <nav>
             <ul class="nav-links">
-                <li><a href="RefJeune.php" class="color1">Profil</a></li>
+                <li><a href="RefJeune.php" class="color1">Profil du Jeune</a></li>
                 <li><a href="RefDemande.php" class="color2">Sa demande de Référence</a></li>
             </ul>
         </nav>
@@ -27,11 +25,10 @@ $q = strtolower($q);
 
             <div class="commentaire">
             <?php
-            // $mail=$_COOKIE['mail'];"monadresse@gmail.com"
+            $tab=$_SESSION["dataR"];
             $mail=$tab[0];
             $DATA="Jeune/Profil/$mail/Reference.json";
             $ref = json_decode(file_get_contents($DATA),true);
-            $nbref = count($ref['Reference']);
             $i=$tab[1];
 
                 echo "<h2>Commentaire $i :</h2>";
@@ -95,12 +92,9 @@ $q = strtolower($q);
                     echo "</td>";
                 echo "</tr>";
 
-                if ($ref['Reference'][$i-1]['verif'] == 0){
                 echo "<tr>";
                     echo "<td colspan=2><button onclick=Modif() class=btd>Modifier la Référence</button><button onclick=Validation() class=bt>Valider</button></td>";
                 echo "</tr>";
-                }
-    
     
                 echo "</table>";
             ?>
