@@ -17,3 +17,4 @@ jpp@pitie mdp J
 dernier@test mdp J
 jr@mailpro.com mdp J
 max@mail mdp J
+bob@mail aventurier J
