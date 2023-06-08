@@ -21,15 +21,35 @@
         </nav>
         <div class="cv">
         <?php
+        
         // Lire le fichier JSON
-        $cv = json_decode(file_get_contents('Data2.json'),true);
+        //$cv = json_decode(file_get_contents('Data2.json'),true);
         // Écrire le HTML dans un fichier temporaire
         // $tempFile = 'temp.html';
         // file_put_contents($tempFile, $html);
 
         // Rediriger vers la page HTML
-        // header("Location: $tempFile");
+        // header("Location: $tempFile");exit();
         ?>
+        <!-- création d'un pdf recapitulant les references validés du jeune -->
+        <form method='POST' action='CVpdf.php'>
+            <?php
+            $mail = "270jluismetmongrosdoigtdpied@yahoo.fr";//$_COOKIE['mail'];
+            $DATA = json_decode(file_get_contents("Profil/$mail/Reference.json"),true);
+            $nbref = count($DATA['Reference']);
+            $nbRefValide = 0;
+            $RefV = array();
+            for($i = 0; $i<$nbref; $i++){
+                if($DATA['Reference'][$i]["verif"] == 1){
+                    if($DATA['Reference'][$i]["archiver"] == 0){
+                        $nbref++;
+                        array_push($RefV,$DATA['Reference'][$i]);
+                    }
+                }
+            }
+            var_dump($RefV);exit();
+            ?>
+        </form>
         </div>
         <script>
             function Accueil(){
