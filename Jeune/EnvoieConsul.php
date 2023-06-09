@@ -39,7 +39,7 @@ if($_COOKIE['verified'] == 1){
 
                 for ($i = 1; $i <= $nbref; $i++) {
                     if ($ref['Reference'][$i-1]['archiver'] == 0){
-                        if ($ref['Reference'][$i-1]['verif'] == 1){
+                        if ($ref['Reference'][$i-1]['verif'] == 2){
                             echo "<h2>Commentaire $i :</h2>";
                             echo "<div class=com>";
                                 if ($ref['Reference'][$i-1]['Commentaire'] != ""){
@@ -59,7 +59,7 @@ if($_COOKIE['verified'] == 1){
                 
                 for ($i = 1; $i <= $nbref; $i++) { // Boucle pour créer les tableaux
                     if ($ref['Reference'][$i-1]['archiver'] == 0){
-                        if ($ref['Reference'][$i-1]['verif'] == 1){
+                        if ($ref['Reference'][$i-1]['verif'] == 2){
 
                             echo "<h2>";
                             echo "<img src=checkmark.png height=14>Référence $i validé :";
@@ -136,7 +136,7 @@ if($_COOKIE['verified'] == 1){
                 
                 for ($i = 1; $i <= $nbref; $i++) { // Boucle pour créer les tableaux de savoir-être
                     if ($ref['Reference'][$i-1]['archiver'] == 0){
-                        if ($ref['Reference'][$i-1]['verif'] == 1){
+                        if ($ref['Reference'][$i-1]['verif'] == 2){
                             echo "<h2>Savoirs-être $i :</h2>";
                             echo "<table id=$i class=sve >";
                             
@@ -245,7 +245,7 @@ if($_COOKIE['verified'] == 1){
                 
                 for ($i = 1; $i <= $nbref; $i++) { // Boucle pour créer les tableaux de savoir-faire
                     if ($ref['Reference'][$i-1]['archiver'] == 0){
-                        if ($ref['Reference'][$i-1]['verif'] == 1){
+                        if ($ref['Reference'][$i-1]['verif'] == 2){
                             echo "<h2>Savoirs-faire $i :</h2>";
                             echo "<table id=$i class=svf >";
                             
