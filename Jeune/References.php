@@ -405,10 +405,13 @@ $DATA="Profil/$mail/Reference.json";
                 xhr.open("POST", "AlgoModifRef.php", true);
                 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xhr.send("a=" + escape(a) +"& b=3");
-                document.location.href="References.php";
-              
-                setcookie("numero",a,time()+3600);
+
                 document.location.href="MailRef.php";
+                document.cookie="numero = "+a ;
+                
+
+
+
                 //code pour mail fonctionnel
                 /*var Ajax = new XMLHttpRequest();
                 Ajax.open("POST", "MailRef.php", true);

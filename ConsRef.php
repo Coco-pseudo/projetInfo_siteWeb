@@ -1,5 +1,7 @@
 <?php
-    session_start();
+    session_start();            
+    $tab=$_SESSION["dataC"];
+    $mail=$tab[0];
 ?>
 <!DOCTYPE html>
 <html>
@@ -25,8 +27,7 @@
 
             <div class="commentaire">
             <?php
-            $tab=$_SESSION["dataC"];
-            $mail=$tab[0];
+
             $DATA="Jeune/Profil/$mail/Reference.json";
             $ref = json_decode(file_get_contents($DATA),true);
             $nbref = count($tab)-1;
