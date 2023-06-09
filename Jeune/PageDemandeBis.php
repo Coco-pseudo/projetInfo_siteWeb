@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
-    $mail=$_COOKIE['mail'];
-    $DATA="Profil/$mail/Reference.json";
+$mail=$_COOKIE['mail'];
+$DATA="Profil/$mail/Reference.json";
 ?>
 <html>
 <body>

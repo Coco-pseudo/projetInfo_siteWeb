@@ -40,28 +40,28 @@ $DATA='Profil/'.$mail.'/Profil.json';
             $email=$ref['Profil'][0]['Mail'];
         ?>
 
-        <form>
-            <div class='formulaires'>
-                <table  class='prfl'>
-                    <tr>
-                        <td>Nom</td>
-                        <td><input type='text' name='Nom' id="Nom" value="<?php echo $nom; ?>"required></input></td>
-                    </tr>
-                    <tr>
-                        <td>Prenom</td>
-                        <td><input type='text' name='Prenom' id="Prenom" value="<?php echo $prenom; ?>"required></input></td>
-                    </tr>
-                    <tr>
-                        <td>Date de naissance</td>
-                        <td><input type='date' name='date' id="Date" value="<?php echo $date; ?>"required></input></td>
-                    </tr>
-                    <!--<tr><td>Email</td><td><input type='text' name='Email' id="Email" value="<?php //echo $email; ?>"required></input> </td></tr>-->
-                    <tr >
-                        <td colspan=2><button onclick=EnvoiModif() class='boutons'>Modifier</button> <button type='reset' class='boutons'>Supprimer</button></td>
-                    </tr>  
-                </table>
-            </div>
-        </form>
+        
+        <div class='formulaires'>
+            <table  class='prfl'>
+                <tr>
+                    <td>Nom</td>
+                    <td><input type='text' name='Nom' id="Nom" value="<?php echo $nom; ?>" ></input></td>
+                </tr>
+                <tr>
+                    <td>Prenom</td>
+                    <td><input type='text' name='Prenom' id="Prenom" value="<?php echo $prenom; ?>"></input></td>
+                </tr>
+                <tr>
+                    <td>Date de naissance</td>
+                    <td><input type='date' name='date' id="Date" value="<?php echo $date; ?>"></input></td>
+                </tr>
+                <!--<tr><td>Email</td><td><input type='text' name='Email' id="Email" value="<?php //echo $email; ?>"required></input> </td></tr>-->
+                <tr >
+                    <td colspan=2><button onclick=EnvoiModif() class='boutons'>Modifier</button> <button type='reset' class='boutons'>Supprimer</button></td>
+                </tr>  
+            </table>
+        </div>
+        
         <script>
             function Accueil(){
                 document.location.href="../Visiteur.php";
