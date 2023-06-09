@@ -1,3 +1,13 @@
+<?php
+session_start();
+$q = $_REQUEST["q"];
+$q = strtolower($q);
+$tab = explode(" ",$q);
+if (isset($_SESSION["dataR"])==false){
+    $_SESSION["dataR"]=$tab;
+}
+?>
+
 <!DOCTYPE html>
 <html>
     <head>

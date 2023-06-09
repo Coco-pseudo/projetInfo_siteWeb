@@ -2,7 +2,7 @@
 if($_COOKIE['verified'] == 1){
     setcookie('verified','',1);
 }else{
-    setcookie('destination','/Jeune/DemandeRef.php',time()+3600);
+    setcookie('destination','/Jeune/ModifRef.php',time()+3600);
     header('Location: ../Connexion.php');
 }
 $mail=$_COOKIE['mail'];
