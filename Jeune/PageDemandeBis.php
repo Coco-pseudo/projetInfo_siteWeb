@@ -1,116 +1,31 @@
 <!DOCTYPE html>
-
+<?php
+    $mail=$_COOKIE['mail'];
+    $DATA="Profil/$mail/Reference.json";
+?>
 <html>
-<style>
-    td{
-        border : 1px  solid black;
-        align-items: center;
-    }
-    table{
-        background-color: white;
-    }
-
-</style>
-
 <body>
-<table align="center" >
-        <legend>Récapitulatif</legend>
-
-        <tr>
-            <td>Description de l'engagement</td>
-            <td id="0Description"> </td>
-        </tr>
-        <tr>
-            <td>Durée</td>
-            <td id="0Duree"> </td>
-        </tr>
-        <tr>
-            <td>milieu</td>
-            <td id="0milieu"> </td>
-        </tr>
-        <tr>
-            <td>nomRef</td>
-            <td id="0nomRef"> </td>
-        </tr>
-        <tr>
-            <td>prenomRef</td>
-            <td id="0prenomRef"> </td>
-        </tr>
-        <tr>
-            <td>EmailRef</td>
-            <td id="0EmailRef"> </td>
-        </tr>
-
-    </table>
-    <table align="center" >
-        <legend>Récapitulatif</legend>
-
-        <tr>
-            <td>Description de l'engagement</td>
-            <td id="1Description"> </td>
-        </tr>
-        <tr>
-            <td>Durée</td>
-            <td id="1Duree"> </td>
-        </tr>
-        <tr>
-            <td>milieu</td>
-            <td id="1milieu"> </td>
-        </tr>
-        <tr>
-            <td>nomRef</td>
-            <td id="1nomRef"> </td>
-        </tr>
-        <tr>
-            <td>prenomRef</td>
-            <td id="1prenomRef"> </td>
-        </tr>
-        <tr>
-            <td>EmailRef</td>
-            <td id="1EmailRef"> </td>
-        </tr>
-
-    </table>
-    <table align="center" >
-        <legend>Récapitulatif</legend>
-
-        <tr>
-            <td>Description de l'engagement</td>
-            <td id="2Description"> </td>
-        </tr>
-        <tr>
-            <td>Durée</td>
-            <td id="2Duree"> </td>
-        </tr>
-        <tr>
-            <td>milieu</td>
-            <td id="2milieu"> </td>
-        </tr>
-        <tr>
-            <td>nomRef</td>
-            <td id="2nomRef"> </td>
-        </tr>
-        <tr>
-            <td>prenomRef</td>
-            <td id="2prenomRef"> </td>
-        </tr>
-        <tr>
-            <td>EmailRef</td>
-            <td id="2EmailRef"> </td>
-        </tr>
-
-    </table>
 
 
 
 <?php
 //champ standard
-$Description = $_POST["Description"];
-$Durée = $_POST["Durée"];
-$milieu = $_POST["milieu"];
-$nomRef = $_POST["nomRef"];
-$prenomRef = $_POST["prenomRef"];
-$EmailRef = $_POST["EmailRef"];
+$Description1 = $_POST["Description"];
+$Durée1 = $_POST["Durée"];
+$milieu1 = $_POST["milieu"];
+$nomRef1 = $_POST["nomRef"];
+$prenomRef1 = $_POST["prenomRef"];
+$EmailRef1 = $_POST["EmailRef"];
+
+
+//verif pas de probleme avec la chaine (<,$)
+$Description=VerifChamp($Description1);
+$Durée=VerifChamp($Durée1);
+$milieu=VerifChamp($milieu1);
+$nomRef=VerifChamp($nomRef1);
+$prenomRef=VerifChamp($prenomRef1);
+$EmailRef=VerifChamp($EmailRef1);
+
 
 //Savoir-Etre
 
@@ -176,6 +91,19 @@ $Ref = array(
 );
 
 
+if($test==1){
+    Tab($DATA,$Description,$Durée,$milieu,$nomRef,$prenomRef,$EmailRef,$SavoirEtre,$SavoirFaire);
+}
+
+header("Location: References.php");
+
+
+//------------------------debut fonction-----------------------
+function VerifChamp($str){ //corrige la chaine recu depuis le formulaire
+    $tmp=str_replace("<","",$str); // retirer les "<" pour empecher d'ecrire dans le script js
+    $chaine=str_replace("$","\$ ",$tmp); //enlever les $ pour eviter les erreurs dans le php
+    return($chaine);
+}
 
 function Tab($nomFichier,$Description,$Durée,$milieu,$nomRef,$prenomRef,$EmailRef,$SavoirEtre,$SavoirFaire){
     $old=file_get_contents($nomFichier);
@@ -199,7 +127,7 @@ function Tab($nomFichier,$Description,$Durée,$milieu,$nomRef,$prenomRef,$EmailR
         $i=0;
         $tmp=str_replace("[","  ",$str);
         $new=str_replace("]"," ",$tmp);
-        $new[15]="[ ";
+        $new[17]="[ ";
         $new[strlen($new)-2]="] ";
     
     
@@ -226,14 +154,8 @@ function convert($str){
     return $chaine.$str[strlen($str)-1];
 }
 
+//------------------------fin fonction-----------------------
 
-
-
-if($test==1){
-    Tab("Data2.json",$Description,$Durée,$milieu,$nomRef,$prenomRef,$EmailRef,$SavoirEtre,$SavoirFaire);
-}
-
-header("Location: References.php");
 
 
 
@@ -241,48 +163,5 @@ header("Location: References.php");
 ?>
 
 
-
-<script>
-
-var xhttp = new XMLHttpRequest();
-//var a =0;
-var i=0;
-function RecapRef(id){      //impossible de faire la modificaion de plusieurs tableaux successivement
-    for(i=0;i<=id;i++){
-        xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            var reponse = JSON.parse(xhttp.responseText);
-            var txt="";
-            i--;
-            txt=reponse.Reference[i].Description;alert(i);
-            document.getElementById(i+"Description").innerHTML = txt;
-
-            txt=reponse.Reference[i].Duree;
-            document.getElementById(i+"Duree").innerHTML = txt;
-
-            txt=reponse.Reference[i].milieu;
-            document.getElementById(i+"milieu").innerHTML = txt;
-
-            txt=reponse.Reference[i].nomRef;
-            document.getElementById(i+"nomRef").innerHTML = txt;
-
-            txt=reponse.Reference[i].prenomRef;
-            document.getElementById(i+"prenomRef").innerHTML = txt;
-
-            txt=reponse.Reference[i].EmailRef;
-            document.getElementById(i+"EmailRef").innerHTML = txt;
-
-
-            
-        }
-        }
-        xhttp.open("GET","Data2.0.json", true);
-        xhttp.send();
-    }
-}
-RecapRef("1");
-//RecapRef("1");
-//RecapRef("2");
-</script>
 </body>
 </html>

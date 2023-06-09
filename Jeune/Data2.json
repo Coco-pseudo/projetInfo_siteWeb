@@ -28,7 +28,11 @@
             "Trier des donnees": 1,
             "Capacite a sorganiser": 0,
             "verif": 1,
+<<<<<<< HEAD
             "archiver": 1
+=======
+            "archiver": 0
+>>>>>>> Coco
         },
         {
             "Description": "Etre une pute comme le mec du dessus",

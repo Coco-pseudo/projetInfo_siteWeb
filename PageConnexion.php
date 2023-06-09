@@ -56,8 +56,8 @@
                         <td colspan="2" id="FullRow">inscription?</td>
                     </tr>
                     <tr>
-                        <td><label for="oui">oui</label><input type="radio" name="indice" value="1" onclick="visible()"></td>
-                        <td><label for="non">non</label><input type="radio" name="indice" value="0" checked onclick="invisible()"></td>
+                        <td><label for="1">oui</label><input type="radio" name="indice" value="1" onclick="visible()"></td>
+                        <td><label for="0">non</label><input type="radio" name="indice" value="0" checked onclick="invisible()"></td>
                     </tr>
                     <tr>
                         <td><button type="submit">Connexion</button></td>
@@ -67,12 +67,15 @@
             </form>
                 
             <div id="answer"><?php 
-            if(count($_COOKIE) == 1){
-               if($_COOKIE['erreur']!= null){
-                    echo($_COOKIE['erreur']);
-                    setcookie('erreur');
-                    unset($_COOKIE['erreur']);
-                } 
+            
+            
+            
+            
+            if(/*count($_COOKIE) == 1*/isset($_COOKIE['erreur'])){
+            //if($_COOKIE['erreur']!= null){
+                echo($_COOKIE['erreur']);
+                setcookie('erreur');
+                unset($_COOKIE['erreur']);
             }
             
             ?></div>

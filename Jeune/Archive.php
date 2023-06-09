@@ -5,6 +5,8 @@ if($_COOKIE['verified'] == 1){
     setcookie('destination','Jeune/Archive.php',time()+3600);
     header('Location: ../Connexion.php');
 }
+$mail=$_COOKIE['mail'];
+$DATA="Profil/$mail/Reference.json";
 ?>
 <!DOCTYPE html>
 <html>
@@ -31,7 +33,7 @@ if($_COOKIE['verified'] == 1){
 
             <div class="commentaire">
             <?php
-            $DATA="Data2.json";
+            
             $ref = json_decode(file_get_contents($DATA),true);
             $nbref = count($ref['Reference']);
 

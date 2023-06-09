@@ -66,3 +66,38 @@ nav {
 .color3 {
     color: red;
 }
+
+.formulaires {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;  
+    top: 490px;
+    height: auto;
+    width:auto;
+    margin: 250px auto 50px;
+}
+
+.prfl{
+    border-style: solid;
+    border-color: violet;
+    background: linear-gradient(to right,#e769e7, rgb(255, 255, 255));
+    border-collapse: collapse;
+    width: 500px;
+    height: 85%;
+    overflow-inline: auto;
+    overflow-wrap: break-word;
+}
+.boutons {
+    background: white;
+    border-style: solid;
+    border-color: violet;
+    width: 30%;
+    height: 40px;
+    margin-right:42px;
+    margin-left:42px;
+    cursor: pointer;
+}
+
+td {
+    padding: 15px;
+}
