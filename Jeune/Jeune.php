@@ -2,15 +2,10 @@
 if($_COOKIE['verified'] == 1){
     setcookie('verified');
     unset($_COOKIE["verified"]);
-    /*setcookie('destination');
-    unset($_COOKIE['destination']);*/
-    //var_dump($_COOKIE);exit();
 }else{
     setcookie('destination');
     setcookie('destination','/Jeune/Jeune.php',time()+3600);
-    //setcookie("blabla",test,time()+3600);
     header('Location: ../Connexion.php');exit();
-    //var_dump($_COOKIE);exit();
 }
 ?>
 <!DOCTYPE html>
