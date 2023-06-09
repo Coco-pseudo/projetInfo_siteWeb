@@ -11,11 +11,11 @@ $message ="<!DOCTYPE html>
     <body>
         <header>
             <h5>Bonjour</h5>
-            <p>ce mail automatique vous a été envoyé afin que vous deveniez référent pour un jeune sur le projet gouvernemental Jeunes 6.4</p>
+            <p>ce mail automatique vous a été envoyé afin que vous deveniez \nréférent pour un jeune sur le projet gouvernemental Jeunes 6.4</p>
         </header>
         <main>
-            <p>Un référent viens apporter de la crédibilité au jeune, sur la valeur de son dossier. Vous avez été contacté suite à la demande de $NomJeune $PrenomJeune</p>
-            <p>Cette demande de référence vise a certifier les qualités du jeune, de par votre propre expérience avec le jeune</p>
+            <p>Un référent viens apporter de la crédibilité au jeune, sur la \nvaleur de son dossier. Vous avez été contacté suite à la demande de \n$NomJeune $PrenomJeune</p>
+            <p>Cette demande de référence vise a certifier les qualités du \njeune, de par votre propre expérience avec le jeune</p>
             <a href=\"Test.php?q=$MailJeune+$NumRef\"> Lien pour accéder à la référence</a>
         </main>
         <footer>
@@ -24,7 +24,12 @@ $message ="<!DOCTYPE html>
         </footer>
     </body>
 </html>";
-echo $message;
-//mail("corentin.guedes@gmail.com","Test mail Projet",$message);
+//echo $message;
+$test = mail("guedescore@cy-tech.fr","Test mail Projet",$message,"From: corentin.guedes@gmail.com"."\r\n".'Content-type: text/html');
+if($test){
+    echo("mail envoyé");
+}else {
+    echo("erreur dans l'envoi");
+}
 
 ?>
