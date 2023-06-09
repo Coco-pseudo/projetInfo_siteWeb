@@ -2,36 +2,11 @@
 
 
 
-//partie pour test
-
-/*setcookie('mail');
-setcookie('mdp');
-setcookie('verified');
-unset($_COOKIE["verified"]);
-setcookie('destination');
-unset($_COOKIE['destination']);
-unset($_COOKIE['mail']);
-unset($_COOKIE['mdp']);
-$_POST["mail"] = "mail1@mailbidon.com";
-$_POST["mdp"]= "mdp";
-$_POST["indice"] = "non";
-*/
-/*
-setcookie('mail','',1);
-setcookie('mdp','',1);
-unset($_COOKIE['mail']);
-unset($_COOKIE['mdp']);
-setcookie('mail', 'coco@mailbidon.com', time()+3600 );
-setcookie('mdp', 'mdp', time()+3600 );
-//echo ("valeur du cookie mail: ".$_COOKIE['mail']."<br>");
-//echo ("valeur du cookie mdp: ".$_COOKIE['mdp']."<br>");
-*/
 
 
 
 
 //pour rappel, les données sont dans l'ordre mail, mdp, indice avec indice qui vaut 1 si on l'inscrit, 0 sinon
-//$_POST['indice']="oui";
 $connexion = "PageConnexion.php";
 $fentree = fopen("ID.txt","r+");
 $res = "";
@@ -54,21 +29,17 @@ if($_COOKIE['mail'] == ""){
 if($entree[1] == ''){
     setcookie('erreur','merci de bien vouloir remplir le champ de mot de passe',$duree);
 }
-//echo $_COOKIE['mail']."<br>";
-//var_dump($entree);
-//echo("<br>");
 fscanf($fentree, "%s %s", $sortieAdmin, $sortieJeune); //prise de la premiere ligne contenant les urlse
 $entree[0] = strtolower($entree[0]);
 $test = 0;
 if($entree[2] == 0){ //on verifie l'utilisateur
-    //echo("pas d'inscription <br>");
     while(fscanf($fentree, "%s %s %s", $mail, $mdp, $type) == 3){
         if($entree[0] == $mail){
             $test = $test + 1;
             if($entree[1] == $mdp){
                 fclose($fentree);
-                if(is_dir("Jeune/Profil/$entree[0]/")){
-                    if(!file_exists("Jeune/Profil/$entree[0]/Profil.json")){
+                if(is_dir("Jeune/Profil/$entree[0]/") || $type == "A"){
+                    if(!file_exists("Jeune/Profil/$entree[0]/Profil.json") && $type != "A"){
                         setcookie("erreur","votre fichier de profil à été supprimé, merci de contacter un administrateur",$duree);
                         header("Location: $connexion");exit();
                     }
@@ -78,34 +49,26 @@ if($entree[2] == 0){ //on verifie l'utilisateur
                 }
                 
                 if($_COOKIE['mail'] == ""){ //pas de cookies de connexion
-                    //echo("pas de cookies <br>");
                     setcookie("mail",$mail,$duree);
                     setcookie("mdp",$mdp,$duree);
                     if($type== "A"){
-                        //echo("sortie admin");
                         setcookie('verified',2,$duree);
                         header("Location: $sortieAdmin");exit();
-                        //$res = $sortieAdmin;
                     }else{
-                        //echo("sortie Jeune");
                         setcookie('verified',1,$duree);
                         header("Location: $sortieJeune");exit();
-                        //$res = $sortieJeune;
                     }
                 }else{ //cookies de connexion
-                    //echo("cookies <br>");
                     if($type== "A"){ //profil admin
                         if($_COOKIE['destination'] != ''){
                             if($_COOKIE['destination'] == 'Co'){
                                 setcookie('destination');
                                 unset($_COOKIE['destination']);
                                 setcookie('verified',2,$duree);
-                                //echo("sortie admin <br>");
                                 header("Location: $sortieAdmin");exit();
                             }else{
                                 
                                 setcookie('verified',2,$duree); //verified = 2 ==> admin 
-                                //echo("sortie destination<br>");
                                 header("Location: $_COOKIE[destination]");
                                 setcookie('destination');
                                 unset($_COOKIE['destination']);
@@ -117,7 +80,6 @@ if($entree[2] == 0){ //on verifie l'utilisateur
                             setcookie('mdp','',1);
                             unset($_COOKIE['mail']);
                             unset($_COOKIE['mdp']);
-                            //echo("pas de destination sortie connexion <br>");
                             setcookie("erreur de redirection, temps alloué expiré"); 
                             header("Location: $connexion");exit();
                         }
@@ -127,10 +89,8 @@ if($entree[2] == 0){ //on verifie l'utilisateur
                                 setcookie('destination','',1);
                                 unset($_COOKIE['destination']);
                                 setcookie('verified',1,$duree);
-                                //echo("sortie jeune<br>");
                                 header("Location: $sortieJeune");exit();
                             }else{
-                                //echo("sortie destination");
                                 setcookie('verified',1,$duree); //verified = 1 ==> jeune 
                                 header("Location: $_COOKIE[destination]");
                                 setcookie('destination','',1);
@@ -143,8 +103,7 @@ if($entree[2] == 0){ //on verifie l'utilisateur
                             setcookie('mdp');
                             unset($_COOKIE['mail']);
                             unset($_COOKIE['mdp']);
-                            //echo("pas de destination sortie connexion <br>");
-                            setcookie("erreur de redirection, temps alloué expiré"); //peu probable que ça arrive :)
+                            setcookie("erreur de redirection, temps alloué expiré");
                             header("Location: $connexion");exit();
                         }
                     }
@@ -152,7 +111,6 @@ if($entree[2] == 0){ //on verifie l'utilisateur
                 
             }else{ //mdp ne correspond pas au mail
                 if($_COOKIE['mail'] != ""){
-                    //echo("cookies incorrects <br>");
                     setcookie("mail"); //suppression des cookies de connexion s'ils ne correspondent pas a un resultat
                     setcookie("mdp");
                     unset($_COOKIE['mail']);
@@ -160,20 +118,15 @@ if($entree[2] == 0){ //on verifie l'utilisateur
                 }
                 setcookie('erreur','mot de passe incorrect',$duree);
                 header("Location: $connexion");exit();
-                $res = 0;
-                //echo("erreur de mdp <br>");
             }
         }
     }
     if($test == 0){
         setcookie('erreur','mail incorrect',$duree);
         header("Location: $connexion");exit();
-        $res = 0; //aucune correspondance de mail lors de la boucle de parcours
-        
     }
 }else{
     if($entree[2] == 1){ //on inscrit l'utilisateur
-        //var_dump($_POST);exit();
         
         //tests des données d'entree de l'utilisateur
         $precision = "tout les champs sont requis pour procéder à votre inscription";
@@ -200,16 +153,12 @@ if($entree[2] == 0){ //on verifie l'utilisateur
         }
 
 
-        //echo("inscription <br>");
         while(fscanf($fentree,"%s %s %s", $mail, $mdp, $type) == 3){//boucle de verification que le mail n'est pas déjà présent
             if($entree[0] == $mail){
                 setcookie('erreur','votre mail fait déjà parti de la base de donnée',$duree);
                 header("Location: $connexion");exit();
-                $res = 0;
-                $test =1;
             }
         }
-        //echo("<br> $test <br>");
         if($test == 0){
             if(!is_dir("Jeune/Profil")){
                 mkdir("Jeune/Profil");
@@ -237,20 +186,10 @@ if($entree[2] == 0){ //on verifie l'utilisateur
             setcookie("mail",$entree[0],$duree);
             setcookie("mdp",$entree[1],$duree);
             setcookie("verified",1,$duree); 
-            //var_dump($_COOKIE);exit();
             header("Location: $sortieJeune");exit();
-            //echo("sortieJeune");
-            //$res = $sortieJeune;
         }
-    }else{ //cas où entree[2] ne vaut ni 1 ni 0: valeur incorrecte
-        //echo("erreur");
-        $res = 0;
     }
 }
-//echo $res;
-////echo $res === "" ? "1" : $res;
-$res === "" ? "1" : $res;
-//setcookie("codeErreur","$res",$duree);
 header("Location: $connexion");exit();
 
 
