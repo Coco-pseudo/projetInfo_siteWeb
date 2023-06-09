@@ -1,3 +1,13 @@
+<?php
+session_start();
+$q = $_REQUEST["q"];
+$q = strtolower($q);
+$tab = explode(" ",$q);
+if (isset($_SESSION["dataR"])==false){
+    $_SESSION["dataR"]=$tab;
+}
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -54,7 +64,7 @@
         </div>
         <script>
             function Accueil(){
-                document.location.href="Referent.html";
+                document.location.href="Referent.php";
             }
         </script>
     </body>

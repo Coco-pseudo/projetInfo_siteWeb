@@ -1,6 +1,6 @@
 <?php 
-setcookie('mail','',1);
-setcookie('mdp','',1);
+//setcookie('mail','',1);
+//setcookie('mdp','',1);
 ?>
 <!DOCTYPE html>
 <html>
@@ -58,7 +58,7 @@ setcookie('mdp','',1);
         </div>
         <script>
             function Accueil(){
-                document.location.href="Visiteur.html";
+                document.location.href="Visiteur.php";
             }
         </script>
     </body>        

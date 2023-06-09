@@ -63,6 +63,9 @@ nav {
 .color2 {
     color: violet;
 }
+.color3 {
+    color: red;
+}
 
 .info {
     display:flex;
@@ -79,10 +82,14 @@ nav {
     border-color: violet;
     background: linear-gradient(to right,#e769e7, rgb(255, 255, 255));
     border-collapse: collapse;
-    width: 300px;
+    width: 500px;
     height: 85%;
     overflow-inline: auto;
     overflow-wrap: break-word;
+}
+
+td {
+    padding: 15px;
 }
 
 .nbref{
@@ -90,10 +97,9 @@ nav {
     border-color: violet;
     background: linear-gradient(to right,#e769e7, rgb(255, 255, 255));
     border-collapse: collapse;
-    width: 200px;
-    height: 25%;
     overflow-inline: auto;
     overflow-wrap: break-word;
+    padding: 30px;
 }
 
 .bouton {
@@ -104,4 +110,5 @@ nav {
     top: 25px;
     width: 180px;
     height: 50px;
+    cursor: pointer;
 }

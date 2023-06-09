@@ -90,12 +90,6 @@ nav {
     border-color: rgb(25, 173, 218);
 } */
 
-tr, td {
-    border-style: solid;
-    border-color: violet;
-    padding: 8px;
-}
-
 
 
 
@@ -106,7 +100,8 @@ tr, td {
     border-collapse: collapse;
     table-layout: fixed;
     width: 900px;
-    height: 25%;
+    height: 272px;
+    /* height: 25%; */
     overflow-wrap: break-word; 
     margin-bottom: 30px;
 }
@@ -117,7 +112,7 @@ tr, td {
     border-collapse: collapse;
     table-layout: fixed;
     width: 150px;
-    height: 25%;
+    height: 272px;
     margin-bottom: 30px;
 }
 .svf{
@@ -127,7 +122,7 @@ tr, td {
     border-collapse: collapse;
     table-layout: fixed;
     width: 150px;
-    height: 25%;
+    height: 272px;
     margin-bottom: 30px;
 }
 .com{
@@ -137,16 +132,12 @@ tr, td {
     border-collapse: collapse;
     table-layout: fixed;
     width: 200px;
-    height: 25%;
+    height: 272px;
     overflow-inline: auto;
     overflow-wrap: break-word;
     margin-bottom: 30px;
 }
 
-
-.bouton {
-    margin-top :5%;
-}
 .bd {
     background: linear-gradient(to right,#b90db9, rgb(240, 149, 225));
     border-style: solid;
