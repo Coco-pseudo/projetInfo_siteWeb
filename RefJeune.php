@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    setcookie($utilisateur, "Referent", time() + 180);
+    $tab=$_SESSION["dataR"];
+    $mail=$tab[0];
+    $DATA="Jeune/Profil/$mail/Profil.json";
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -21,9 +28,7 @@
         <div class="info">
             <div class=profil>
             <?php
-            // $mail=$_COOKIE['mail'];
-            $mail="monadresse@gmail.com";
-            $DATA="Jeune/Profil/$mail/Profil.json";
+
             $ref = json_decode(file_get_contents($DATA),true);
             echo "<h2> Son Profil </h2>";
             echo "<table class=prfl>";

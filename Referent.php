@@ -1,6 +1,7 @@
 <?php
 session_start();
 $q = $_REQUEST["q"];
+
 $q = strtolower($q);
 $tab = explode(" ",$q);
 if (isset($_SESSION["dataR"])==false){

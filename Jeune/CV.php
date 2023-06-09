@@ -53,7 +53,7 @@
                 echo("<p> Veuillez selectionner les références que vous souhaitez imprimer </p>");
                 echo("<input type='checkbox' name='selection' onclick='Selection()'><label for'selection'> tout selectionner</label><br>");
                 for($i = 0; $i<$nbref; $i++){
-                    echo("<input type='checkbox' class=''");
+                    //echo
                 }
             }
             ?>

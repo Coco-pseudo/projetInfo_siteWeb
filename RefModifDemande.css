@@ -67,7 +67,7 @@ nav {
     color: red;
 }
 
-.references{
+.formulaires{
     display:flex;
     flex-direction: row;
     justify-content: space-around;  
@@ -75,24 +75,8 @@ nav {
     height: auto;
     width:auto;
     margin: 250px auto 50px;
+    padding: 0 20px;
 }
-/* .commentaire{
-    border-style: solid;
-    border-color: red;
-}
-.tab {
-    border-style: solid;
-    border-color: green;
-}
-.savoir-etre {
-    border-style: solid;
-    border-color: blue;
-}
-.savoir-faire {
-    border-style: solid;
-    border-color: rgb(25, 173, 218);
-} */
-
 
 .ref{
     border-style: solid;
@@ -101,89 +85,51 @@ nav {
     border-collapse: collapse;
     table-layout: fixed;
     width: 900px;
-    height: 272px;
-    /* height: 25%; */
-    overflow-wrap: break-word; 
-    margin-bottom: 30px;
+    margin-right: 20px;
 }
-.sve{
+.savoir-etre{
     border-style: solid;
     border-color: violet;
     background: linear-gradient(to right,#e769e7, rgb(255, 255, 255));
     border-collapse: collapse;
     table-layout: fixed;
+    width: 900px;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+.savoir-faire{
+    border-style: solid;
+    border-color: violet;
+    background: linear-gradient(to right,#e769e7, rgb(255, 255, 255));
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 900px; 
+    margin-left: 20px;
+}
+
+
+.bouton{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.bc{
+    background: linear-gradient(to right,#b90db9, rgb(240, 149, 225));
+    border-style: solid;
+    border-color: violet;
     width: 150px;
-    height: 272px;
-    margin-bottom: 30px;
+    height: 30px;
+    margin-right:20px;
+    cursor: pointer;
+
 }
-.svf{
+.br{
+    background: linear-gradient(to right,#b90db9, rgb(240, 149, 225));
     border-style: solid;
     border-color: violet;
-    background: linear-gradient(to right,#e769e7, rgb(255, 255, 255));
-    border-collapse: collapse;
-    table-layout: fixed;
     width: 150px;
-    height: 272px;
-    margin-bottom: 30px;
-}
-.com{
-    border-style: solid;
-    border-color: violet;
-    background: linear-gradient(to right,#e769e7, rgb(255, 255, 255));
-    border-collapse: collapse;
-    table-layout: fixed;
-    width: 200px;
-    height: 272px;
-    overflow-inline: auto;
-    overflow-wrap: break-word;
-    margin-bottom: 30px;
-}
-
-
-.bouton {
-    margin-top :5%;
-}
-.bd {
-    background: linear-gradient(to right,#b90db9, rgb(240, 149, 225));
-    border-style: solid;
-    border-color: violet;
-    width: 180px;
-    height: 50px;
-    margin-bottom: 25px;
-}
-.bcv {
-    background: linear-gradient(to right,#b90db9, rgb(240, 149, 225));
-    border-style: solid;
-    border-color: violet;
-    width: 180px;
-    height: 50px;
-    margin-bottom: 25px;
-}
-.bec {
-    background: linear-gradient(to right,#b90db9, rgb(240, 149, 225));
-    border-style: solid;
-    border-color: violet;
-    width: 180px;
-    height: 50px;
-    margin-bottom: 25px;
-}
-.ba {
-    background: linear-gradient(to right,#b90db9, rgb(240, 149, 225));
-    border-style: solid;
-    border-color: violet;
-    width: 180px;
-    height: 50px;
-}
-
-
-.bt {
-    background: white;
-    border-style: solid;
-    border-color: violet;
-    width: 30%;
-    height: 40px;
-    margin-right:14px;
-    margin-left:14px;
+    height: 30px;
+    cursor: pointer;
 }
 /* td{
     border : 1px  solid black;
