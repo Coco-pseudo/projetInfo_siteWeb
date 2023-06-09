@@ -19,7 +19,7 @@ $tabref = [];
 for($i = 0; $i<count($ref['Reference']); $i){
     if($ref['Reference'][$i]["verif"] == 1){ //ref validé
         $i++; //le numéro de la ref est 1 de plus que sa case dans le tableau
-        if(isset($_POST["ref$i"])){
+        if(isset($_POST["ref$i"])){ //la ref a été sélectionné par le jeune
             if($NumRef ==""){
                 $NumRef = $NumRef.$_POST["ref$i"];
             }else{
@@ -30,6 +30,8 @@ for($i = 0; $i<count($ref['Reference']); $i){
         $i++;
     }
 }
+
+
 $message =
 "<!DOCTYPE html>
 <html>
@@ -84,37 +86,20 @@ $message =
             <image src=\"logo.png\" height=150 ></image>
             <h1>Pour faire de l'engagement une valeur</h1>
         </header>
-        <h2>Une proposition de consultation pour vous :</h2>
+        <h2>Une demande de référence pour vous :</h2>
         <main>
             <h4>Bonjour,</h4>
-            <p>Ce mail automatique vous a été envoyé afin que vous puissiez consulter le profil d'un jeune sur le projet gouvernemental Jeunes 6.4</p>
-            <p>Un consultant peut consulter le dossier d'un jeune, dossier contenant son profil et son expérience professionnelle mise en avant par ses contacts du monde professionnel : des référents.</p> 
-            <p>Vous avez été contacté suite à la demande de $NomJeune $PrenomJeune</p>
-            <p>Cette proposition de consultation vous donne l'accès au dossier mettant en valeur les qualités du jeune et les expériences du jeune</p>
-            <p><a href=\"../Consultant.php?q=$MailJeune+$NumRef\"> Lien pour accéder à la référence</a></p>
+            <p>Ce mail vous a été envoyé afin que vous deveniez référent pour un jeune sur le projet gouvernemental Jeunes 6.4</p>
+            <p>Un référent viens apporter de la crédibilité au jeune, sur la valeur de son dossier. Vous avez été contacté suite à la demande de $NomJeune $PrenomJeune</p>
+            <p>Cette demande de référence vise a certifier les qualités du jeune, de par votre propre expérience avec le jeune :</p>
+            <p><a href=\"test.php?q=$MailJeune+$NumRef\"> Lien pour accéder à la référence</a></p>
+            <p><a href=\"Referent.php?q=$MailJeune+3\"> Lien pour accéder à la référence</a></p>
+            <p><a href=\"Consultant.php?q=$MailJeune+$NumRef\"> Lien pour accéder à la référence</a></p>
         </main>
         <footer>
             <h4>Jeunes 6.4</h4>
             <h4>Ce mail à été envoyé automatiquement par Jeune6.4</h4>
-            <a href=\"../Visiteur.php\">Jeune 6.4</a>
-        </footer>
-    </body>
-</html>";
-"<!DOCTYPE html>
-<html>
-    <head></head>
-    <body>
-        <header>
-            <h5>Bonjour</h5>
-            <p>ce mail automatique vous a été envoyé afin que vous puissiez consulter le profil d'un jeune sur le projet gouvernemental Jeunes 6.4</p>
-        </header>
-        <main>
-            
-            
-        </main>
-        <footer>
-            <h4>Jeunes 6.4</h4>
-            <img src=\"logo.png\">
+            <a href=\"Visiteur.php\">Jeune 6.4</a>
         </footer>
     </body>
 </html>";
