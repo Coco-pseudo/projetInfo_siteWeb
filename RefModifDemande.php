@@ -1,19 +1,18 @@
 <?php
-if($_COOKIE['verified'] == 1){
-    setcookie('verified','',1);
-}else{
-    setcookie('destination','/Jeune/DemandeRef.php',time()+3600);
-    header('Location: ../Connexion.php');
-}
-$mail=$_COOKIE['mail'];
-//$mail="270jluismetmongrosdoigtdpied@yahoo.fr";
-$DATA="Profil/".$mail."/Reference.json";
-
-
-
-$i=$_COOKIE['Reference']-1;
-$j=$_COOKIE['Reference'];
+    session_start();
+    $tab=$_SESSION["dataR"];
+    $mail=$tab[0];
+    $DATA="Jeune/Profil/$mail/Reference.json";
+    setcookie($utilisateur, "Referent", time() + 180);
+    
+    
+    
+    $i=$tab[1]-1;
+    $j=$tab[1];
 ?>
+
+
+
 
 <!DOCTYPE html>
 <html>
@@ -21,7 +20,7 @@ $j=$_COOKIE['Reference'];
         <meta charset="utf-8">
         <title>Jeune 6.4</title>
         <link rel="icon" type="image/png" href="logo.png">
-        <link rel="stylesheet" type="text/css" href="ModifRef.css">
+        <link rel="stylesheet" type="text/css" href="RefModifDemande.css">
     </head>
     
     <header>
@@ -31,9 +30,9 @@ $j=$_COOKIE['Reference'];
     <body>
         <nav>
             <ul class="nav-links">
-                <li><a href="RefJeune.php" class="color1">Profil</a></li>
-                <li><a href="References.php" class="color2">Références</a></li>
-                <li><a href="Deco.php" class="color3">Déconnexion</a></li>
+                <li><a href="RefJeune.php" class="color1">Profil du jeune</a></li>
+                <li><a href="RefDemande.php" class="color2">Référence de jeune</a></li>
+                
             </ul>
         </nav>
 
@@ -47,6 +46,7 @@ $j=$_COOKIE['Reference'];
         $nomRef=$ref['Reference'][$i]['nomRef'];
         $prenomRef=$ref['Reference'][$i]['prenomRef'];
         $EmailRef=$ref['Reference'][$i]['EmailRef'];
+        $Commentaire=$ref['Reference'][$i]['Commentaire'];
         ?>
         
         <div class="formulaires">
@@ -81,7 +81,7 @@ $j=$_COOKIE['Reference'];
             <div class="savoir-etre">
                 <?php
                 $ref = json_decode(file_get_contents($DATA),true);
-                echo "<h2>Savoirs-être $j :</h2>";
+                echo "<h2>Savoirs-être  :</h2>";
                 echo "<table id=$i class=sve >";
                 
                 if ($ref['Reference'][$i]['Autonome'] == 1){
@@ -195,7 +195,7 @@ $j=$_COOKIE['Reference'];
                 $ref = json_decode(file_get_contents($DATA),true);
                 $nbref = count($ref['Reference']);
             
-                echo "<h2>Savoirs-faire $j :</h2>";
+                echo "<h2>Savoirs-faire  :</h2>";
                 echo "<table id=$i class=svf >";
                 
                 
@@ -291,27 +291,34 @@ $j=$_COOKIE['Reference'];
 
                 if ($ref['Reference'][$i]['Capacite a sorganiser'] == 1){
                     echo "<tr>";
-                        echo "<td><input type=checkbox class='SavoirFaire' id=Capaciteasorganiser value=Capaciteàsorganiser checked >Capacité à s'organiser </td>";
+                        echo "<td><input type=checkbox class='SavoirFaire' id=Capaciteàsorganiser value=Capaciteàsorganiser checked >Capacite à sorganiser </td>";
                     echo "</tr>";
                 }else{
                     echo "<tr>";
-                    echo "<td><input type=checkbox class='SavoirFaire' id=Capaciteasorganiser value=Capaciteàsorganiser >Capacité à s'organiser </td>";
+                    echo "<td><input type=checkbox class='SavoirFaire' id=Capaciteàsorganiser value=Capaciteàsorganiser >Capacite à sorganiser </td>";
                 echo "</tr>";
                 }
     
                 echo "</table>";
                 ?>
             </div>
+            <div class='Commentaire:'>
+                <br>Commentaire
+                <input type='text' id ='Commentaire' value ="<?php echo $Commentaire; ?>" ></input>
+            </div>
         </div>
 
             <div class="bouton">
-                <button  onclick="Confirmation(<?php echo $j ; ?>)" class="bc">Valider</button>
-                <button type="reset" class="br" >Réinitialiser</button>
+                <button  onclick="Confirmation(<?php echo ($j); ?>)" class="bc">Valider</button>
+                <button type="reset" onclick="Reinitialiser()" class="br" >Réinitialiser</button>
             </div>   
                 
        
         
         <script>
+            function Reinitialiser(){
+                document.location.href="RefModifDemande.php";
+            }
             function Confirmation(a){
                 var description = document.getElementById("description").value;
                 var duree = document.getElementById("duree").value;
@@ -319,8 +326,10 @@ $j=$_COOKIE['Reference'];
                 var nomRef = document.getElementById("nomRef").value;
                 var prenomRef = document.getElementById("prenomRef").value;
                 var EmailRef = document.getElementById("EmailRef").value;
+                var Commentaire = document.getElementById("Commentaire").value; 
 
-                chaine1="& Description="+escape(description)+"& duree="+escape(duree)+"& milieu="+escape(milieu)+"& nomRef="+escape(nomRef)+"& prenomRef="+escape(prenomRef)+"& EmailRef="+escape(EmailRef);
+
+                chaine1="& Description="+escape(description)+"& duree="+escape(duree)+"& milieu="+escape(milieu)+"& nomRef="+escape(nomRef)+"& prenomRef="+escape(prenomRef)+"& EmailRef="+escape(EmailRef)+"& Commentaire="+escape(Commentaire);
                 
                 //bloc savoirEtre-----------------
 
@@ -341,7 +350,7 @@ $j=$_COOKIE['Reference'];
                 //attention les SavoirEtre[i] sont de la forme true/false jusqu'ici
                 
                 var i=0;
-                for (i=0;i<10;i++){         // mettre les SAvoirEtre sous forme de 0/1 
+                for (i=0;i<10;i++){         // met les SAvoirEtre sous forme de 0/1 
                     if (SavoirEtre[i]==false){
                         SavoirEtre[i]=0;
                     }else if (SavoirEtre[i]==true){
@@ -367,10 +376,10 @@ $j=$_COOKIE['Reference'];
                 SavoirFaire[6]=document.getElementById("Organiseruneconference").checked;
                 SavoirFaire[7]=document.getElementById("Concevoiruneformation").checked;
                 SavoirFaire[8]=document.getElementById("Trierdesdonnees").checked;
-                SavoirFaire[9]=document.getElementById("Capaciteasorganiser").checked;
+                SavoirFaire[9]=document.getElementById("Capaciteàsorganiser").checked;
 
                 var j=0;
-                for (j=0;j<10;j++){         // mettre les SAvoirEtre sous forme de 0/1 
+                for (j=0;j<10;j++){         // met les SAvoirEtre sous forme de 0/1 
                     if (SavoirFaire[j]==false){
                         SavoirFaire[j]=0;
                     }else if (SavoirFaire[j]==true){
@@ -381,7 +390,7 @@ $j=$_COOKIE['Reference'];
                 "& Savoirdessiner="+escape(SavoirFaire[4])+"& Savoirtraduire="+escape(SavoirFaire[5])+"& Organiseruneconference="+escape(SavoirFaire[6])+"& Concevoiruneformation="+escape(SavoirFaire[7])+
                 "& Trierdesdonnees="+escape(SavoirFaire[8])+"& Capaciteàsorganiser="+escape(SavoirFaire[9]);
 
-                //--------------------------------
+                //-----------------verif champ non vide---------------
 
 
                 if (description=="" || duree=="" || milieu=="" || nomRef=="" || prenomRef=="" || EmailRef==""){
@@ -390,10 +399,10 @@ $j=$_COOKIE['Reference'];
 
 
                     var xhr = new XMLHttpRequest();
-                    xhr.open("POST", "AlgoModifRef.php", true);
+                    xhr.open("POST", "Jeune/AlgoModifRef.php", true);
                     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                     xhr.send("b=6"+"&a="+a+chaine1+chaineSE+chaineSF);
-                    document.location.href="References.php";
+                    document.location.href="RefDemande.php";
                     alert("modification enregistrée");
                 }
             }
@@ -427,3 +436,5 @@ $j=$_COOKIE['Reference'];
         </script>
     </body>
 </html>
+
+
