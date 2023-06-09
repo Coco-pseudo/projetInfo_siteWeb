@@ -1,4 +1,10 @@
 <?php
+if($_COOKIE['verified'] == 1){
+    setcookie('verified','',1);
+}else{
+    setcookie('destination','Jeune/MailCon.php',time()+3600);
+    header('Location: ../Connexion.php');
+}
 session_start();
 unset($_SESSION["dataR"]);
 unset($_SESSION["dataC"]);
@@ -6,7 +12,6 @@ unset($_SESSION["dataC"]);
 // VARIABLES
 //
 $MailJeune = $_COOKIE['mail']; //doit prendre la valeur du mail du jeune
-$MailRef = "tmp";//doit prendre la valeur du mail du ref dans la demande de ref
 $MailCon = "?";//doit être donné par le jeune
 $Data = "Profil/$MailJeune/Reference.json";
 $ref = json_decode(file_get_contents($Data),true); //contient le tableau de refs du jeune

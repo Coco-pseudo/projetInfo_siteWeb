@@ -1,4 +1,13 @@
 <?php
+if($_COOKIE['verified'] == 1){
+    setcookie('verified','',1);
+}else{
+    setcookie('destination','Jeune/MailRef.php',time()+3600);
+    header('Location: ../Connexion.php');
+}
+session_start();
+unset($_SESSION["dataR"]);
+unset($_SESSION["dataC"]);
 //
 // VARIABLES
 //
