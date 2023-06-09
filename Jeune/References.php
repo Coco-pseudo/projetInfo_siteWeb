@@ -117,7 +117,7 @@ $DATA="Profil/$mail/Reference.json";
                     echo "</tr>";
 
                     echo "<tr>";
-                    echo "<td colspan=2><button onclick=ModifRef($i) class=bt>Modifier la Référence</button><button onclick=EnvoieR() class=bt>Envoie au Référent</button><button onclick=Archiver($i) class=bt>Archiver</button></td>";
+                    echo "<td colspan=2><button onclick=ModifRef($i) class=bt>Modifier la Référence</button><button onclick=EnvoieR($i) class=bt>Envoie au Référent</button><button onclick=Archiver($i) class=bt>Archiver</button></td>";
                     echo "</tr>";
         
         
@@ -379,7 +379,14 @@ $DATA="Profil/$mail/Reference.json";
 
                 document.location.href="ModifRef.php"
             }
-            function EnvoieR(){
+            function EnvoieR(a){
+                setcookie("numero",a,time()+3600);
+                document.location.href="MailRef.php";
+                //code pour mail fonctionnel
+                /*var Ajax = new XMLHttpRequest();
+                Ajax.open("POST", "MailRef.php", true);
+                Ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                Ajax.send("a=" + escape(a));*/
 
             }
             function EnvoieC(){

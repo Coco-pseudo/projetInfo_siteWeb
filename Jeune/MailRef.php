@@ -1,26 +1,89 @@
 <?php
-$MailJeune = "mail@jsp.fr"; //doit prendre la valeur du mail du jeune
-$MailRef = "tmp";//doit prendre la valeur du mail du ref dans la demande de ref
-$NumRef = "1"; //devra prendre la valeur de i de la page demande de ref
-$Data = "Jeune/Profil/$MailJeune";
-$NomJeune = "De Nazaret";
-$PrenomJeune = "Jesus";
-$message ="<!DOCTYPE html>
+//
+// VARIABLES
+//
+//si mail fonctionnel
+//$NumRef = $_POST['a'];
+//sinon
+$NumRef = $_COOKIE['numero'];
+//
+
+$MailJeune = $_COOKIE['mail']; //doit prendre la valeur du mail du jeune
+$Data = "Profil/$MailJeune/Reference.json";
+$ref = json_decode(file_get_contents($Data),true); //contient le tableau de refs du jeune
+$MailRef = $ref['Reference'][$NumRef]["EmailRef"];//doit prendre la valeur du mail du ref dans la demande de ref
+$Data = "Profil/$MailJeune/Profil.json";
+$pro = json_decode(file_get_contents($Data),true);// contient le tableau du profil du jeune
+$NomJeune = $pro["Profil"][0]["Nom"];
+$PrenomJeune = $pro["Profil"][0]["Prenom"];
+
+
+$message =
+"<!DOCTYPE html>
 <html>
-    <head></head>
+    <head>
+        <style>
+        header {
+            background: linear-gradient(to right,#ccc, rgb(155, 145, 145)); /* Dégradé de gris du foncé au clair pour le header */
+            height: 150px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+        h1  {
+            color: white;
+            position: fixed;
+            right: 90px;
+            top: 60px;
+            font-size: 300%;
+        }
+        body {
+            top: 490px;
+            height: auto;
+            width:auto;
+            margin: 250px auto 50px;
+            padding: 0 20px;
+        }
+        h2 {
+            text-align:center;
+        }
+        p {
+            text-align:center;
+        }
+        h4 {
+            text-align:center;
+        }
+        footer {
+            text-align:center;
+            background-color: #abbaba;
+            color: #000;
+            position: fixed;
+            width: 100%;
+            left: 0;
+            margin-top: 50px;
+            padding: 15px 
+        }
+        </style>
+    </head>
     <body>
         <header>
-            <h5>Bonjour</h5>
-            <p>ce mail automatique vous a été envoyé afin que vous deveniez \nréférent pour un jeune sur le projet gouvernemental Jeunes 6.4</p>
+            <image src=\"logo.png\" height=150 ></image>
+            <h1>Pour faire de l'engagement une valeur</h1>
         </header>
+        <h2>Une demande de référence pour vous :</h2>
         <main>
-            <p>Un référent viens apporter de la crédibilité au jeune, sur la \nvaleur de son dossier. Vous avez été contacté suite à la demande de \n$NomJeune $PrenomJeune</p>
-            <p>Cette demande de référence vise a certifier les qualités du \njeune, de par votre propre expérience avec le jeune</p>
-            <a href=\"Test.php?q=$MailJeune+$NumRef\"> Lien pour accéder à la référence</a>
+            <h4>Bonjour,</h4>
+            <p>Ce mail vous a été envoyé afin que vous deveniez référent pour un jeune sur le projet gouvernemental Jeunes 6.4</p>
+            <p>Un référent viens apporter de la crédibilité au jeune, sur la valeur de son dossier. Vous avez été contacté suite à la demande de $NomJeune $PrenomJeune</p>
+            <p>Cette demande de référence vise a certifier les qualités du jeune, de par votre propre expérience avec le jeune :</p>
+            <p><a href=\"../Referent.php?q=$MailJeune+$NumRef\"> Lien pour accéder à la référence</a></p>
         </main>
         <footer>
             <h4>Jeunes 6.4</h4>
-            <img src=\"logo.png\">
+            <h4>Ce mail à été envoyé automatiquement par Jeune6.4</h4>
+            <a href=\"Visiteur.php\">Jeune 6.4</a>
         </footer>
     </body>
 </html>";
