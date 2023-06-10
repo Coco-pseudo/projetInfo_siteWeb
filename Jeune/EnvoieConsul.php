@@ -9,6 +9,7 @@ if($_COOKIE['verified'] == 1){//l'utilisateur viens de se connecter avec succès
 ?>
 <!DOCTYPE html>
 <html>
+    <!-- Comprend le titre de la page et la page css associé -->
     <head>
         <meta charset="utf-8">
         <title>Vos Références - Jeune 6.4</title>
@@ -18,10 +19,12 @@ if($_COOKIE['verified'] == 1){//l'utilisateur viens de se connecter avec succès
     
     
     <body>
+        <!-- Bannière comprenant le logo et le slogan -->
         <header>
             <h1>Pour faire de l'engagement une valeur</h1>
             <image src="logo.png" height="150" onclick="Accueil()"></image>
         </header>
+        <!-- Barre de navigation -->
         <nav>
             <ul class="nav-links">
                 <li><a href="Jeune.php" class="color1">Profil</a></li>
@@ -29,6 +32,7 @@ if($_COOKIE['verified'] == 1){//l'utilisateur viens de se connecter avec succès
                 <li><a href="../Deco.php" class="color3">Déconnexion</a></li>
             </ul>
         </nav>
+        <!-- Contenu de la page -->
         <form method="post" action="MailCon.php" target="_blank">
             <div class="references">
 
