@@ -1,25 +1,37 @@
 <?php
 session_start();
 //----------------------
+
 //b:mode
 //a:numero de reference a traiter
+/*
+différents modes:
+1 => Archivage
+2 => Désarchivage
+3 => attente d'envoi vers attente verification
+4 => attente verif vers verif
+5 => modif du profil
+6 => modif de reference
+*/
+
 //
 //---Variables--------------
 //----------------------
 
 
 
-if ($_COOKIE['utilisateur']=='Referent'){
+if ($_COOKIE["utilisateur"]=='Referent'){// si appelé depuis une page de référent
     $tab=$_SESSION["dataR"];
     $mail=$tab[0];
     $Data="Jeune/Profil/$mail/Reference.json";
     $Data="Jeune/Profil/lafilledelasalopedu78@gmail.com/Reference.json";
-}else{
+}else{  //si appelé par une page de jeune
     $mail=$_COOKIE['mail'];
     $Data="Profil/$mail/Reference.json";
     $Data2="Profil/$mail/Profil.json";
 }
-//$Data="Jeune/Profil/lafilledelasalopedu78@gmail.com/Reference.json";
+
+
 
 $i=$_POST['a']-1;
 $mode=$_POST['b'];
@@ -27,7 +39,7 @@ $mode=$_POST['b'];
 $nom1=$_POST['nom'];
 $prenom1=$_POST['prenom'];
 $date1=$_POST['date'];
-//$email=$_POST['email'];
+//$email=$_POST['email']; On ne modifie pas le mail pour l'instant
 
 $description1=$_POST["Description"];
 $duree1=$_POST["duree"];
@@ -58,19 +70,6 @@ $SavoirFaire[6]=$_POST["Organiseruneconference"];
 $SavoirFaire[7]=$_POST["Concevoiruneformation"];
 $SavoirFaire[8]=$_POST["Trierdesdonnees"];
 $SavoirFaire[9]=$_POST["Capaciteàsorganiser"];
-
-
-
-
-/*
-différents modes:
-1 => Archivage
-2 => Désarchivage
-3 => attente d'envoi vers attente verification
-4 => attente verif vers verif
-5 => modif du profil
-6 => modif de reference
-*/
 
 
 
@@ -238,3 +237,5 @@ switch ($mode){
         exit();
 }
 ?>
+
+
