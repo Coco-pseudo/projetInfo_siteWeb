@@ -16,11 +16,12 @@ if($_COOKIE['verified'] == 1){//l'utilisateur viens de se connecter avec succès
         <link rel="stylesheet" type="text/css" href="EnvoieConsul.css">
     </head>
     
-    <header>
-        <h1>Pour faire de l'engagement une valeur</h1>
-        <image src="logo.png" height="150" onclick="Accueil()"></image>
-    </header>
+    
     <body>
+        <header>
+            <h1>Pour faire de l'engagement une valeur</h1>
+            <image src="logo.png" height="150" onclick="Accueil()"></image>
+        </header>
         <nav>
             <ul class="nav-links">
                 <li><a href="Jeune.php" class="color1">Profil</a></li>

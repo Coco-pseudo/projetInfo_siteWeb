@@ -25,11 +25,12 @@ $j=$_COOKIE['Reference'];
         <link rel="stylesheet" type="text/css" href="ModifRef.css">
     </head>
     
-    <header>
-        <h1>Pour faire de l'engagement une valeur</h1>
-        <image src="logo.png" height="150" onclick="Accueil()"></image>
-    </header>
+    
     <body>
+        <header>
+            <h1>Pour faire de l'engagement une valeur</h1>
+            <image src="logo.png" height="150" onclick="Accueil()"></image>
+        </header>
         <nav>
             <ul class="nav-links">
                 <li><a href="RefJeune.php" class="color1">Profil</a></li>
