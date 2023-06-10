@@ -1,33 +1,35 @@
- { "Reference": [
-    {
-        "Description": "qs",
-        "Duree": "qsd",
-        "milieu": "qsd",
-        "nomRef": "sqd",
-        "prenomRef": "qsd",
-        "EmailRef": "qsd@hgf",
-        "Autonome": "0",
-        "Alecoute": "1",
-        "Organise": "1",
-        "Passionne": "1",
-        "Fiable": "1",
-        "Patient": "0",
-        "Reflechi": "0",
-        "Responsable": "0",
-        "Sociable": "0",
-        "Optimiste": "0",
-        "Commentaire": "",
-        "Gerer un projet": "0",
-        "Parler une autre langue": "0",
-        "Diriger une equipe": "1",
-        "Maitriser de linformatique": "1",
-        "Savoir dessiner": "1",
-        "Savoir traduire": "1",
-        "Organiser une conference": "0",
-        "Concevoir une formation": "0",
-        "Trier des donnees": "0",
-        "Capacite a sorganiser": "0",
-        "verif": 0,
-        "archiver": 0
-    }
-] } 
+{
+    "Reference": [
+        {
+            "Description": "qs",
+            "Duree": "3 ans",
+            "milieu": "qsd",
+            "nomRef": "sqd",
+            "prenomRef": "qsd",
+            "EmailRef": "qsd@hgf",
+            "Autonome": "0",
+            "Alecoute": "1",
+            "Organise": "1",
+            "Passionne": "1",
+            "Fiable": "1",
+            "Patient": "0",
+            "Reflechi": "0",
+            "Responsable": "0",
+            "Sociable": "0",
+            "Optimiste": "0",
+            "Commentaire": "",
+            "Gerer un projet": "0",
+            "Parler une autre langue": "0",
+            "Diriger une equipe": "1",
+            "Maitriser de linformatique": "1",
+            "Savoir dessiner": "1",
+            "Savoir traduire": "1",
+            "Organiser une conference": "0",
+            "Concevoir une formation": "0",
+            "Trier des donnees": "0",
+            "Capacite a sorganiser": "0",
+            "verif": 0,
+            "archiver": 0
+        }
+    ]
+}
