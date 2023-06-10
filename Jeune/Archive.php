@@ -373,7 +373,6 @@ $DATA="Profil/$mail/Reference.json";
                 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xhr.send("a=" + escape(a) +"& b=2");
                 document.location.href="Archive.php";
-                document.location.href="Archive.php";
             }
         </script>
     </body>
