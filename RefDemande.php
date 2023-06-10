@@ -1,10 +1,9 @@
 <?php
     session_start();
-    setcookie($utilisateur, "Referent", time() + 180);
     $tab=$_SESSION["dataR"];
     $mail=$tab[0];
     $DATA="Jeune/Profil/$mail/Reference.json";
-    $i=$tab[1];
+    $ref = json_decode(file_get_contents($DATA),true);
 ?>
 <!DOCTYPE html>
 <html>
@@ -30,10 +29,10 @@
 
             <div class="commentaire">
             <?php
-            $ref = json_decode(file_get_contents($DATA),true);
             
-        
-                echo "<h2>Commentaire  :</h2>";
+            $i=$tab[1];
+
+                echo "<h2>Commentaire $i :</h2>";
                 echo "<div class=com>";
                 if ($ref['Reference'][$i-1]['Commentaire'] != ""){
                     echo $ref['Reference'][$i-1]['Commentaire'];
@@ -45,9 +44,8 @@
             <div class="tab">
             <?php
             $ref = json_decode(file_get_contents($DATA),true);
-            //$nbref = count($ref['Reference']);
-        
-                echo "<h2>Référence  :</h2>";
+            $nbref = count($ref['Reference']);
+                echo "<h2>Référence $i :</h2>";
                 echo "<table id=$i class=ref >";
                 
                 echo "<tr>";
@@ -94,11 +92,11 @@
                     echo $ref['Reference'][$i-1]['EmailRef'];
                     echo "</td>";
                 echo "</tr>";
-                if($ref['Reference'][$i-1]['verif'] == 1){
-                    echo "<tr>";
-                        echo "<td colspan=2><button onclick=Modif() class=btd>Modifier la Référence</button><button onclick=Validation($i) class=bt>Valider</button></td>";
-                    echo "</tr>";
-                }
+
+                echo "<tr>";
+                    echo "<td colspan=2><button onclick=Modif() class=btd>Modifier la Référence</button><button onclick=Validation() class=bt>Valider</button></td>";
+                echo "</tr>";
+    
                 echo "</table>";
             ?>
             </div>
@@ -108,7 +106,7 @@
             $ref = json_decode(file_get_contents($DATA),true);
             $nbref = count($ref['Reference']);
             
-                echo "<h2>Savoirs-être  :</h2>";
+                echo "<h2>Savoirs-être $i :</h2>";
                 echo "<table id=$i class=sve >";
                 
                 if ($ref['Reference'][$i-1]['Autonome'] == 1){
@@ -211,7 +209,7 @@
             $ref = json_decode(file_get_contents($DATA),true);
             $nbref = count($ref['Reference']);
             
-                echo "<h2>Savoirs-faire  :</h2>";
+                echo "<h2>Savoirs-faire $i :</h2>";
                 echo "<table id=$i class=svf >";
                 
                 if ($ref['Reference'][$i-1]['Gerer un projet'] == 1){
@@ -306,7 +304,6 @@
                 }
     
                 echo "</table>";
-            
             ?>
             </div>
         </div>
@@ -317,13 +314,8 @@
             function Modif(){
                 document.location.href="RefModifDemande.php";
             }
-            function Validation(a){
-                alert("validation de la Reference n°"+a);
-                var xhr = new XMLHttpRequest();
-                xhr.open("POST", "Jeune/AlgoModifRef.php", true);
-                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                xhr.send("b=4 & a="+a);
-                document.location.href="RefDemande.php";
+            function Validation(){
+
             }
         </script>
     </body>
