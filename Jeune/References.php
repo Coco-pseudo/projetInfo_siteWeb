@@ -1,4 +1,5 @@
 
+
 <?php
 if($_COOKIE['verified'] == 1){
     setcookie('verified','',1);

@@ -17,10 +17,10 @@ unset($_SESSION["dataC"]);
 $NumRef = $_COOKIE['numero'];
 //
 
-$MailJeune = $_COOKIE['mail']; //doit prendre la valeur du mail du jeune
+$MailJeune = $_COOKIE['mail']; //prend la valeur du mail du jeune
 $Data = "Profil/$MailJeune/Reference.json";
 $ref = json_decode(file_get_contents($Data),true); //contient le tableau de refs du jeune
-$MailRef = $ref['Reference'][$NumRef]["EmailRef"];//doit prendre la valeur du mail du ref dans la demande de ref
+$MailRef = $ref['Reference'][$NumRef]["EmailRef"];//prend la valeur du mail du référent dans la demande de référent
 $Data = "Profil/$MailJeune/Profil.json";
 $pro = json_decode(file_get_contents($Data),true);// contient le tableau du profil du jeune
 $NomJeune = $pro["Profil"][0]["Nom"];
@@ -97,7 +97,7 @@ $message =
         </footer>
     </body>
 </html>";
-echo $message;
+echo $message; 
 /*$test = mail("guedescore@cy-tech.fr","Test mail Projet",$message,"From: corentin.guedes@gmail.com"."\r\n".'Content-type: text/html');
 if($test){
     echo("mail envoyé");

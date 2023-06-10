@@ -6,7 +6,6 @@ if($_COOKIE['verified'] == 1){
     header('Location: ../Connexion.php');
 }
 $mail=$_COOKIE['mail'];
-//$mail="270jluismetmongrosdoigtdpied@yahoo.fr";
 $DATA="Profil/".$mail."/Reference.json";
 
 
