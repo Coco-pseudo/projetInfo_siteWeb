@@ -98,7 +98,7 @@ $message =
     </body>
 </html>";
 echo $message; 
-/*$test = mail("guedescore@cy-tech.fr","Test mail Projet",$message,"From: corentin.guedes@gmail.com"."\r\n".'Content-type: text/html');
+/*$test = mail("guedescore@cy-tech.fr","Test mail Projet",$message,"From: guedescore@cy-tech.fr"."\r\n".'Content-type: text/html');
 if($test){
     echo("mail envoyé");
 }else {
