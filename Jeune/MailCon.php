@@ -108,6 +108,6 @@ $message =
 </html>";
 echo $message;
 //partie mail:
-//mail("$MailCon","Test mail Projet",$message);
+//mail("$MailCon","Demande de consultation",$message,"From: Jeunes6.4@gmail.com"."\r\n".'Content-type: text/html');
 
 ?>

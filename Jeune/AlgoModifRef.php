@@ -39,7 +39,6 @@ $mode=$_POST['b'];
 $nom1=$_POST['nom'];
 $prenom1=$_POST['prenom'];
 $date1=$_POST['date'];
-//$email=$_POST['email']; On ne modifie pas le mail pour l'instant
 
 $description1=$_POST["Description"];
 $duree1=$_POST["duree"];

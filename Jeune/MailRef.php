@@ -98,8 +98,10 @@ $message =
         </footer>
     </body>
 </html>";
+//affichage du mail
 echo $message; 
-/*$test = mail("guedescore@cy-tech.fr","Test mail Projet",$message,"From: guedescore@cy-tech.fr"."\r\n".'Content-type: text/html');
+//partie mail
+/*$test = mail("$MailRef","Demande de référence",$message,"From: Jeunes6.4@gmail.com"."\r\n".'Content-type: text/html');
 if($test){
     echo("mail envoyé");
 }else {

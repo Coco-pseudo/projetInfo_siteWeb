@@ -1,6 +1,6 @@
 <?php
-$MailJeune = "?";
-$NumRef = "";
+$MailJeune = $_COOKIE["mail"];
+$NumRef = $_COOKIE["numero"];
 $message =
 "<!DOCTYPE html>
 <html>
@@ -58,7 +58,7 @@ $message =
         <h2>Une de vos références est maintenant validé :</h2>
         <main>
             <h4>Bonjour,</h4>
-            <p>Ce mail vous a été envoyé afin de vous informer qu'une de vos références du site Jeune 6.4 à été validé par son référent</p>
+            <p>Ce mail vous a été envoyé afin de vous informer que votre référence numéro $NumRef du site Jeune 6.4 à été validé par son référent</p>
             <p>Vous pouvez désormais l'envoyer à un consultant à partir du site.</p> 
         </main>
         <footer>
@@ -68,6 +68,9 @@ $message =
         </footer>
     </body>
 </html>";
+//affichage du mail
 echo $message;
+//partie mail
+//mail("$MailJeune","Référence validé",$message,"From: Jeunes6.4@gmail.com"."\r\n".'Content-type: text/html')
 
 ?>
