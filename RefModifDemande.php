@@ -411,7 +411,7 @@
 
                     //ouverture sur une autre page du mail pour le jeune
                     document.cookie="numero = "+a ;
-                    document.cookie="mail = "+<?php echo($mail);?>
+                    document.cookie="mail = "+"<?php echo("$mail")?>";
                     open("Jeune/MailJeune.php");
                 }
             }
