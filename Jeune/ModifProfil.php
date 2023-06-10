@@ -6,6 +6,7 @@ if($_COOKIE['verified'] == 1){
     setcookie('destination','Jeune/ModifProfil.php',time()+3600);
     header('Location: ../Connexion.php');
 }
+setcookie("utilisateur", "jeune", time() + 3600);
 $mail=$_COOKIE['mail'];
 $DATA='Profil/'.$mail.'/Profil.json';
 
