@@ -10,10 +10,10 @@
     
     <body>
     <!-- Bannière comprenant le logo et le slogan -->
-    <header>
-        <h1>Pour faire de l'engagement une valeur</h1>
-        <image src="logo.png" height="150" onclick="Accueil()"></image>
-    </header>
+        <header>
+            <h1>Pour faire de l'engagement une valeur</h1>
+            <image src="logo.png" height="150" onclick="Accueil()"></image>
+        </header>
         <!-- Barre de navigation -->
         <nav>
             <ul class="nav-links">

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+    <!-- Comprend le titre de la page et la page css associé -->
     <head>
         <meta charset="utf-8">
         <title>Jeune 6.4</title>
@@ -7,18 +8,20 @@
         <link rel="stylesheet" type="text/css" href="Partenaires.css">
     </head>
     
-    <header>
-        <h1>Pour faire de l'engagement une valeur</h1>
-        <image src="logo.png" height="150" onclick="Accueil()"></image>
-    </header>
-    
     <body>
+        <!-- Bannière comprenant le logo et le slogan -->
+        <header>
+            <h1>Pour faire de l'engagement une valeur</h1>
+            <image src="logo.png" height="150" onclick="Accueil()"></image>
+        </header>
+        <!-- Barre de navigation -->
         <nav>
             <ul class="nav-links">
                 <li><a href="Partenaires.html" class="color1">Partenaires</a></li>
                 <li><a href="PageConnexion.php" class="color2">Connexion</a></li>
             </ul>
         </nav>
+        <!-- Contenu de la page -->
         <div class="article1">
             <p>JEUNES 6.4 est un dispositif issu de la charte de l'engagement pour la
             jeunesse signée en 2013 par des partenaires institutionnels...</p>
@@ -30,7 +33,7 @@
         </div>
         <script>
             function Accueil(){
-                document.location.href="Visiteur.php";
+                document.location.href="Visiteur.php"; // Permet de retourner sur Visteur.php en cliquant sur le logo dans la bannière
             }
         </script>
     </body>
