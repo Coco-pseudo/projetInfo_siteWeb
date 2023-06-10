@@ -36,7 +36,11 @@ if($_COOKIE['verified'] == 1){//l'utilisateur viens de se connecter avec succès
                 $mail=$_COOKIE['mail'];
                 $DATA="Profil/$mail/Reference.json";
                 $ref = json_decode(file_get_contents($DATA),true);
-                $nbref = count($ref['Reference']);
+                if ($ref==null){
+                    $nbref=0;
+                }else{
+                    $nbref = count($ref['Reference']);
+                }
 
                 for ($i = 1; $i <= $nbref; $i++) {
                     if ($ref['Reference'][$i-1]['archiver'] == 0){
@@ -55,9 +59,7 @@ if($_COOKIE['verified'] == 1){//l'utilisateur viens de se connecter avec succès
 
                 <div class="tab">
                 <?php
-                $ref = json_decode(file_get_contents($DATA),true);
-                $nbref = count($ref['Reference']);
-                
+
                 for ($i = 1; $i <= $nbref; $i++) { // Boucle pour créer les tableaux
                     if ($ref['Reference'][$i-1]['archiver'] == 0){
                         if ($ref['Reference'][$i-1]['verif'] == 2){
@@ -132,9 +134,7 @@ if($_COOKIE['verified'] == 1){//l'utilisateur viens de se connecter avec succès
 
                 <div class="savoir-etre">
                 <?php
-                $ref = json_decode(file_get_contents($DATA),true);
-                $nbref = count($ref['Reference']);
-                
+
                 for ($i = 1; $i <= $nbref; $i++) { // Boucle pour créer les tableaux de savoir-être
                     if ($ref['Reference'][$i-1]['archiver'] == 0){
                         if ($ref['Reference'][$i-1]['verif'] == 2){
@@ -241,9 +241,7 @@ if($_COOKIE['verified'] == 1){//l'utilisateur viens de se connecter avec succès
 
                 <div class="savoir-faire">
                 <?php
-                $ref = json_decode(file_get_contents($DATA),true);
-                $nbref = count($ref['Reference']);
-                
+
                 for ($i = 1; $i <= $nbref; $i++) { // Boucle pour créer les tableaux de savoir-faire
                     if ($ref['Reference'][$i-1]['archiver'] == 0){
                         if ($ref['Reference'][$i-1]['verif'] == 2){
