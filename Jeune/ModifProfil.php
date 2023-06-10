@@ -1,9 +1,9 @@
 <?php
-if($_COOKIE['verified'] == 1){
+if($_COOKIE['verified'] == 1){//l'utilisateur viens de se connecter avec succès
     setcookie('verified','',1);
     unset($_COOKIE["verified"]);
-}else{
-    setcookie('destination','Jeune/ModifProfil.php',time()+3600);
+}else{//on verifie l'utilisateur
+    setcookie('destination','Jeune/ModifProfil.php',time()+3600);//création d'un cookie representant le chemin depuis le répertoire de connexion.php
     header('Location: ../Connexion.php');
 }
 setcookie("utilisateur", "jeune", time() + 3600);
