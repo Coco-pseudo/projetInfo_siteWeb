@@ -1,6 +1,7 @@
 <?php
 if($_COOKIE['verified'] == 1){//l'utilisateur viens de se connecter avec succès
     setcookie('verified','',1);
+    unset($_COOKIE);
 }else{//on verifie l'utilisateur
     setcookie('destination','Jeune/CVDemande.php',time()+3600);//création d'un cookie representant le chemin depuis le répertoire de connexion.php
     header('Location: ../Connexion.php');
