@@ -80,7 +80,11 @@ if($_COOKIE['verified'] == 1){
             <?php
             $DATA="Profil/$mail/Reference.json";
             $ref = json_decode(file_get_contents($DATA),true);
-            $nbref = count($ref['Reference']);
+            if ($ref==null){
+                $nbref=0;
+            }else{
+                $nbref = count($ref['Reference']);
+            }
             echo "<h2> Vos Références </h2>";
             echo "<div class=nbref>";
                 echo "Nombre de référence : $nbref";
