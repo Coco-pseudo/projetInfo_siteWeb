@@ -5,17 +5,14 @@
     $DATA="Jeune/Profil/$mail/Reference.json";
     setcookie("utilisateur", "Referent", time() + 3600);
     
-    
-    
     $i=$tab[1]-1;
     $j=$tab[1];
 ?>
 
 
-
-
 <!DOCTYPE html>
 <html>
+    <!-- Comprend le titre de la page et la page css associé -->
     <head>
         <meta charset="utf-8">
         <title>Jeune 6.4</title>
@@ -23,21 +20,22 @@
         <link rel="stylesheet" type="text/css" href="RefModifDemande.css">
     </head>
     
-    <header>
-        <h1>Pour faire de l'engagement une valeur</h1>
-        <image src="logo.png" height="150" onclick="Accueil()"></image>
-    </header>
     <body>
+        <!-- Bannière comprenant le logo et le slogan -->
+        <header>
+            <h1>Pour faire de l'engagement une valeur</h1>
+            <image src="logo.png" height="150" onclick="Accueil()"></image>
+        </header>
+        <!-- Barre de navigation -->
         <nav>
             <ul class="nav-links">
                 <li><a href="RefJeune.php" class="color1">Profil du jeune</a></li>
-                <li><a href="RefDemande.php" class="color2">Référence de jeune</a></li>
+                <li><a href="RefDemande.php" class="color2">Référence du jeune</a></li>
                 
             </ul>
         </nav>
 
         <?php
-
 
         $ref = json_decode(file_get_contents($DATA),true);
         $Description=$ref['Reference'][$i]['Description'];
@@ -302,19 +300,18 @@
                 echo "</table>";
                 ?>
             </div>
-            <div class='Commentaire:'>
-                <br>Commentaire
-                <input type='text' id ='Commentaire' value ="<?php echo $Commentaire; ?>" ></input>
-            </div>
         </div>
 
-            <div class="bouton">
-                <button  onclick="Confirmation(<?php echo ($j); ?>)" class="bc">Valider</button>
-                <button type="reset" onclick="Reinitialiser()" class="br" >Réinitialiser</button>
-            </div>   
-                
+        <div class="com">
+            <br>Commentaire
+            <input type='text' id ='Commentaire' value ="<?php echo $Commentaire; ?>" ></input>
+        </div>
+
+        <div class="bouton">
+            <button  onclick="Confirmation(<?php echo ($j); ?>)" class="bc">Valider</button>
+            <button type="reset" onclick="Reinitialiser()" class="br" >Réinitialiser</button>
+        </div>   
        
-        
         <script>
             function Reinitialiser(){
                 document.location.href="RefModifDemande.php";
