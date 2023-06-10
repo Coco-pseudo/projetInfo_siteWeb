@@ -38,7 +38,7 @@
             
             $i=$tab[1];
 
-                echo "<h2>Commentaire $i :</h2>";
+                echo "<h2>Commentaire :</h2>";
                 echo "<div class=com>";
                 if ($ref['Reference'][$i-1]['Commentaire'] != ""){
                     echo $ref['Reference'][$i-1]['Commentaire'];
@@ -51,7 +51,7 @@
             <?php
             $ref = json_decode(file_get_contents($DATA),true);
             $nbref = count($ref['Reference']);
-                echo "<h2>Référence $i :</h2>";
+                echo "<h2>Référence :</h2>";
                 echo "<table id=$i class=ref >";
                 
                 echo "<tr>";
@@ -113,7 +113,7 @@
             $ref = json_decode(file_get_contents($DATA),true);
             $nbref = count($ref['Reference']);
             
-                echo "<h2>Savoirs-être $i :</h2>";
+                echo "<h2>Savoirs-être :</h2>";
                 echo "<table id=$i class=sve >";
                 
                 if ($ref['Reference'][$i-1]['Autonome'] == 1){
@@ -216,7 +216,7 @@
             $ref = json_decode(file_get_contents($DATA),true);
             $nbref = count($ref['Reference']);
             
-                echo "<h2>Savoirs-faire $i :</h2>";
+                echo "<h2>Savoirs-faire :</h2>";
                 echo "<table id=$i class=svf >";
                 
                 if ($ref['Reference'][$i-1]['Gerer un projet'] == 1){
