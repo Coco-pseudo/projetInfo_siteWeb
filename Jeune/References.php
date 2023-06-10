@@ -383,7 +383,7 @@ $DATA="Profil/$mail/Reference.json";
                 document.location.href="DemandeRef.php";
             }
             function CV(){
-                document.location.href="CV.php";
+                document.location.href="CVDemande.php";
             }
             function ModifRef(a){
                 alert("Modification de la Réference n°"+a);
