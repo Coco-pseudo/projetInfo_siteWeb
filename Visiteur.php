@@ -1,7 +1,3 @@
-<?php 
-//setcookie('mail','',1);
-//setcookie('mdp','',1);
-?>
 <!DOCTYPE html>
 <html>
     <head>
