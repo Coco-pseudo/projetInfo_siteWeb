@@ -11,6 +11,7 @@ $DATA="Profil/$mail/Reference.json";
 ?>
 <!DOCTYPE html>
 <html>
+    <!-- Comprend le titre de la page et la page css associé -->
     <head>
         <meta charset="utf-8">
         <title>Vos Archive - Jeune 6.4</title>
@@ -18,11 +19,12 @@ $DATA="Profil/$mail/Reference.json";
         <link rel="stylesheet" type="text/css" href="Archive.css">
     </head>
     
-    <header>
-        <h1>Pour faire de l'engagement une valeur</h1>
-        <image src="logo.png" height="150" onclick="Accueil()"></image>
-    </header>
     <body>
+        <header>
+            <h1>Pour faire de l'engagement une valeur</h1>
+            <image src="logo.png" height="150" onclick="Accueil()"></image>
+        </header>
+        <!-- Barre de navigation -->
         <nav>
             <ul class="nav-links">
                 <li><a href="Jeune.php" class="color1">Profil</a></li>
@@ -30,6 +32,7 @@ $DATA="Profil/$mail/Reference.json";
                 <li><a href="Deco.php" class="color3">Déconnexion</a></li>
             </ul>
         </nav>
+        <!-- Contenu de la page -->
         <div class="references">
 
             <div class="commentaire">
@@ -360,7 +363,7 @@ $DATA="Profil/$mail/Reference.json";
         </div>
         <script>
             function Accueil(){
-                document.location.href="../Visiteur.php";
+                document.location.href="../Visiteur.php"; // Permet de retourner sur Visteur.php en cliquant sur le logo dans la bannière
             }
             function Retour(){
                 document.location.href="References.php";
