@@ -132,7 +132,7 @@ $DATA="Profil/$mail/Reference.json"; //récupere les données des références
                     echo "<tr>";
 
                     echo "<td colspan=2><button onclick=ModifRef($i) class=bt>Modifier la Référence</button>";
-                    if ($ref['Reference'][$i-1]['verif'] == 0){ //vérifie si la référence est archiver
+                    if ($ref['Reference'][$i-1]['verif'] == 0){ //vérifie si la référence est vérifier
                     echo"<button onclick=EnvoieR($i) class=bt>Envoie au Référent</button>";
                     }
                     echo "<button onclick=Archiver($i) class=bt>Archiver</button></td>";
