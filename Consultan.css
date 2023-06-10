@@ -64,7 +64,8 @@ nav {
     color: rgb(122, 192, 238); /* Couleur du 2eme onglets de la navbar */
 }
 
-.references{
+
+.articles {
     display:flex;
     flex-direction: row;
     justify-content: space-around;  
@@ -72,52 +73,72 @@ nav {
     height: auto;
     width:auto;
     margin: 250px auto 50px;
+    padding: 0 20px;
+}
+.article1 {
+    height:max-content;
+    width: 40%;
+}
+.article2 {
+    height:max-content;
+    width: 40%;    
+}
+.titre {
+    color: gray;
+    font-size: xx-large;
 }
 
 
+.ressource {
+    text-align: center;
+    color: gray;
+    font-size: xx-large;
+}
 
 
-.ref{
-    border-style: solid;
-    border-color: rgb(122, 192, 238);
-    background: linear-gradient(to right,rgb(122, 192, 238), rgb(175, 216, 243));
-    border-collapse: collapse;
-    table-layout: fixed;
-    width: 900px;
-    height: 272px;
-    overflow-wrap: break-word; 
-    margin-bottom: 30px;
+.carres {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;  
+    height: 90px;
+    width:auto;
+    margin: 70px auto 50px;
+    padding: 0 20px;
+    flex-wrap: wrap;
 }
-.sve{
+.carre1 {
     border-style: solid;
-    border-color: rgb(122, 192, 238);
-    background: linear-gradient(to right,rgb(122, 192, 238), rgb(175, 216, 243));
-    border-collapse: collapse;
-    table-layout: fixed;
-    width: 150px;
-    height: 272px;
-    margin-bottom: 30px;
-}
-.svf{
-    border-style: solid;
-    border-color: rgb(122, 192, 238);
-    background: linear-gradient(to right,rgb(122, 192, 238), rgb(175, 216, 243));
-    border-collapse: collapse;
-    table-layout: fixed;
-    width: 150px;
-    height: 272px;
-    margin-bottom: 30px;
-}
-.com{
-    border-style: solid;
-    border-color: rgb(122, 192, 238);
-    background: linear-gradient(to right,rgb(122, 192, 238), rgb(175, 216, 243));
-    border-collapse: collapse;
-    table-layout: fixed;
-    width: 200px;
-    height: 272px;
+    border-color: violet;
+    height:75%;
+    width: 20%;
+    background-color:rgb(238, 180, 238);
     overflow-inline: auto;
-    overflow-wrap: break-word;
-    margin-bottom: 30px;
+    overflow-wrap: break-word; 
 }
-
+.carre2 {
+    border-style: solid;
+    border-color: green;
+    height:75%;
+    width: 20%;
+    background-color:rgb(149, 245, 149);
+    overflow-inline: auto;
+    overflow-wrap: break-word;     
+}
+.carre3 {
+    border-style: solid;
+    border-color: lightblue;
+    height:75%;
+    width: 20%;
+    background-color:rgb(159, 211, 245);
+    overflow-inline: auto;
+    overflow-wrap: break-word;  
+}
+.titre1 {
+    background: linear-gradient(to right,#b90db9, rgb(228, 117, 209));
+}
+.titre2 {
+    background: linear-gradient(to right,green, rgb(97, 228, 147));
+}
+.titre3 {
+    background: linear-gradient(to right,lightblue, rgb(102, 182, 235));
+}
