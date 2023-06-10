@@ -9,7 +9,7 @@ body {
     background-color: rgb(255, 255, 255); /* Fond blanc */
     margin: 0;
     padding: 0;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; /*Police de la page */
 }
 
 
@@ -20,7 +20,7 @@ header {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: 1; /* z-order de la bannière */
 }
 h1  {
     color: white;
@@ -40,7 +40,7 @@ nav {
     top: 150px; /* la navbar commence après le header */
     left: 0;
     right: 0;
-    z-index: 1;
+    z-index: 1; /* z-order de la navbar */
 } 
 .nav-links {
     display: flex;
@@ -64,7 +64,8 @@ nav {
     color: violet;
 }
 
-
+/* CSS du contenu de Visiteur.php */
+/* 1er bloc de texte */
 .articles {
     display:flex;
     flex-direction: row;
@@ -88,14 +89,14 @@ nav {
     font-size: xx-large;
 }
 
-
+/* Phrase de transition */
 .ressource {
     text-align: center;
     color: gray;
     font-size: xx-large;
 }
 
-
+/* Carré de texte */
 .carres {
     display:flex;
     flex-direction: row;
@@ -133,6 +134,7 @@ nav {
     overflow-inline: auto;
     overflow-wrap: break-word;  
 }
+/* Changement de couleur pour le fond du titre de chaque carré */
 .titre1 {
     background: linear-gradient(to right,#b90db9, rgb(228, 117, 209));
 }
