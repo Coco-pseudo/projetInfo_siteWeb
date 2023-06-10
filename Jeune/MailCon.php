@@ -20,6 +20,7 @@ $pro = json_decode(file_get_contents($Data),true);// contient le tableau du prof
 $NomJeune = $pro["Profil"][0]["Nom"];
 $PrenomJeune = $pro["Profil"][0]["Prenom"];
 //création de la chaine de caractère pour l'url envoyé au consultant
+$NumRef="";
 for($i = 0; $i<count($ref['Reference']); $i){
     if($ref['Reference'][$i]["verif"] == 2){ //ref validé
         $i++; //le numéro de la ref est 1 de plus que sa case dans le tableau
