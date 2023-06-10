@@ -58,10 +58,10 @@ nav {
     text-transform: uppercase;
 }
 .color1 {
-    color: rgb(129, 129, 129); /* Couleur du 1er onglets de la navbar */
+    color: violet; /* Couleur du 1er onglets de la navbar */
 }
 .color2 {
-    color: violet; /* Couleur du 2eme onglets de la navbar */
+    color: green; /* Couleur du 2eme onglets de la navbar */
 }
 
 

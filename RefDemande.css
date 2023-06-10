@@ -58,10 +58,10 @@ nav {
     text-transform: uppercase;
 }
 .color1 {
-    color: rgb(129, 129, 129); /* Couleur du 1er onglets de la navbar */
+    color: violet; /* Couleur du 1er onglets de la navbar */
 }
 .color2 {
-    color: violet; /* Couleur du 2eme onglets de la navbar */
+    color: green; /* Couleur du 2eme onglets de la navbar */
 }
 
 .references{
@@ -73,29 +73,11 @@ nav {
     width:auto;
     margin: 250px auto 50px;
 }
-/* .commentaire{
-    border-style: solid;
-    border-color: red;
-}
-.tab {
-    border-style: solid;
-    border-color: green;
-}
-.savoir-etre {
-    border-style: solid;
-    border-color: blue;
-}
-.savoir-faire {
-    border-style: solid;
-    border-color: rgb(25, 173, 218);
-} */
-
-
 
 .ref{
     border-style: solid;
-    border-color: violet;
-    background: linear-gradient(to right,#e769e7, rgb(255, 255, 255));
+    border-color: green;
+    background: linear-gradient(to right,green, rgb(115, 231, 167));
     border-collapse: collapse;
     table-layout: fixed;
     width: 900px;
@@ -105,8 +87,8 @@ nav {
 }
 .sve{
     border-style: solid;
-    border-color: violet;
-    background: linear-gradient(to right,#e769e7, rgb(255, 255, 255));
+    border-color: green;
+    background: linear-gradient(to right,green, rgb(115, 231, 167));
     border-collapse: collapse;
     table-layout: fixed;
     width: 150px;
@@ -115,8 +97,8 @@ nav {
 }
 .svf{
     border-style: solid;
-    border-color: violet;
-    background: linear-gradient(to right,#e769e7, rgb(255, 255, 255));
+    border-color: green;
+    background: linear-gradient(to right,green, rgb(115, 231, 167));
     border-collapse: collapse;
     table-layout: fixed;
     width: 150px;
@@ -125,8 +107,8 @@ nav {
 }
 .com{
     border-style: solid;
-    border-color: violet;
-    background: linear-gradient(to right,#e769e7, rgb(255, 255, 255));
+    border-color: green;
+    background: linear-gradient(to right,green, rgb(115, 231, 167));
     border-collapse: collapse;
     table-layout: fixed;
     width: 200px;
@@ -141,17 +123,17 @@ nav {
     margin-top :5%;
 }
 .bd {
-    background: linear-gradient(to right,#b90db9, rgb(240, 149, 225));
+    background: linear-gradient(to right,green, rgb(115, 231, 167));
     border-style: solid;
-    border-color: violet;
+    border-color: green;
     width: 180px;
     height: 50px;
     margin-bottom: 20px;
 }
 .bcv {
-    background: linear-gradient(to right,#b90db9, rgb(240, 149, 225));
+    background: linear-gradient(to right,green, rgb(115, 231, 167));
     border-style: solid;
-    border-color: violet;
+    border-color: green;
     top: 25px;
     width: 180px;
     height: 50px;
@@ -160,7 +142,7 @@ nav {
 .bt {
     background: white;
     border-style: solid;
-    border-color: violet;
+    border-color: green;
     width: 30%;
     height: 40px;
     margin-right:28px;
@@ -170,20 +152,11 @@ nav {
 .btd {
     background: white;
     border-style: solid;
-    border-color: violet;
+    border-color: green;
     width: 30%;
     height: 40px;
     margin-right:28px;
     margin-left:145px;
     cursor: pointer;
 }
-/* td{
-    border : 1px  solid black;
-    align-items: center;
-}
-
-div.checkbox {
-    color:red;
-    background-color: blue;
-} */
 
