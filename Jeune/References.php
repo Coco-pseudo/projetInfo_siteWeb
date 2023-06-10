@@ -38,8 +38,11 @@ $DATA="Profil/$mail/Reference.json";
             <?php
             
             $ref = json_decode(file_get_contents($DATA),true);
-            $nbref = count($ref['Reference']);
-
+            if ($ref==null){
+                $nbref=0;
+            }else{
+                $nbref = count($ref['Reference']);
+            }
             for ($i = 1; $i <= $nbref; $i++) {
                 if ($ref['Reference'][$i-1]['archiver'] == 0){
                     echo "<h2>Commentaire $i :</h2>";
@@ -55,8 +58,6 @@ $DATA="Profil/$mail/Reference.json";
 
             <div class="tab">
             <?php
-            $ref = json_decode(file_get_contents($DATA),true);
-            $nbref = count($ref['Reference']);
             
             for ($i = 1; $i <= $nbref; $i++) { // Boucle pour créer les tableaux
                 if ($ref['Reference'][$i-1]['archiver'] == 0){
@@ -147,8 +148,6 @@ $DATA="Profil/$mail/Reference.json";
 
             <div class="savoir-etre">
             <?php
-            $ref = json_decode(file_get_contents($DATA),true);
-            $nbref = count($ref['Reference']);
             
             for ($i = 1; $i <= $nbref; $i++) { // Boucle pour créer les tableaux de savoir-être
                 if ($ref['Reference'][$i-1]['archiver'] == 0){
@@ -254,8 +253,6 @@ $DATA="Profil/$mail/Reference.json";
 
             <div class="savoir-faire">
             <?php
-            $ref = json_decode(file_get_contents($DATA),true);
-            $nbref = count($ref['Reference']);
             
             for ($i = 1; $i <= $nbref; $i++) { // Boucle pour créer les tableaux de savoir-faire
                 if ($ref['Reference'][$i-1]['archiver'] == 0){
