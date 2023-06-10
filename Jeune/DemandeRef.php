@@ -30,7 +30,7 @@ if($_COOKIE['verified'] == 1){
         </nav>
 
         
-        <form method="POST" action="http://localhost:8080/Jeune/PageDemandeBis.php">
+        <form method="POST" action="PageDemandeBis.php">
                 <div class="formulaires">
                     <table  class="ref">
                         <tr>

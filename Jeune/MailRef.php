@@ -88,6 +88,7 @@ $message =
             <p>Un référent viens apporter de la crédibilité au jeune, sur la valeur de son dossier. Vous avez été contacté suite à la demande de $NomJeune $PrenomJeune</p>
             <p>Cette demande de référence vise a certifier les qualités du jeune, de par votre propre expérience avec le jeune :</p>
             <p><a href=\"../Referent.php?q=$MailJeune+$NumRef\"> Lien pour accéder à la référence</a></p>
+
         </main>
         <footer>
             <h4>Jeunes 6.4</h4>
@@ -96,12 +97,12 @@ $message =
         </footer>
     </body>
 </html>";
-//echo $message;
-$test = mail("guedescore@cy-tech.fr","Test mail Projet",$message,"From: corentin.guedes@gmail.com"."\r\n".'Content-type: text/html');
+echo $message;
+/*$test = mail("guedescore@cy-tech.fr","Test mail Projet",$message,"From: corentin.guedes@gmail.com"."\r\n".'Content-type: text/html');
 if($test){
     echo("mail envoyé");
 }else {
     echo("erreur dans l'envoi");
-}
+}*/
 
 ?>
