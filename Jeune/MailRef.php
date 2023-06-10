@@ -16,12 +16,12 @@ unset($_SESSION["dataC"]);
 //$NumRef = $_POST['a'];
 //sinon
 $NumRef = $_COOKIE['numero'];
-//
+
 
 $MailJeune = $_COOKIE['mail']; //prend la valeur du mail du jeune
 $Data = "Profil/$MailJeune/Reference.json";
 $ref = json_decode(file_get_contents($Data),true); //contient le tableau de refs du jeune
-$MailRef = $ref['Reference'][$NumRef]["EmailRef"];//prend la valeur du mail du référent dans la demande de référent
+$MailRef = $ref['Reference'][$NumRef-1]["EmailRef"];//prend la valeur du mail du référent dans la demande de référent
 $Data = "Profil/$MailJeune/Profil.json";
 $pro = json_decode(file_get_contents($Data),true);// contient le tableau du profil du jeune
 $NomJeune = $pro["Profil"][0]["Nom"];
