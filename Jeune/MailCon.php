@@ -19,8 +19,7 @@ $Data = "Profil/$MailJeune/Profil.json";
 $pro = json_decode(file_get_contents($Data),true);// contient le tableau du profil du jeune
 $NomJeune = $pro["Profil"][0]["Nom"];
 $PrenomJeune = $pro["Profil"][0]["Prenom"];
-//création du tableau des références validés, pour ensuite aller chercher celles selectionnés
-$tabref = [];
+//création de la chaine de caractère pour l'url envoyé au consultant
 for($i = 0; $i<count($ref['Reference']); $i){
     if($ref['Reference'][$i]["verif"] == 2){ //ref validé
         $i++; //le numéro de la ref est 1 de plus que sa case dans le tableau
@@ -31,8 +30,8 @@ for($i = 0; $i<count($ref['Reference']); $i){
                 $NumRef = $NumRef."+".$_POST["ref$i"];
             }
         }
-    }else{
-        $i++;
+    }else{//la reference active n'est pas validé
+        $i++;//on incrémente le compteur
     }
 }
 $message =
@@ -124,6 +123,6 @@ $message =
     </body>
 </html>";
 echo $message;
-//mail("corentin.guedes@gmail.com","Test mail Projet",$message);
+//mail("guedescore@cy-tech.fr","Test mail Projet",$message);
 
 ?>
