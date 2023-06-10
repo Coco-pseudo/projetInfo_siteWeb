@@ -6,6 +6,7 @@
     }
 ?>
 <html>
+    <!-- Comprend le titre de la page et la page css associé -->
     <head>
         <meta charset="utf-8">
         <title>Connexion - Jeune 6.4</title>
@@ -15,19 +16,23 @@
     
     
     <body>
+        <!-- Bannière comprenant le logo et le slogan -->
         <header>
             <h1>Pour faire de l'engagement une valeur</h1>
             <image src="logo.png" height="150" onclick="Accueil()"></image>
         </header>
+        <!-- Barre de navigation -->
         <nav>
             <ul class="nav-links">
                 <li><a href="Partenaires.html" class="color1">Partenaires</a></li>
                 <li><a href="PageConnexion.php" class="color2">Connexion</a></li>
             </ul>
         </nav>
+        <!-- Contenu de la page -->
         <div class="body">
             <form method="post" action="Connexion.php">
                 <table class="form">
+                    <!-- N'apparait que pour s'inscrire -->
                     <tr class="inscription invisible">
                         <td>Nom :</td><td><input type="text" name="nom" id="nom"></td>
                     </tr>
@@ -37,7 +42,8 @@
                     <tr class="inscription invisible">
                         <td>Date de naissance</td><td><input type="date" name="date" id="birthday"></td>
                     </tr>
-                    <tr>
+                    <!-- Connexion -->
+                    <tr> 
                         <td>Mail :</td><td><input type="email" name="mail" id="mail" required></td>
                     </tr>
                     <tr>
@@ -50,12 +56,12 @@
                         <td colspan="2" id="FullRow">inscription?</td>
                     </tr>
                     <tr>
-                        <td><label for="1">oui</label><input type="radio" name="indice" value="1" onclick="visible()"></td>
-                        <td><label for="0">non</label><input type="radio" name="indice" value="0" checked onclick="invisible()"></td>
+                        <td><label for="1">Oui</label><input type="radio" name="indice" value="1" onclick="visible()"></td>
+                        <td><label for="0">Non</label><input type="radio" name="indice" value="0" checked onclick="invisible()"></td>
                     </tr>
                     <tr>
-                        <td><button type="submit">Connexion</button></td>
-                        <td><button type="reset" onclick="invisible()"> réinitialiser</button></td>
+                        <td><button type="submit" class=bt>Connexion</button></td>
+                        <td><button type="reset" onclick="invisible()" class=btd> Réinitialiser</button></td>
                     </tr>
                 </table>
             </form>
@@ -88,7 +94,7 @@
                 }
             }
             function Accueil(){
-                document.location.href="Visiteur.php";
+                document.location.href="Visiteur.php"; // Permet de retourner sur Visteur.php en cliquant sur le logo dans la bannière
             }
         </script>
     </body>

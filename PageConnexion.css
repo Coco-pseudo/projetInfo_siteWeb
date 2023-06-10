@@ -1,15 +1,15 @@
-* {
+* { /* Initialisation de la page */
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
 
-body {
+body { /* Initialisation du body */
     background-color: rgb(255, 255, 255); /* Fond blanc */
     margin: 0;
     padding: 0;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; /*Police de la page */
 }
 
 
@@ -20,7 +20,7 @@ header {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: 1; /* z-order de la bannière */
 }
 h1  {
     color: white;
@@ -40,7 +40,7 @@ nav {
     top: 150px; /* la navbar commence après le header */
     left: 0;
     right: 0;
-    z-index: 1;
+    z-index: 1; /* z-order de la navbar */
 } 
 .nav-links {
     display: flex;
@@ -57,11 +57,11 @@ nav {
     font-weight: bold;
     text-transform: uppercase;
 }
-.color2 {
-    color: violet;
-}
 .color1 {
-    color: rgb(129, 129, 129);
+    color: rgb(129, 129, 129); /* Couleur du 1er onglets de la navbar */
+}
+.color2 {
+    color: violet; /* Couleur du 2eme onglets de la navbar */
 }
 .body{
     display:flex;
@@ -85,4 +85,27 @@ nav {
 }
 .invisible{
     display: none;
+}
+
+.bt {
+    background: white;
+    border-style: solid;
+    border-color: violet;
+    width: 80px;
+    height: 40px;
+    margin:20px;
+    cursor: pointer;
+}
+.btd {
+    background: white;
+    border-style: solid;
+    border-color: violet;
+    width: 80px;
+    height: 40px;
+    margin-left:40px;
+    cursor: pointer;
+}
+
+#FullRow {
+    text-align: center;
 }
