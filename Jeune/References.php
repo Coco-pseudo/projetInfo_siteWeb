@@ -401,9 +401,9 @@ $DATA="Profil/$mail/Reference.json"; //récupere les données des références
                 xhr.open("POST", "AlgoModifRef.php", true);
                 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xhr.send("a=" + escape(a) +"& b=3");
-
-                document.location.href="MailRef.php";
+                
                 document.cookie="numero = "+a ;
+                open("MailRef.php");
                 
                 //code pour mail fonctionnel
                 /*var Ajax = new XMLHttpRequest();
