@@ -336,7 +336,7 @@ $DATA="Profil/$mail/Reference.json";
                         echo "</tr>";
                     }
 
-                    if ($ref['Reference'][$i-1]['Capacite à sorganiser'] == 1){
+                    if ($ref['Reference'][$i-1]['Capacite a sorganiser'] == 1){
                         echo "<tr>";
                             echo "<td class=reponse>";
                             echo "<img src=checkmark.png height=12>";
