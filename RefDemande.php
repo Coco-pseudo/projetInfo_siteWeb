@@ -95,7 +95,7 @@
                 echo "</tr>";
 
                 echo "<tr>";
-                    echo "<td colspan=2><button onclick=Modif() class=btd>Modifier la Référence</button><button onclick=Validation() class=bt>Valider</button></td>";
+                    echo "<td colspan=2><button onclick=Modif() class=btd>Modifier la Référence</button><button onclick=Validation($i) class=bt>Valider</button></td>";
                 echo "</tr>";
     
                 echo "</table>";
