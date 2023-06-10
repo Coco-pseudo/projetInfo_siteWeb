@@ -38,7 +38,7 @@ if($_COOKIE['verified'] == 2){
 <?php
 $CheminProfils = "../Jeune/Profil";
 $Liste = scandir("$CheminProfils");
-if($Liste.length == 2){//contient uniquement .. et .
+if(count($Liste) == 2){//contient uniquement .. et .
     echo("Il n'y a pas de dossier Jeune sur le site");
 }else{
     for($i = 0; $i<count($Liste); $i++){
