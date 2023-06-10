@@ -227,6 +227,7 @@ switch ($mode){
         break;
     case 4 : 
         EditVerif($i,$Data,2);
+        break;
     case 5 : 
         EditProfil($Data2,$nom,$prenom,$date);
         break;
