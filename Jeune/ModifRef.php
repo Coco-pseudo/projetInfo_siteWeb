@@ -26,7 +26,6 @@ $j=$_COOKIE['Reference'];
         <link rel="stylesheet" type="text/css" href="ModifRef.css">
     </head>
     
-    
     <body>
         <!-- Bannière comprenant le logo et le slogan -->
         <header>

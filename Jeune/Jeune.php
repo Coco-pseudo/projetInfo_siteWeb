@@ -18,7 +18,6 @@ if($_COOKIE['verified'] == 1){//l'utilisateur viens de se connecter avec succès
         <link rel="stylesheet" type="text/css" href="Jeune.css">
     </head>
     
-
     <body>
         <!-- Bannière comprenant le logo et le slogan -->
         <header>

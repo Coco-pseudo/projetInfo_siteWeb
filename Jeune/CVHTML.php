@@ -36,7 +36,6 @@ for($i = 0; $i<count($ref['Reference']); $i){
         <link rel="stylesheet" type="text/css" href="CVHTML.css">
     </head>
     
-    
     <body>
         <!-- Bannière comprenant le logo et le slogan -->
         <header>

@@ -11,6 +11,7 @@ if (isset($_SESSION["dataR"])==false){
 
 <!DOCTYPE html>
 <html>
+    <!-- Comprend le titre de la page et la page css associé -->
     <head>
         <meta charset="utf-8">
         <title>Jeune 6.4</title>
@@ -18,19 +19,20 @@ if (isset($_SESSION["dataR"])==false){
         <link rel="stylesheet" type="text/css" href="Referent.css">
     </head>
     
-    
-    
     <body>
+        <!-- Bannière comprenant le logo et le slogan -->
         <header>
             <h1>Pour faire de l'engagement une valeur</h1>
             <image src="logo.png" height="150" onclick="Accueil()"></image>
         </header>
+        <!-- Barre de navigation -->
         <nav>
             <ul class="nav-links">
                 <li><a href="RefJeune.php" class="color1">Profil du Jeune</a></li>
                 <li><a href="RefDemande.php" class="color2">Sa demande de Référence</a></li>
             </ul>
         </nav>
+        <!-- Contenu de la page -->
         <div class="articles">
             <div class="article1">
                 <div class="titre">De quoi s'agit-il ?</div>
