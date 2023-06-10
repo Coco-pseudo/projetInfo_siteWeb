@@ -425,6 +425,8 @@ $DATA="Profil/$mail/Reference.json"; //récupere les données des références
                 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xhr.send("a=" + escape(a) +"& b=1");
                 document.location.href="References.php";
+                document.location.href="References.php";
+                document.location.href="References.php";
             
             }
         </script>
