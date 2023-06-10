@@ -9,7 +9,7 @@ $PrenomJeune = $pro["Profil"][0]["Prenom"];
 //création du tableau des références validés, pour ensuite aller chercher celles selectionnés
 $tab = [$MailJeune];
 for($i = 0; $i<count($ref['Reference']); $i){
-    if($ref['Reference'][$i]["verif"] == 1){ //ref validé
+    if($ref['Reference'][$i]["verif"] == 2){ //ref validé
         $i++; //le numéro de la ref est 1 de plus que sa case dans le tableau
         if(isset($_POST["ref$i"])){
             array_push($tab,$i);
@@ -66,69 +66,104 @@ for ($i = 1; $i <= $nbref; $i++) {
 
     if ($ref['Reference'][$tab[$i]-1]['Autonome'] == 1){
         $e1="-Autonome-";
+    }else{
+        $e1='';
     }
-
     if ($ref['Reference'][$tab[$i]-1]['Passionne'] == 1){
         $e2="-Passionné-";
+    }else{
+        $e2='';
     }
     if ($ref['Reference'][$tab[$i]-1]['Reflechi'] == 1){
         $e3="-Réfléchi-";
+    }else{
+        $e3='';
     }
     if ($ref['Reference'][$tab[$i]-1]['Alecoute'] == 1){
         $e4="-A l'écoute-";
+    }else{
+        $e4='';
     }
     if ($ref['Reference'][$tab[$i]-1]['Organise'] == 1){
         $e5="-Organisé-";
+    }else{
+        $e5='';
     }
     if ($ref['Reference'][$tab[$i]-1]['Fiable'] == 1){
         $e6="-Fiable-";
+    }else{
+        $e6='';
     }
     if ($ref['Reference'][$tab[$i]-1]['Patient'] == 1){
         $e7="-Patient-";
+    }else{
+        $e7='';
     }
     if ($ref['Reference'][$tab[$i]-1]['Responsable'] == 1){
         $e8="-Responsable-";
+    }else{
+        $e8='';
     }
     if ($ref['Reference'][$tab[$i]-1]['Sociable'] == 1){
         $e9="-Sociable-";
+    }else{
+        $e9='';
     }
     if ($ref['Reference'][$tab[$i]-1]['Optimiste'] == 1){
         $e10="-Optimiste-";
+    }else{
+        $e10='';
     }
 
     if ($ref['Reference'][$tab[$i]-1]['Gerer un projet'] == 1){
         $f1="-Gérer un projet-";
+    }else{
+        $f1='';
     }
     if ($ref['Reference'][$tab[$i]-1]['Parler une autre langue'] == 1){
         $f2="-Parler une autre langue-";
+    }else{
+        $f2='';
     }
     if ($ref['Reference'][$tab[$i]-1]['Diriger une equipe'] == 1){
         $f3="-Diriger une equipe-";
+    }else{
+        $f3='';
     }
     if ($ref['Reference'][$tab[$i]-1]['Maitriser de linformatique'] == 1){
         $f4="-Maitriser de l'informatique-";
+    }else{
+        $f4='';
     }
-                    
     if ($ref['Reference'][$tab[$i]-1]['Savoir dessiner'] == 1){
         $f5="-Savoir dessiner-";
+    }else{
+        $f5='';
     }
     if ($ref['Reference'][$tab[$i]-1]['Savoir traduire'] == 1){
         $f6="-Savoir traduire-";
+    }else{
+        $f6='';
     }
-
-
     if ($ref['Reference'][$tab[$i]-1]['Organiser une conference'] == 1){
         $f7="-Organiser une conference-";
+    }else{
+        $f7='';
     }
     if ($ref['Reference'][$tab[$i]-1]['Concevoir une formation'] == 1){
         $f8="-Concevoir une formation-";
+    }else{
+        $f8='';
     }
     if ($ref['Reference'][$tab[$i]-1]['Trier des donnees'] == 1){
         $f9="-Trier des données-";
+    }else{
+        $f9='';
     }
-
     if ($ref['Reference'][$tab[$i]-1]['Capacite a sorganiser'] == 1){
         $f10="-Capacité à s'organiser-";
+    }else{
+        $f10='';
     }
 
 
@@ -183,7 +218,7 @@ $html='<h2>Référence ' . $tab[$i] . ' :</h2>
     $pdf->writeHTML($html, true, false, true, false, '');
     $html2 = '<div><h3 style="text-align:center">Savoirs-être :</h3>
             <div style="text-align:center">
-            ' .$e1. ' ' .$e2. '' .$e3. '' .$e4. '' .$e5. '' .$e6. '' .$e7. '' .$e8. '' .$e9. '' .$e10. '
+            ' .$e1. '' .$e2. '' .$e3. '' .$e4. '' .$e5. '' .$e6. '' .$e7. '' .$e8. '' .$e9. '' .$e10. '
             </div>
             <h3 style="text-align:center">Savoirs-faire :</h3>
             <div style="text-align:center">

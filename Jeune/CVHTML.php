@@ -15,7 +15,7 @@ $PrenomJeune = $pro["Profil"][0]["Prenom"];
 //création du tableau des références validés, pour ensuite aller chercher celles selectionnés
 $tab = [$MailJeune];
 for($i = 0; $i<count($ref['Reference']); $i){
-    if($ref['Reference'][$i]["verif"] == 1){ //ref validé
+    if($ref['Reference'][$i]["verif"] == 2){ //ref validé
         $i++; //le numéro de la ref est 1 de plus que sa case dans le tableau
         if(isset($_POST["ref$i"])){
             array_push($tab,$i);
