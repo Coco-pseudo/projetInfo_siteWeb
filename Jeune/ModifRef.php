@@ -341,7 +341,7 @@ $j=$_COOKIE['Reference'];
                 //attention les SavoirEtre[i] sont de la forme true/false jusqu'ici
                 
                 var i=0;
-                for (i=0;i<10;i++){         // mettre les SAvoirEtre sous forme de 0/1 
+                for (i=0;i<10;i++){         // mettre les SavoirEtre sous forme de 0/1 
                     if (SavoirEtre[i]==false){
                         SavoirEtre[i]=0;
                     }else if (SavoirEtre[i]==true){
@@ -370,7 +370,7 @@ $j=$_COOKIE['Reference'];
                 SavoirFaire[9]=document.getElementById("Capaciteasorganiser").checked;
 
                 var j=0;
-                for (j=0;j<10;j++){         // mettre les SAvoirEtre sous forme de 0/1 
+                for (j=0;j<10;j++){         // mettre les Savoir Faire sous forme de 0/1 
                     if (SavoirFaire[j]==false){
                         SavoirFaire[j]=0;
                     }else if (SavoirFaire[j]==true){
@@ -414,7 +414,7 @@ $j=$_COOKIE['Reference'];
             }
 
 
-            //Empécher selectionner plus que 4 savoir etre
+            //Empécher selectionner plus que 4 savoir faire
             var checks = document.querySelectorAll(".SavoirFaire");
             var max2 = 4;
             for (var i = 0; i < checks.length; i++)

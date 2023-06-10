@@ -155,7 +155,7 @@ if($_COOKIE['verified'] == 1){
             }
 
 
-            //Empécher selectionner plus que 4 savoir etre
+            //Empécher selectionner plus que 4 savoir Faire
             var checks = document.querySelectorAll(".SavoirFaire");
             var max2 = 4;
             for (var i = 0; i < checks.length; i++)
