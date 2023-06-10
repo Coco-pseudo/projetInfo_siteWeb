@@ -119,7 +119,7 @@ if($_COOKIE['verified'] == 1){//l'utilisateur viens de se connecter avec succès
 
                             echo "<tr>";
                             echo "<td colspan=2>";
-                            echo "<label class=container>Envoie cette référence";
+                            echo "<label class=container>Ajouter cette référence";
                             echo "<input type=checkbox name=ref$i value=$i >";
                             echo "<span class=checkmark></span>";
                             echo "</label>";
