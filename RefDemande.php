@@ -1,5 +1,6 @@
 <?php
     session_start();
+    setcookie("utilisateur", "Referent", time() + 180);
     $tab=$_SESSION["dataR"];
     $mail=$tab[0];
     $DATA="Jeune/Profil/$mail/Reference.json";
@@ -314,7 +315,13 @@
             function Modif(){
                 document.location.href="RefModifDemande.php";
             }
-            function Validation(){
+            function Validation(a){
+                alert("validation de la Reference n°"+a);
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", "Jeune/AlgoModifRef.php", true);
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xhr.send("b=4 & a="+a);
+                document.location.href="RefDemande.php";
 
             }
         </script>
