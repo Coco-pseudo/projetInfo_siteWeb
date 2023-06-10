@@ -29,17 +29,56 @@ $EmailRef=VerifChamp($EmailRef1);
 
 //Savoir-Etre
 
-$SavoirEtre[0]=$_POST["Autonome"];
-$SavoirEtre[1]=$_POST["A_lécoute"];
-$SavoirEtre[2]=$_POST["Organisé"];
-$SavoirEtre[3]=$_POST["Passionné"];
-$SavoirEtre[4]=$_POST["Fiable"];
-$SavoirEtre[5]=$_POST["Patient"];
-$SavoirEtre[6]=$_POST["Réfléchi"];
-$SavoirEtre[7]=$_POST["Responsable"];
-$SavoirEtre[8]=$_POST["Sociable"];
-$SavoirEtre[9]=$_POST["Optimiste"];
-
+if(isset($_POST["Autonome"])){
+    $SavoirEtre[0]=$_POST["Autonome"];
+}else{
+    $SavoirEtre[0]="";
+}
+if(isset($_POST["A_lécoute"])){
+    $SavoirEtre[1]=$_POST["A_lécoute"];
+}else{
+    $SavoirEtre[1]="";
+}
+if(isset($_POST["Organisé"])){
+    $SavoirEtre[2]=$_POST["Organisé"];
+}else{
+    $SavoirEtre[2]="";
+}
+if(isset($_POST["Passionné"])){
+    $SavoirEtre[3]=$_POST["Passionné"];
+}else{
+    $SavoirEtre[3]="";
+}
+if(isset($_POST["Fiable"])){
+    $SavoirEtre[4]=$_POST["Fiable"];
+}else{
+    $SavoirEtre[4]="";
+}
+if(isset($_POST["Patient"])){
+    $SavoirEtre[5]=$_POST["Patient"];
+}else{
+    $SavoirEtre[5]="";
+}
+if(isset($_POST["Réfléchi"])){
+    $SavoirEtre[6]=$_POST["Réfléchi"];
+}else{
+    $SavoirEtre[6]="";
+}
+if(isset($_POST["Responsable"])){
+    $SavoirEtre[7]=$_POST["Responsable"];
+}else{
+    $SavoirEtre[7]="";
+}
+if(isset($_POST["Sociable"])){
+    $SavoirEtre[8]=$_POST["Sociable"];
+}else{
+    $SavoirEtre[8]="";
+}
+if(isset($_POST["Optimiste"])){
+    $SavoirEtre[9]=$_POST["Optimiste"];
+}else{
+    $SavoirEtre[9]="";
+}
 
 for ($i=0;$i<10;$i++){
     
@@ -53,16 +92,56 @@ for ($i=0;$i<10;$i++){
 
 //Savoir-Faire
 
-$SavoirFaire[0]=$_POST["GestionProjet"];
-$SavoirFaire[1]=$_POST["AutreLangue"];
-$SavoirFaire[2]=$_POST["GererEquipe"];
-$SavoirFaire[3]=$_POST["Informatique"];
-$SavoirFaire[4]=$_POST["Dessin"];
-$SavoirFaire[5]=$_POST["Traduction"];
-$SavoirFaire[6]=$_POST["OrgaConf"];
-$SavoirFaire[7]=$_POST["ConcevoirFormation"];
-$SavoirFaire[8]=$_POST["TrierDonnées"];
-$SavoirFaire[9]=$_POST["CapacitéOrganisation"];
+if(isset($_POST["GestionProjet"])){
+    $SavoirFaire[0]=$_POST["GestionProjet"];
+}else{
+    $SavoirFaire[0]="";
+}
+if(isset($_POST["AutreLangue"])){
+    $SavoirFaire[1]=$_POST["AutreLangue"];
+}else{
+    $SavoirFaire[1]="";
+}
+if(isset($_POST["GererEquipe"])){
+    $SavoirFaire[2]=$_POST["GererEquipe"];
+}else{
+    $SavoirFaire[2]="";
+}
+if(isset($_POST["Informatique"])){
+    $SavoirFaire[3]=$_POST["Informatique"];
+}else{
+    $SavoirFaire[3]="";
+}
+if(isset($_POST["Dessin"])){
+    $SavoirFaire[4]=$_POST["Dessin"];
+}else{
+    $SavoirFaire[4]="";
+}
+if(isset($_POST["Traduction"])){
+    $SavoirFaire[5]=$_POST["Traduction"];
+}else{
+    $SavoirFaire[5]="";
+}
+if(isset($_POST["OrgaConf"])){
+    $SavoirFaire[6]=$_POST["OrgaConf"];
+}else{
+    $SavoirFaire[6]="";
+}
+if(isset($_POST["ConcevoirFormation"])){
+    $SavoirFaire[7]=$_POST["ConcevoirFormation"];
+}else{
+    $SavoirFaire[7]="";
+}
+if(isset($_POST["TrierDonnées"])){
+    $SavoirFaire[8]=$_POST["TrierDonnées"];
+}else{
+    $SavoirFaire[8]="";
+}
+if(isset($_POST["CapaciteOrganisation"])){
+    $SavoirFaire[9]=$_POST["CapaciteOrganisation"];
+}else{
+    $SavoirFaire[9]="";
+}
 
 for ($i=0;$i<10;$i++){
     
@@ -87,7 +166,7 @@ $Ref = array(
     "Patient"=>$SavoirEtre[5],"Reflechi"=>$SavoirEtre[6],"Responsable"=>$SavoirEtre[7],"Sociable"=>$SavoirEtre[8],"Optimiste"=>$SavoirEtre[9],
     "Commentaire"=>"","Gerer un projet"=>$SavoirFaire[0],"Parler une autre langue"=>$SavoirFaire[1],"Diriger une equipe"=>$SavoirFaire[2],
     "Maitriser de linformatique"=>$SavoirFaire[3],"Savoir dessiner"=>$SavoirFaire[4],"Savoir traduire"=>$SavoirFaire[5],"Organiser une conference"=>$SavoirFaire[6],
-    "Concevoir une formation"=>$SavoirFaire[7],"Trier des donnees"=>$SavoirFaire[8],"Capacité à sorganiser"=>$SavoirFaire[9])
+    "Concevoir une formation"=>$SavoirFaire[7],"Trier des donnees"=>$SavoirFaire[8],"Capacite à sorganiser"=>$SavoirFaire[9])
 );
 
 
@@ -127,8 +206,8 @@ function Tab($nomFichier,$Description,$Durée,$milieu,$nomRef,$prenomRef,$EmailR
         $i=0;
         $tmp=str_replace("[","  ",$str);
         $new=str_replace("]"," ",$tmp);
-        $new[17]="[ ";
-        $new[strlen($new)-2]="] ";
+        $new[17]="[";
+        $new[strlen($new)-2]="]";
     
     
     
