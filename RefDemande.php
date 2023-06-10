@@ -94,10 +94,11 @@
                     echo "</td>";
                 echo "</tr>";
 
-                echo "<tr>";
-                    echo "<td colspan=2><button onclick=Modif() class=btd>Modifier la Référence</button><button onclick=Validation($i) class=bt>Valider</button></td>";
-                echo "</tr>";
-    
+                if($ref['Reference'][$i-1]['verif'] == 1){
+                    echo "<tr>";
+                        echo "<td colspan=2><button onclick=Modif() class=btd>Modifier la Référence</button><button onclick=Validation($i) class=bt>Valider</button></td>";
+                    echo "</tr>";
+                }
                 echo "</table>";
             ?>
             </div>
