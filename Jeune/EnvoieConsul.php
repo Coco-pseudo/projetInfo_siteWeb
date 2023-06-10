@@ -28,7 +28,7 @@ if($_COOKIE['verified'] == 1){//l'utilisateur viens de se connecter avec succès
                 <li><a href="../Deco.php" class="color3">Déconnexion</a></li>
             </ul>
         </nav>
-        <form method="post" action="MailCon.php">
+        <form method="post" action="MailCon.php" target="_blank">
             <div class="references">
 
                 <div class="commentaire">
