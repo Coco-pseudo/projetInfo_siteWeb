@@ -26,8 +26,8 @@
         "Organiser une conference": 1,
         "Concevoir une formation": 1,
         "Trier des donnees": 1,
-        "Capacite à sorganiser": 0,
-        "verif": 1,
+        "Capacite a sorganiser": 0,
+        "verif": 2,
         "archiver": 0
     },    
     {
@@ -57,8 +57,8 @@
         "Organiser une conference": 1,
         "Concevoir une formation": 1,
         "Trier des donnees": 1,
-        "Capacite à sorganiser": 0,
-        "verif": 1,
+        "Capacite a sorganiser": 0,
+        "verif": 2,
         "archiver": 0
     }
 ,  
@@ -90,7 +90,7 @@
         "Concevoir une formation": "0",
         "Trier des donnees": "0",
         "Capacite a sorganiser": "0",
-        "verif": 0,
+        "verif": 2,
         "archiver": 0
     }
  ]}

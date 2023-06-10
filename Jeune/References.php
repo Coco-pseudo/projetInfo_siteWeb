@@ -1,5 +1,3 @@
-
-
 <?php
 if($_COOKIE['verified'] == 1){
     setcookie('verified','',1);
@@ -8,23 +6,25 @@ if($_COOKIE['verified'] == 1){
     setcookie('destination','Jeune/References.php',time()+3600);
     header('Location: ../Connexion.php');
 }
-$mail=$_COOKIE['mail'];
-$DATA="Profil/$mail/Reference.json";
+$mail=$_COOKIE['mail']; //recupère le mail
+$DATA="Profil/$mail/Reference.json"; //récupere les données des références
 ?>
 <!DOCTYPE html>
 <html>
+    <!-- Comprend le titre de la page et la page css associé -->
     <head>
         <meta charset="utf-8">
         <title>Vos Références - Jeune 6.4</title>
         <link rel="icon" type="image/png" href="logo.png">
         <link rel="stylesheet" type="text/css" href="References.css">
     </head>
-    
-    <header>
-        <h1>Pour faire de l'engagement une valeur</h1>
-        <image src="logo.png" height="150" onclick="Accueil()"></image>
-    </header>
     <body>
+        <!-- Bannière comprenant le logo et le slogan -->
+        <header>
+            <h1>Pour faire de l'engagement une valeur</h1>
+            <image src="logo.png" height="150" onclick="Accueil()"></image>
+        </header>
+        <!-- Barre de navigation -->
         <nav>
             <ul class="nav-links">
                 <li><a href="Jeune.php" class="color1">Profil</a></li>
@@ -32,19 +32,20 @@ $DATA="Profil/$mail/Reference.json";
                 <li><a href="../Deco.php" class="color3">Déconnexion</a></li>
             </ul>
         </nav>
+        <!-- Contenu de la page -->
         <div class="references">
 
             <div class="commentaire">
             <?php
             
-            $ref = json_decode(file_get_contents($DATA),true);
-            if ($ref==null){
+            $ref = json_decode(file_get_contents($DATA),true); //recupere les donnees des références
+            if ($ref==null){ //vérifie si il existe une reference
                 $nbref=0;
             }else{
-                $nbref = count($ref['Reference']);
+                $nbref = count($ref['Reference']); // Compte le nombre dde ref pour la boucle
             }
             for ($i = 1; $i <= $nbref; $i++) {
-                if ($ref['Reference'][$i-1]['archiver'] == 0){
+                if ($ref['Reference'][$i-1]['archiver'] == 0){ //vérifie si la référence est archiver
                     echo "<h2>Commentaire $i :</h2>";
                     echo "<div class=com>";
                         if ($ref['Reference'][$i-1]['Commentaire'] != ""){
@@ -60,28 +61,28 @@ $DATA="Profil/$mail/Reference.json";
             <?php
             
             for ($i = 1; $i <= $nbref; $i++) { // Boucle pour créer les tableaux
-                if ($ref['Reference'][$i-1]['archiver'] == 0){
-                    switch ($ref['Reference'][$i-1]['verif'] ){
-                            case 0 :
-                                echo "<h2>";
-                                echo "<img src=uncheckmark.png height=14>Référence $i en attente d'envoi :";
-                                echo "</h2>";
-                                break;
-                            case 1 :
-                                echo "<h2>";
-                                echo "<img src=uncheckmark.png height=14>Référence $i en attente de validation :";
-                                echo "</h2>";
-                                break;
-                            case 2 : 
-                                echo "<h2>";
-                                echo "<img src=checkmark.png height=14>Référence $i validé :";
-                                echo "</h2>";
-                                break;
-                            default :
-                                exit();
+                if ($ref['Reference'][$i-1]['archiver'] == 0){ // vérifie si la référence est archiver
+                    switch ($ref['Reference'][$i-1]['verif'] ){ // Change l'affichage en fonction du statut de la reference
+                        case 0 :
+                            echo "<h2>";
+                            echo "<img src=uncheckmark.png height=14>Référence $i en attente d'envoi :";
+                            echo "</h2>";
+                            break;
+                        case 1 :
+                            echo "<h2>";
+                            echo "<img src=uncheckmark.png height=14>Référence $i en attente de validation :";
+                            echo "</h2>";
+                            break;
+                        case 2 : 
+                            echo "<h2>";
+                            echo "<img src=checkmark.png height=14>Référence $i validé :";
+                            echo "</h2>";
+                            break;
+                        default :
+                            exit();
                 }
 
-                    echo "<table id=$i class=ref >";
+                    echo "<table id=$i class=ref >"; //affichage du tableau
 
                     echo "<tr>";
                         echo "<td>Description de l'engagement</td>";
@@ -131,14 +132,12 @@ $DATA="Profil/$mail/Reference.json";
                     echo "<tr>";
 
                     echo "<td colspan=2><button onclick=ModifRef($i) class=bt>Modifier la Référence</button>";
-                    if ($ref['Reference'][$i-1]['verif'] == 0){
-                    
+                    if ($ref['Reference'][$i-1]['verif'] == 0){ //vérifie si la référence est archiver
                     echo"<button onclick=EnvoieR($i) class=bt>Envoie au Référent</button>";
                     }
                     echo "<button onclick=Archiver($i) class=bt>Archiver</button></td>";
 
                     echo "</tr>";
-        
         
                     echo "</table>";
                 }
@@ -150,11 +149,11 @@ $DATA="Profil/$mail/Reference.json";
             <?php
             
             for ($i = 1; $i <= $nbref; $i++) { // Boucle pour créer les tableaux de savoir-être
-                if ($ref['Reference'][$i-1]['archiver'] == 0){
+                if ($ref['Reference'][$i-1]['archiver'] == 0){ //vérifie si la référence est archiver
                     echo "<h2>Savoirs-être $i :</h2>";
                     echo "<table id=$i class=sve >";
                     
-                    if ($ref['Reference'][$i-1]['Autonome'] == 1){
+                    if ($ref['Reference'][$i-1]['Autonome'] == 1){ //vérifie si le savoir etre est coché
                         echo "<tr>";
                             echo "<td class=reponse>";
                             echo "<img src=checkmark.png height=12>";
@@ -255,11 +254,11 @@ $DATA="Profil/$mail/Reference.json";
             <?php
             
             for ($i = 1; $i <= $nbref; $i++) { // Boucle pour créer les tableaux de savoir-faire
-                if ($ref['Reference'][$i-1]['archiver'] == 0){
+                if ($ref['Reference'][$i-1]['archiver'] == 0){ //vérifie si la référence est archiver
                     echo "<h2>Savoirs-faire $i :</h2>";
                     echo "<table id=$i class=svf >";
                     
-                    if ($ref['Reference'][$i-1]['Gerer un projet'] == 1){
+                    if ($ref['Reference'][$i-1]['Gerer un projet'] == 1){ //vérifie si le savoir faire est coché
                         echo "<tr>";
                             echo "<td class=reponse>";
                             echo "<img src=checkmark.png height=12>";
@@ -358,16 +357,16 @@ $DATA="Profil/$mail/Reference.json";
 
             <div class="bouton">
                 <div>
-                    <button onclick="Demande()" class="bd">Nouvelle référence</button>
+                    <button onclick="Demande()" class="bd">Nouvelle référence</button> <!--Creer une référence -->
                 </div>
                 <div>
-                    <button onclick="CV()" class="bcv">CV</button>
+                    <button onclick="CV()" class="bcv">CV</button> <!--Creer un CV -->
                 </div>
                 <div>
-                    <button onclick="EnvoieC()" class="bec">Envoie au Consultant</button>
+                    <button onclick="EnvoieC()" class="bec">Envoie au Consultant</button> <!--Envoie au Consultant-->
                 </div>
                 <div>
-                    <button onclick="Archive()" class="ba">Archive</button>
+                    <button onclick="Archive()" class="ba">Archive</button> <!--Accede au Archive-->
                 </div>
             </div>
 
@@ -377,14 +376,13 @@ $DATA="Profil/$mail/Reference.json";
                 document.location.href="../Visiteur.php";
             }
             function Demande(){
-                document.location.href="DemandeRef.php";
+                document.location.href="DemandeRef.php"; // Page pour creer une référence
             }
             function CV(){
                 document.location.href="CVDemande.php";
             }
             function ModifRef(a){
                 alert("Modification de la Réference n°"+a);
-
 
                 //creation de cookie pour savoir quelle reference modifier(laquelle afficher sur la page suivante)
                 
@@ -407,9 +405,6 @@ $DATA="Profil/$mail/Reference.json";
                 document.location.href="MailRef.php";
                 document.cookie="numero = "+a ;
                 
-
-
-
                 //code pour mail fonctionnel
                 /*var Ajax = new XMLHttpRequest();
                 Ajax.open("POST", "MailRef.php", true);
@@ -417,10 +412,10 @@ $DATA="Profil/$mail/Reference.json";
                 Ajax.send("a=" + escape(a));*/
             }
             function EnvoieC(){
-                document.location.href="EnvoieConsul.php";
+                document.location.href="EnvoieConsul.php"; //Envoie au Consultant
             }
             function Archive(){
-                document.location.href="Archive.php";
+                document.location.href="Archive.php"; //Accede au Archive
             }
             function Archiver(a){
                 alert("Archivage de la Réference n°"+a);
