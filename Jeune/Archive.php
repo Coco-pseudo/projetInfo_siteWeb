@@ -58,14 +58,24 @@ $DATA="Profil/$mail/Reference.json";
             for ($i = 1; $i <= $nbref; $i++) { // Boucle pour créer les tableaux
                 if ($ref['Reference'][$i-1]['archiver'] == 1){
 
-                    if ($ref['Reference'][$i-1]['verif'] == 1){
-                        echo "<h2>";
-                        echo "<img src=checkmark.png height=14>Référence $i validé :";
-                        echo "</h2>";
-                    }else{
-                        echo "<h2>";
-                        echo "<img src=uncheckmark.png height=14>Référence $i en attente de validation :";
-                        echo "</h2>";
+                    switch ($ref['Reference'][$i-1]['verif'] ){
+                        case 0 :
+                            echo "<h2>";
+                            echo "<img src=uncheckmark.png height=14>Référence $i en attente d'envoi :";
+                            echo "</h2>";
+                            break;
+                        case 1 :
+                            echo "<h2>";
+                            echo "<img src=uncheckmark.png height=14>Référence $i en attente de validation :";
+                            echo "</h2>";
+                            break;
+                        case 2 : 
+                            echo "<h2>";
+                            echo "<img src=checkmark.png height=14>Référence $i validé :";
+                            echo "</h2>";
+                            break;
+                        default :
+                            exit();
                     }
 
                     echo "<table id=$i class=ref >";

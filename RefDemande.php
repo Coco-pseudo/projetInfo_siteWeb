@@ -1,7 +1,10 @@
 <?php
-$q = $_REQUEST["q"];
-$tab = explode(" ",$q);
-$q = strtolower($q);
+    session_start();
+    setcookie($utilisateur, "Referent", time() + 180);
+    $tab=$_SESSION["dataR"];
+    $mail=$tab[0];
+    $DATA="Jeune/Profil/$mail/Reference.json";
+    $i=$tab[1];
 ?>
 <!DOCTYPE html>
 <html>
@@ -19,7 +22,7 @@ $q = strtolower($q);
     <body>
         <nav>
             <ul class="nav-links">
-                <li><a href="RefJeune.php" class="color1">Profil</a></li>
+                <li><a href="RefJeune.php" class="color1">Profil du Jeune</a></li>
                 <li><a href="RefDemande.php" class="color2">Sa demande de Référence</a></li>
             </ul>
         </nav>
@@ -27,14 +30,10 @@ $q = strtolower($q);
 
             <div class="commentaire">
             <?php
-            // $mail=$_COOKIE['mail'];"monadresse@gmail.com"
-            $mail=$tab[0];
-            $DATA="Jeune/Profil/$mail/Reference.json";
             $ref = json_decode(file_get_contents($DATA),true);
-            $nbref = count($ref['Reference']);
-            $i=$tab[1];
-
-                echo "<h2>Commentaire $i :</h2>";
+            
+        
+                echo "<h2>Commentaire  :</h2>";
                 echo "<div class=com>";
                 if ($ref['Reference'][$i-1]['Commentaire'] != ""){
                     echo $ref['Reference'][$i-1]['Commentaire'];
@@ -46,8 +45,9 @@ $q = strtolower($q);
             <div class="tab">
             <?php
             $ref = json_decode(file_get_contents($DATA),true);
-            $nbref = count($ref['Reference']);
-                echo "<h2>Référence $i :</h2>";
+            //$nbref = count($ref['Reference']);
+        
+                echo "<h2>Référence  :</h2>";
                 echo "<table id=$i class=ref >";
                 
                 echo "<tr>";
@@ -94,14 +94,11 @@ $q = strtolower($q);
                     echo $ref['Reference'][$i-1]['EmailRef'];
                     echo "</td>";
                 echo "</tr>";
-
-                if ($ref['Reference'][$i-1]['verif'] == 0){
-                echo "<tr>";
-                    echo "<td colspan=2><button onclick=Modif() class=btd>Modifier la Référence</button><button onclick=Validation() class=bt>Valider</button></td>";
-                echo "</tr>";
+                if($ref['Reference'][$i-1]['verif'] == 1){
+                    echo "<tr>";
+                        echo "<td colspan=2><button onclick=Modif() class=btd>Modifier la Référence</button><button onclick=Validation($i) class=bt>Valider</button></td>";
+                    echo "</tr>";
                 }
-    
-    
                 echo "</table>";
             ?>
             </div>
@@ -111,7 +108,7 @@ $q = strtolower($q);
             $ref = json_decode(file_get_contents($DATA),true);
             $nbref = count($ref['Reference']);
             
-                echo "<h2>Savoirs-être $i :</h2>";
+                echo "<h2>Savoirs-être  :</h2>";
                 echo "<table id=$i class=sve >";
                 
                 if ($ref['Reference'][$i-1]['Autonome'] == 1){
@@ -214,7 +211,7 @@ $q = strtolower($q);
             $ref = json_decode(file_get_contents($DATA),true);
             $nbref = count($ref['Reference']);
             
-                echo "<h2>Savoirs-faire $i :</h2>";
+                echo "<h2>Savoirs-faire  :</h2>";
                 echo "<table id=$i class=svf >";
                 
                 if ($ref['Reference'][$i-1]['Gerer un projet'] == 1){
@@ -309,6 +306,7 @@ $q = strtolower($q);
                 }
     
                 echo "</table>";
+            
             ?>
             </div>
         </div>
@@ -319,8 +317,13 @@ $q = strtolower($q);
             function Modif(){
                 document.location.href="RefModifDemande.php";
             }
-            function Validation(){
-
+            function Validation(a){
+                alert("validation de la Reference n°"+a);
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", "Jeune/AlgoModifRef.php", true);
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xhr.send("b=4 & a="+a);
+                document.location.href="RefDemande.php";
             }
         </script>
     </body>

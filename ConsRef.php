@@ -1,7 +1,5 @@
 <?php
-$q = $_REQUEST["q"];
-$tab = explode(" ",$q);
-$q = strtolower($q);
+    session_start();
 ?>
 <!DOCTYPE html>
 <html>
@@ -27,17 +25,17 @@ $q = strtolower($q);
 
             <div class="commentaire">
             <?php
-            // $mail=$_COOKIE['mail'];
+            $tab=$_SESSION["dataC"];
             $mail=$tab[0];
             $DATA="Jeune/Profil/$mail/Reference.json";
             $ref = json_decode(file_get_contents($DATA),true);
             $nbref = count($tab)-1;
 
             for ($i = 1; $i <= $nbref; $i++) {
-                echo "<h2>Commentaire $i :</h2>";
+                echo "<h2>Commentaire $tab[$i] :</h2>";
                 echo "<div class=com>";
-                if ($ref['Reference'][$i-1]['Commentaire'] != ""){
-                    echo $ref['Reference'][$i-1]['Commentaire'];
+                if ($ref['Reference'][$tab[$i]-1]['Commentaire'] != ""){
+                    echo $ref['Reference'][$tab[$i]-1]['Commentaire'];
                 }
                 echo "</div>";
             }
@@ -50,27 +48,27 @@ $q = strtolower($q);
             $nbref = count($tab)-1;
             
             for ($i = 1; $i <= $nbref; $i++) { // Boucle pour créer les tableaux
-                echo "<h2>Référence $i :</h2>";
+                echo "<h2>Référence $tab[$i] :</h2>";
                 echo "<table id=$i class=ref >";
                 
                 echo "<tr>";
                     echo "<td>Description de l'engagement</td>";
                     echo "<td class=reponse>";
-                    echo $ref['Reference'][$i-1]['Description'];
+                    echo $ref['Reference'][$tab[$i]-1]['Description'];
                     echo "</td>";
                 echo "</tr>";
                 
                 echo "<tr>";
                     echo "<td>Durée de l'engagement</td>";
                     echo "<td class=reponse>";
-                    echo $ref['Reference'][$i-1]['Duree'];
+                    echo $ref['Reference'][$tab[$i]-1]['Duree'];
                     echo "</td>";
                 echo "</tr>";
                 
                 echo "<tr>";
                     echo "<td>Le milieu de l'engagement (association, club de sport, etc.)</td>";
                     echo "<td class=reponse>";
-                    echo $ref['Reference'][$i-1]['milieu'];
+                    echo $ref['Reference'][$tab[$i]-1]['milieu'];
                     echo "</td>";
                 echo "</tr>";
                 
@@ -78,7 +76,7 @@ $q = strtolower($q);
                 echo "<tr>";
                     echo "<td>Nom du référent</td>";
                     echo "<td class=reponse>";
-                    echo $ref['Reference'][$i-1]['nomRef'];
+                    echo $ref['Reference'][$tab[$i]-1]['nomRef'];
                     echo "</td>";
                 echo "</tr>";
                 
@@ -86,7 +84,7 @@ $q = strtolower($q);
                 echo "<tr>";
                     echo "<td>Prénom du référent</td>";
                     echo "<td class=reponse>";
-                    echo $ref['Reference'][$i-1]['prenomRef'];
+                    echo $ref['Reference'][$tab[$i]-1]['prenomRef'];
                     echo "</td>";
                 echo "</tr>";
                 
@@ -94,7 +92,7 @@ $q = strtolower($q);
                 echo "<tr>";
                     echo "<td>Email du référent</td>";
                     echo "<td class=reponse>";
-                    echo $ref['Reference'][$i-1]['EmailRef'];
+                    echo $ref['Reference'][$tab[$i]-1]['EmailRef'];
                     echo "</td>";
                 echo "</tr>";
     
@@ -110,10 +108,10 @@ $q = strtolower($q);
             $nbref = count($tab)-1;
             
             for ($i = 1; $i <= $nbref; $i++) { // Boucle pour créer les tableaux de savoir-être
-                echo "<h2>Savoirs-être $i :</h2>";
+                echo "<h2>Savoirs-être $tab[$i] :</h2>";
                 echo "<table id=$i class=sve >";
                 
-                if ($ref['Reference'][$i-1]['Autonome'] == 1){
+                if ($ref['Reference'][$tab[$i]-1]['Autonome'] == 1){
                     echo "<tr>";
                         echo "<td class=reponse>";
                         echo "<img src=checkmark.png height=12>";
@@ -122,7 +120,7 @@ $q = strtolower($q);
                     echo "</tr>";
                 }
                 
-                if ($ref['Reference'][$i-1]['Passionne'] == 1){
+                if ($ref['Reference'][$tab[$i]-1]['Passionne'] == 1){
                     echo "<tr>";
                         echo "<td class=reponse>";
                         echo "<img src=checkmark.png height=12>";
@@ -131,7 +129,7 @@ $q = strtolower($q);
                     echo "</tr>";
                 }
                 
-                if ($ref['Reference'][$i-1]['Reflechi'] == 1){
+                if ($ref['Reference'][$tab[$i]-1]['Reflechi'] == 1){
                     echo "<tr>";
                         echo "<td class=reponse>";
                         echo "<img src=checkmark.png height=12>";
@@ -140,7 +138,7 @@ $q = strtolower($q);
                     echo "</tr>";
                 }
                 
-                if ($ref['Reference'][$i-1]['Alecoute'] == 1){
+                if ($ref['Reference'][$tab[$i]-1]['Alecoute'] == 1){
                     echo "<tr>";
                         echo "<td class=reponse>";
                         echo "<img src=checkmark.png height=12>";
@@ -149,7 +147,7 @@ $q = strtolower($q);
                     echo "</tr>";
                 }
                 
-                if ($ref['Reference'][$i-1]['Organise'] == 1){
+                if ($ref['Reference'][$tab[$i]-1]['Organise'] == 1){
                     echo "<tr>";
                         echo "<td class=reponse>";
                         echo "<img src=checkmark.png height=12>";
@@ -159,7 +157,7 @@ $q = strtolower($q);
                 }
                 
     
-                if ($ref['Reference'][$i-1]['Fiable'] == 1){
+                if ($ref['Reference'][$tab[$i]-1]['Fiable'] == 1){
                     echo "<tr>";
                         echo "<td class=reponse>";
                         echo "<img src=checkmark.png height=12>";
@@ -168,7 +166,7 @@ $q = strtolower($q);
                     echo "</tr>";
                 }
 
-                if ($ref['Reference'][$i-1]['Patient'] == 1){
+                if ($ref['Reference'][$tab[$i]-1]['Patient'] == 1){
                     echo "<tr>";
                         echo "<td class=reponse>";
                         echo "<img src=checkmark.png height=12>";
@@ -177,7 +175,7 @@ $q = strtolower($q);
                     echo "</tr>";
                 }
 
-                if ($ref['Reference'][$i-1]['Responsable'] == 1){
+                if ($ref['Reference'][$tab[$i]-1]['Responsable'] == 1){
                     echo "<tr>";
                         echo "<td class=reponse>";
                         echo "<img src=checkmark.png height=12>";
@@ -186,7 +184,7 @@ $q = strtolower($q);
                     echo "</tr>";
                 }
 
-                if ($ref['Reference'][$i-1]['Sociable'] == 1){
+                if ($ref['Reference'][$tab[$i]-1]['Sociable'] == 1){
                     echo "<tr>";
                         echo "<td class=reponse>";
                         echo "<img src=checkmark.png height=12>";
@@ -195,7 +193,7 @@ $q = strtolower($q);
                     echo "</tr>";
                 }
 
-                if ($ref['Reference'][$i-1]['Optimiste'] == 1){
+                if ($ref['Reference'][$tab[$i]-1]['Optimiste'] == 1){
                     echo "<tr>";
                         echo "<td class=reponse>";
                         echo "<img src=checkmark.png height=12>";
@@ -215,10 +213,10 @@ $q = strtolower($q);
             $nbref = count($tab)-1;
             
             for ($i = 1; $i <= $nbref; $i++) { // Boucle pour créer les tableaux de savoir-faire
-                echo "<h2>Savoirs-faire $i :</h2>";
+                echo "<h2>Savoirs-faire $tab[$i] :</h2>";
                 echo "<table id=$i class=svf >";
                 
-                if ($ref['Reference'][$i-1]['Gerer un projet'] == 1){
+                if ($ref['Reference'][$tab[$i]-1]['Gerer un projet'] == 1){
                     echo "<tr>";
                         echo "<td class=reponse>";
                         echo "<img src=checkmark.png height=12>";
@@ -227,7 +225,7 @@ $q = strtolower($q);
                     echo "</tr>";
                 }
                 
-                if ($ref['Reference'][$i-1]['Parler une autre langue'] == 1){
+                if ($ref['Reference'][$tab[$i]-1]['Parler une autre langue'] == 1){
                     echo "<tr>";
                         echo "<td class=reponse>";
                         echo "<img src=checkmark.png height=12>";
@@ -236,7 +234,7 @@ $q = strtolower($q);
                     echo "</tr>";
                 }
                 
-                if ($ref['Reference'][$i-1]['Diriger une equipe'] == 1){
+                if ($ref['Reference'][$tab[$i]-1]['Diriger une equipe'] == 1){
                     echo "<tr>";
                         echo "<td class=reponse>";
                         echo "<img src=checkmark.png height=12>";
@@ -245,7 +243,7 @@ $q = strtolower($q);
                     echo "</tr>";
                 }
                 
-                if ($ref['Reference'][$i-1]['Maitriser de linformatique'] == 1){
+                if ($ref['Reference'][$tab[$i]-1]['Maitriser de linformatique'] == 1){
                     echo "<tr>";
                         echo "<td class=reponse>";
                         echo "<img src=checkmark.png height=12>";
@@ -254,7 +252,7 @@ $q = strtolower($q);
                     echo "</tr>";
                 }
                 
-                if ($ref['Reference'][$i-1]['Savoir dessiner'] == 1){
+                if ($ref['Reference'][$tab[$i]-1]['Savoir dessiner'] == 1){
                     echo "<tr>";
                         echo "<td class=reponse>";
                         echo "<img src=checkmark.png height=12>";
@@ -264,7 +262,7 @@ $q = strtolower($q);
                 }
                 
     
-                if ($ref['Reference'][$i-1]['Savoir traduire'] == 1){
+                if ($ref['Reference'][$tab[$i]-1]['Savoir traduire'] == 1){
                     echo "<tr>";
                         echo "<td class=reponse>";
                         echo "<img src=checkmark.png height=12>";
@@ -273,7 +271,7 @@ $q = strtolower($q);
                     echo "</tr>";
                 }
 
-                if ($ref['Reference'][$i-1]['Organiser une conference'] == 1){
+                if ($ref['Reference'][$tab[$i]-1]['Organiser une conference'] == 1){
                     echo "<tr>";
                         echo "<td class=reponse>";
                         echo "<img src=checkmark.png height=12>";
@@ -282,7 +280,7 @@ $q = strtolower($q);
                     echo "</tr>";
                 }
 
-                if ($ref['Reference'][$i-1]['Concevoir une formation'] == 1){
+                if ($ref['Reference'][$tab[$i]-1]['Concevoir une formation'] == 1){
                     echo "<tr>";
                         echo "<td class=reponse>";
                         echo "<img src=checkmark.png height=12>";
@@ -291,7 +289,7 @@ $q = strtolower($q);
                     echo "</tr>";
                 }
 
-                if ($ref['Reference'][$i-1]['Trier des donnees'] == 1){
+                if ($ref['Reference'][$tab[$i]-1]['Trier des donnees'] == 1){
                     echo "<tr>";
                         echo "<td class=reponse>";
                         echo "<img src=checkmark.png height=12>";
@@ -300,7 +298,7 @@ $q = strtolower($q);
                     echo "</tr>";
                 }
 
-                if ($ref['Reference'][$i-1]['Capacite a sorganiser'] == 1){
+                if ($ref['Reference'][$tab[$i]-1]['Capacite a sorganiser'] == 1){
                     echo "<tr>";
                         echo "<td class=reponse>";
                         echo "<img src=checkmark.png height=12>";

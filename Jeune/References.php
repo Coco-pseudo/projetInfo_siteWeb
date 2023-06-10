@@ -1,3 +1,4 @@
+
 <?php
 if($_COOKIE['verified'] == 1){
     setcookie('verified','',1);
@@ -58,16 +59,25 @@ $DATA="Profil/$mail/Reference.json";
             
             for ($i = 1; $i <= $nbref; $i++) { // Boucle pour créer les tableaux
                 if ($ref['Reference'][$i-1]['archiver'] == 0){
-
-                    if ($ref['Reference'][$i-1]['verif'] == 1){
-                        echo "<h2>";
-                        echo "<img src=checkmark.png height=14>Référence $i validé :";
-                        echo "</h2>";
-                    }else{
-                        echo "<h2>";
-                        echo "<img src=uncheckmark.png height=14>Référence $i en attente de validation :";
-                        echo "</h2>";
-                    }
+                    switch ($ref['Reference'][$i-1]['verif'] ){
+                            case 0 :
+                                echo "<h2>";
+                                echo "<img src=uncheckmark.png height=14>Référence $i en attente d'envoi :";
+                                echo "</h2>";
+                                break;
+                            case 1 :
+                                echo "<h2>";
+                                echo "<img src=uncheckmark.png height=14>Référence $i en attente de validation :";
+                                echo "</h2>";
+                                break;
+                            case 2 : 
+                                echo "<h2>";
+                                echo "<img src=checkmark.png height=14>Référence $i validé :";
+                                echo "</h2>";
+                                break;
+                            default :
+                                exit();
+                }
 
                     echo "<table id=$i class=ref >";
 
@@ -117,7 +127,14 @@ $DATA="Profil/$mail/Reference.json";
                     echo "</tr>";
 
                     echo "<tr>";
-                    echo "<td colspan=2><button onclick=ModifRef($i) class=bt>Modifier la Référence</button><button onclick=EnvoieR() class=bt>Envoie au Référent</button><button onclick=Archiver($i) class=bt>Archiver</button></td>";
+
+                    echo "<td colspan=2><button onclick=ModifRef($i) class=bt>Modifier la Référence</button>";
+                    if ($ref['Reference'][$i-1]['verif'] == 0){
+                    
+                    echo"<button onclick=EnvoieR($i) class=bt>Envoie au Référent</button>";
+                    }
+                    echo "<button onclick=Archiver($i) class=bt>Archiver</button></td>";
+
                     echo "</tr>";
         
         
@@ -326,7 +343,7 @@ $DATA="Profil/$mail/Reference.json";
                         echo "</tr>";
                     }
 
-                    if ($ref['Reference'][$i-1]['Capacite à sorganiser'] == 1){
+                    if ($ref['Reference'][$i-1]['Capacite a sorganiser'] == 1){
                         echo "<tr>";
                             echo "<td class=reponse>";
                             echo "<img src=checkmark.png height=12>";
@@ -379,8 +396,24 @@ $DATA="Profil/$mail/Reference.json";
 
                 document.location.href="ModifRef.php"
             }
-            function EnvoieR(){
+            function EnvoieR(a){
 
+                //edite le fichier data
+                alert("Envoi de la Reference n°"+a);
+                
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", "AlgoModifRef.php", true);
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xhr.send("a=" + escape(a) +"& b=3");
+                document.location.href="References.php";
+              
+                setcookie("numero",a,time()+3600);
+                document.location.href="MailRef.php";
+                //code pour mail fonctionnel
+                /*var Ajax = new XMLHttpRequest();
+                Ajax.open("POST", "MailRef.php", true);
+                Ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                Ajax.send("a=" + escape(a));*/
             }
             function EnvoieC(){
                 document.location.href="EnvoieConsul.php";

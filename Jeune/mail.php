@@ -1,30 +1,35 @@
 <?php
-if($_COOKIE['verified'] == 1){
-    setcookie('verified','',1);
-}else{
-    setcookie('destination','Jeune/MailRef.php',time()+3600);
-    header('Location: ../Connexion.php');
-}
 session_start();
 unset($_SESSION["dataR"]);
 unset($_SESSION["dataC"]);
 //
 // VARIABLES
 //
-//si mail fonctionnel
-//$NumRef = $_POST['a'];
-//sinon
-$NumRef = $_COOKIE['numero'];
-//
-
 $MailJeune = $_COOKIE['mail']; //doit prendre la valeur du mail du jeune
+$MailRef = "tmp";//doit prendre la valeur du mail du ref dans la demande de ref
+$MailCon = "?";//doit être donné par le jeune
 $Data = "Profil/$MailJeune/Reference.json";
 $ref = json_decode(file_get_contents($Data),true); //contient le tableau de refs du jeune
-$MailRef = $ref['Reference'][$NumRef]["EmailRef"];//doit prendre la valeur du mail du ref dans la demande de ref
 $Data = "Profil/$MailJeune/Profil.json";
 $pro = json_decode(file_get_contents($Data),true);// contient le tableau du profil du jeune
 $NomJeune = $pro["Profil"][0]["Nom"];
 $PrenomJeune = $pro["Profil"][0]["Prenom"];
+//création du tableau des références validés, pour ensuite aller chercher celles selectionnés
+$tabref = [];
+for($i = 0; $i<count($ref['Reference']); $i){
+    if($ref['Reference'][$i]["verif"] == 1){ //ref validé
+        $i++; //le numéro de la ref est 1 de plus que sa case dans le tableau
+        if(isset($_POST["ref$i"])){ //la ref a été sélectionné par le jeune
+            if($NumRef ==""){
+                $NumRef = $NumRef.$_POST["ref$i"];
+            }else{
+                $NumRef = $NumRef."+".$_POST["ref$i"];
+            }
+        }
+    }else{
+        $i++;
+    }
+}
 
 
 $message =
@@ -87,7 +92,9 @@ $message =
             <p>Ce mail vous a été envoyé afin que vous deveniez référent pour un jeune sur le projet gouvernemental Jeunes 6.4</p>
             <p>Un référent viens apporter de la crédibilité au jeune, sur la valeur de son dossier. Vous avez été contacté suite à la demande de $NomJeune $PrenomJeune</p>
             <p>Cette demande de référence vise a certifier les qualités du jeune, de par votre propre expérience avec le jeune :</p>
-            <p><a href=\"../Referent.php?q=$MailJeune+$NumRef\"> Lien pour accéder à la référence</a></p>
+            <p><a href=\"test.php?q=$MailJeune+$NumRef\"> Lien pour accéder à la référence</a></p>
+            <p><a href=\"Referent.php?q=$MailJeune+3\"> Lien pour accéder à la référence</a></p>
+            <p><a href=\"Consultant.php?q=$MailJeune+$NumRef\"> Lien pour accéder à la référence</a></p>
         </main>
         <footer>
             <h4>Jeunes 6.4</h4>
@@ -96,12 +103,7 @@ $message =
         </footer>
     </body>
 </html>";
-//echo $message;
-$test = mail("guedescore@cy-tech.fr","Test mail Projet",$message,"From: corentin.guedes@gmail.com"."\r\n".'Content-type: text/html');
-if($test){
-    echo("mail envoyé");
-}else {
-    echo("erreur dans l'envoi");
-}
+echo $message;
+//mail("corentin.guedes@gmail.com","Test mail Projet",$message);
 
 ?>
