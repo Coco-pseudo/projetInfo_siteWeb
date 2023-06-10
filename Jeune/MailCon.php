@@ -13,7 +13,7 @@ unset($_SESSION["dataC"]);
 // VARIABLES
 //
 $MailJeune = $_COOKIE['mail']; //doit prendre la valeur du mail du jeune
-$MailCon = "?";//doit être donné par le jeune
+$MailCon = "guedescore@cy-tech.fr";//doit être donné par le jeune
 $Data = "Profil/$MailJeune/Reference.json";
 $ref = json_decode(file_get_contents($Data),true); //contient le tableau de refs du jeune
 $Data = "Profil/$MailJeune/Profil.json";
@@ -93,7 +93,7 @@ $message =
         <h2>Une proposition de consultation pour vous :</h2>
         <main>
             <h4>Bonjour,</h4>
-            <p>Ce mail automatique vous a été envoyé afin que vous puissiez consulter le profil d'un jeune sur le projet gouvernemental Jeunes 6.4</p>
+            <p>Ce mail vous a été envoyé afin que vous puissiez consulter le profil d'un jeune sur le projet gouvernemental Jeunes 6.4</p>
             <p>Un consultant peut consulter le dossier d'un jeune, dossier contenant son profil et son expérience professionnelle mise en avant par ses contacts du monde professionnel : des référents.</p> 
             <p>Vous avez été contacté suite à la demande de $NomJeune $PrenomJeune</p>
             <p>Cette proposition de consultation vous donne l'accès au dossier mettant en valeur les qualités du jeune et les expériences du jeune</p>
@@ -106,25 +106,8 @@ $message =
         </footer>
     </body>
 </html>";
-"<!DOCTYPE html>
-<html>
-    <head></head>
-    <body>
-        <header>
-            <h5>Bonjour</h5>
-            <p>ce mail automatique vous a été envoyé afin que vous puissiez consulter le profil d'un jeune sur le projet gouvernemental Jeunes 6.4</p>
-        </header>
-        <main>
-            
-            
-        </main>
-        <footer>
-            <h4>Jeunes 6.4</h4>
-            <img src=\"logo.png\">
-        </footer>
-    </body>
-</html>";
 echo $message;
-//mail("guedescore@cy-tech.fr","Test mail Projet",$message);
+//partie mail:
+//mail("$MailCon","Test mail Projet",$message);
 
 ?>
