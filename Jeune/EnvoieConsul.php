@@ -350,7 +350,7 @@ if($_COOKIE['verified'] == 1){//l'utilisateur viens de se connecter avec succès
 
                 <div class="bouton">
                     <div>
-                        <button onclick="Retour()" class="br">Retour a vos références</button>
+                        <input type="button" onclick="Retour()" class="br" value="Retour a vos références">
                     </div>
                     <div>
                         <input type="submit" class="bec" value="Envoie">
