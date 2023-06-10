@@ -71,6 +71,6 @@ $message =
 //affichage du mail
 echo $message;
 //partie mail
-//mail("$MailJeune","Référence validé",$message,"From: Jeunes6.4@gmail.com"."\r\n".'Content-type: text/html')
+//echo(mail("guedescore@cy-tech.fr","Référence validé",$message,"From: corentin.guedes@gmail.com"."\r\n".'Content-type: text/html'));
 
 ?>

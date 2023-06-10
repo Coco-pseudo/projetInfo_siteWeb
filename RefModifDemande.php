@@ -399,21 +399,10 @@
                     xhr.open("POST", "Jeune/AlgoModifRef.php", true);
                     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                     xhr.send("b=6"+"&a="+a+chaine1+chaineSE+chaineSF);
-                    document.location.href="RefDemande.php";
+                    //document.location.href="RefDemande.php";
                     alert("modification enregistrée");
 
-                    //requête du mail au jeune
-                    //partie mail fonctionnel
-                    /*var ajax = new XMLHttpRequest();
-                    ajax.open("POST", "MailJeune.php", true);
-                    ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                    ajax.send("mail=<?php //echo($mail)?>"+"num=<?php //echo($j)?>);*/
-
-                    //ouverture sur une autre page du mail pour le jeune
-                    document.cookie="numero = "+a ;
-                    document.cookie="mail = "+"<?php echo("$mail")?>";
-                    open("Jeune/MailJeune.php");
-                }
+                    
             }
             
             function Accueil(){
