@@ -340,6 +340,7 @@
                 document.cookie="numero = "+a ;
                 document.cookie="mail = "+"<?php echo("$mail")?>";
                 open("Jeune/MailJeune.php");
+                document.location.href="Remerciement.php";
 
             }
         </script>
