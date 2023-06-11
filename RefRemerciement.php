@@ -2,10 +2,10 @@
 <html>
     <!-- Comprend le titre de la page et la page css associé -->
     <head>
-        <meta charset="UTF-8">
+        <meta charset="utf-8">
         <title>Jeune 6.4</title>
         <link rel="icon" type="image/png" href="logo.png">
-        <link rel="stylesheet" type="text/css" href="Remerciement.css">
+        <link rel="stylesheet" type="text/css" href="RefRemerciement.css">
     </head>
     
     <body>
@@ -17,11 +17,18 @@
         <!-- Barre de navigation -->
         <nav>
             <ul class="nav-links">
-                <li><a href="RefJeune.php" class="color1">Profil du Jeune</a></li>
-                <li><a href="RefDemande.php" class="color2">Sa demande de Référence</a></li>
+                <li><a href="Visiteur.php" class="color1">Accueil</a></li>
             </ul>
         </nav>
         <!-- Contenu de la page -->
-        <h2>Merci beaucoup pour votre participation</h2>
-    </body>
+        <div class="articles">
+            <h2 class="ressource">Merci beaucoup pour votre participation</h2>
+            <h3 class="ressource2">A bientot sur Jeune 6.4</h3>
+        </div>
+        <script>
+            function Accueil(){
+                document.location.href="Visiteur.php"; // Permet de retourner sur Visteur.php en cliquant sur le logo dans la bannière
+            }
+        </script>
+    </body>        
 </html>
