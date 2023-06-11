@@ -24,7 +24,6 @@ if ($_COOKIE["utilisateur"]=='Referent'){// si appelé depuis une page de réfé
     $tab=$_SESSION["dataR"];
     $mail=$tab[0];
     $Data="Jeune/Profil/$mail/Reference.json";
-    $Data="Jeune/Profil/lafilledelasalopedu78@gmail.com/Reference.json";
 }else{  //si appelé par une page de jeune
     $mail=$_COOKIE['mail'];
     $Data="Profil/$mail/Reference.json";

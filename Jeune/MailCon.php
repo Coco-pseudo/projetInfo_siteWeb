@@ -40,6 +40,9 @@ $message =
 "<!DOCTYPE html>
 <html>
     <head>
+        <meta charset=utf-8>
+        <title>Jeune 6.4</title>
+        <link rel=icon type=image/png href=logo.png>
         <style>
         header {
             background: linear-gradient(to right,#ccc, rgb(155, 145, 145)); /* Dégradé de gris du foncé au clair pour le header */
