@@ -320,7 +320,7 @@
                 document.location.href="RefModifDemande.php";
             }
             function Validation(a){
-                alert("validation de la Reference n°"+a);
+                alert("validation de la Reference ");
                 var xhr = new XMLHttpRequest();
                 xhr.open("POST", "Jeune/AlgoModifRef.php", true);
                 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -335,10 +335,15 @@
                 ajax.send("mail=<?php //echo($mail)?>"+"num=<?php //echo($j)?>);*/
 
                 //ouverture sur une autre page du mail pour le jeune
-                document.cookie="numero = "+a ;
-                document.cookie="mail = "+"<?php echo("$mail")?>";
-                open("Jeune/MailJeune.php");
-                document.location.href="RefRemerciement.php";
+                xhr.onreadystatechange = function() {
+                    if(xhr.readyState == 4 && xhr.status==200) {
+                        document.cookie="numero = "+a ;
+                        document.cookie="mail = "+"<?php echo("$mail")?>";
+                        open("Jeune/MailJeune.php");
+                        document.location.href="RefRemerciement.php";
+                        
+                    }
+                }
 
             }
         </script>
