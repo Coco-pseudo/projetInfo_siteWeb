@@ -309,7 +309,6 @@
 
             <div class="bouton">
                 <input type="button"  onclick="Confirmation(<?php echo ($j); ?>)" class="bc" value="Valider">
-                <button type="submit" class="invisible" >test</button>
                 <button type="reset" onclick="Reinitialiser()" class="br" >Réinitialiser</button>
             </div>   
         </form>
@@ -400,7 +399,7 @@
                     xhr.open("POST", "Jeune/AlgoModifRef.php", true);
                     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                     xhr.send("b=6"+"&a="+a+chaine1+chaineSE+chaineSF);
-                    document.location.href="RefDemande.php";
+                    //document.location.href="RefDemande.php";
                     alert("modification enregistrée");
                 }
 
