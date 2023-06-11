@@ -34,284 +34,285 @@
                 
             </ul>
         </nav>
+        <form>
+            <?php
 
-        <?php
-
-        $ref = json_decode(file_get_contents($DATA),true);
-        $Description=$ref['Reference'][$i]['Description'];
-        $Duree=$ref['Reference'][$i]['Duree'];
-        $milieu=$ref['Reference'][$i]['milieu'];
-        $nomRef=$ref['Reference'][$i]['nomRef'];
-        $prenomRef=$ref['Reference'][$i]['prenomRef'];
-        $EmailRef=$ref['Reference'][$i]['EmailRef'];
-        $Commentaire=$ref['Reference'][$i]['Commentaire'];
-        ?>
-        
-        <div class="formulaires">
-            <table  class="ref">
-                <tr>
-                    <td>Description de l'engagement</td>
-                    <td><input type="text" name="Description" id='description' value="<?php echo $Description; ?>" ></input> </td>
-                </tr>
-                <tr>
-                    <td>Durée de l'engagement</td>
-                    <td><input type="text" name="Durée" id='duree' value="<?php echo $Duree; ?>" ></input> </td>
-                </tr>
-                <tr>
-                    <td>Le milieu de l'engagement (association, club de sport, etc.)</td>
-                    <td><input type="text" name="milieu" id='milieu' value="<?php echo $milieu; ?>" ></input> </td>
-                </tr>
-                <tr>
-                    <td>Nom du référent</td>
-                    <td><input type="text" name="nomRef" id='nomRef' value="<?php echo $nomRef; ?>"></input> </td>
-                </tr>
-                <tr>
-                    <td>Prénom du référent</td>
-                    <td><input type="text" name="prenomRef" id='prenomRef' value="<?php echo $prenomRef; ?>"></input> </td>
-                </tr>
-                <tr>
-                    <td>Email du référent</td>
-                    <td><input type="email" name="EmailRef" id='EmailRef' value="<?php echo $EmailRef; ?>" ></input> </td>
-                </tr>
-            </table>
-        
-               
-            <div class="savoir-etre">
-                <?php
-                $ref = json_decode(file_get_contents($DATA),true);
-                echo "<h2>Savoirs-être  :</h2>";
-                echo "<table id=$i class=sve >";
-                
-                if ($ref['Reference'][$i]['Autonome'] == 1){
-                    echo "<tr>";
-                        echo "<td><input type=checkbox class='SavoirEtre' id='Autonome' name=Autonome value=Autonome checked >Autonome </td>";
-                    echo "</tr>";
-                }else{
-                    echo "<tr>";
-                    echo "<td><input type=checkbox class='SavoirEtre' id='Autonome' name=Autonome value=Autonome >Autonome </td>";
-                echo "</tr>";
-                }
-
-                if ($ref['Reference'][$i]['Passionne'] == 1){
-                    echo "<tr>";
-                        echo "<td><input type=checkbox class='SavoirEtre' id='Passionne' name=Passionne value=Passionne checked >Passionné(e) </td>";
-                    echo "</tr>";
-                }else{
-                    echo "<tr>";
-                    echo "<td><input type=checkbox class='SavoirEtre' id='Passionne' name=Passionne value=Passionne >Passionné(e) </td>";
-                echo "</tr>";
-                }
-                
-                if ($ref['Reference'][$i]['Reflechi'] == 1){
-                    echo "<tr>";
-                        echo "<td><input type=checkbox class='SavoirEtre' id='Reflechi' name=Reflechi value=Reflechi checked >Reflechi(e) </td>";
-                    echo "</tr>";
-                }else{
-                    echo "<tr>";
-                    echo "<td><input type=checkbox class='SavoirEtre' id='Reflechi' name=Reflechi value=Reflechi >Reflechi(e) </td>";
-                echo "</tr>";
-                }
-
-                if ($ref['Reference'][$i]['Alecoute'] == 1){
-                    echo "<tr>";
-                        echo "<td><input type=checkbox class='SavoirEtre' id='Alecoute' name=Alecoute value=Alecoute checked >A l'écoute </td>";
-                    echo "</tr>";
-                }else{
-                    echo "<tr>";
-                    echo "<td><input type=checkbox class='SavoirEtre' id='Alecoute' name=Alecoute value=Alecoute >A l'écoute </td>";
-                echo "</tr>";
-                }
-
-                if ($ref['Reference'][$i]['Organise'] == 1){
-                    echo "<tr>";
-                        echo "<td><input type=checkbox class='SavoirEtre' id='Organise' name=Organise value=Organise checked >Organisé(e) </td>";
-                    echo "</tr>";
-                }else{
-                    echo "<tr>";
-                    echo "<td><input type=checkbox class='SavoirEtre' id='Organise' name=Organise value=Organise >Organisé(e) </td>";
-                echo "</tr>";
-                }
-
-                if ($ref['Reference'][$i]['Fiable'] == 1){
-                    echo "<tr>";
-                        echo "<td><input type=checkbox class='SavoirEtre' id='Fiable' name=Fiable value=Fiable checked >Fiable </td>";
-                    echo "</tr>";
-                }else{
-                    echo "<tr>";
-                    echo "<td><input type=checkbox class='SavoirEtre' id='Fiable' name=Fiable value=Fiable >Fiable </td>";
-                echo "</tr>";
-                }
-
-                if ($ref['Reference'][$i]['Patient'] == 1){
-                    echo "<tr>";
-                        echo "<td><input type=checkbox class='SavoirEtre' id='Patient' name=Patient value=Patient checked >Patient(e) </td>";
-                    echo "</tr>";
-                }else{
-                    echo "<tr>";
-                    echo "<td><input type=checkbox class='SavoirEtre' id='Patient' name=Patient value=Patient >Patient(e) </td>";
-                echo "</tr>";
-                }
-
-                if ($ref['Reference'][$i]['Responsable'] == 1){
-                    echo "<tr>";
-                        echo "<td><input type=checkbox class='SavoirEtre' id='Responsable' name=Responsable value=Responsable checked >Responsable </td>";
-                    echo "</tr>";
-                }else{
-                    echo "<tr>";
-                    echo "<td><input type=checkbox class='SavoirEtre' id='Responsable' name=Responsable value=Responsable >Responsable </td>";
-                echo "</tr>";
-                }
-
-                if ($ref['Reference'][$i]['Sociable'] == 1){
-                    echo "<tr>";
-                        echo "<td><input type=checkbox class='SavoirEtre' id='Sociable' name=Sociable value=Sociable checked >Sociable </td>";
-                    echo "</tr>";
-                }else{
-                    echo "<tr>";
-                    echo "<td><input type=checkbox class='SavoirEtre' id='Sociable' name=Sociable value=Sociable >Sociable </td>";
-                echo "</tr>";
-                }
-
-                if ($ref['Reference'][$i]['Optimiste'] == 1){
-                    echo "<tr>";
-                        echo "<td><input type=checkbox class='SavoirEtre' id='Optimiste' name=Autonome value=Optimiste checked >Optimiste </td>";
-                    echo "</tr>";
-                }else{
-                    echo "<tr>";
-                    echo "<td><input type=checkbox class='SavoirEtre' id='Optimiste' name=Autonome value=Optimiste >Optimiste </td>";
-                echo "</tr>";
-                }
-
-                
-    
-                echo "</table>";
-                ?>
-            </div>
-
-            <div class="savoir-faire">
-                <?php
-                $ref = json_decode(file_get_contents($DATA),true);
-                $nbref = count($ref['Reference']);
+            $ref = json_decode(file_get_contents($DATA),true);
+            $Description=$ref['Reference'][$i]['Description'];
+            $Duree=$ref['Reference'][$i]['Duree'];
+            $milieu=$ref['Reference'][$i]['milieu'];
+            $nomRef=$ref['Reference'][$i]['nomRef'];
+            $prenomRef=$ref['Reference'][$i]['prenomRef'];
+            $EmailRef=$ref['Reference'][$i]['EmailRef'];
+            $Commentaire=$ref['Reference'][$i]['Commentaire'];
+            ?>
             
-                echo "<h2>Savoirs-faire  :</h2>";
-                echo "<table id=$i class=svf >";
+            <div class="formulaires">
+                <table  class="ref">
+                    <tr>
+                        <td>Description de l'engagement</td>
+                        <td><input type="text" name="Description" id='description' value="<?php echo $Description; ?>" ></input> </td>
+                    </tr>
+                    <tr>
+                        <td>Durée de l'engagement</td>
+                        <td><input type="text" name="Durée" id='duree' value="<?php echo $Duree; ?>" ></input> </td>
+                    </tr>
+                    <tr>
+                        <td>Le milieu de l'engagement (association, club de sport, etc.)</td>
+                        <td><input type="text" name="milieu" id='milieu' value="<?php echo $milieu; ?>" ></input> </td>
+                    </tr>
+                    <tr>
+                        <td>Nom du référent</td>
+                        <td><input type="text" name="nomRef" id='nomRef' value="<?php echo $nomRef; ?>"></input> </td>
+                    </tr>
+                    <tr>
+                        <td>Prénom du référent</td>
+                        <td><input type="text" name="prenomRef" id='prenomRef' value="<?php echo $prenomRef; ?>"></input> </td>
+                    </tr>
+                    <tr>
+                        <td>Email du référent</td>
+                        <td><input type="email" name="EmailRef" id='EmailRef' value="<?php echo $EmailRef; ?>" ></input> </td>
+                    </tr>
+                </table>
+            
                 
+                <div class="savoir-etre">
+                    <?php
+                    $ref = json_decode(file_get_contents($DATA),true);
+                    echo "<h2>Savoirs-être  :</h2>";
+                    echo "<table id=$i class=sve >";
+                    
+                    if ($ref['Reference'][$i]['Autonome'] == 1){
+                        echo "<tr>";
+                            echo "<td><input type=checkbox class='SavoirEtre' id='Autonome' name=Autonome value=Autonome checked >Autonome </td>";
+                        echo "</tr>";
+                    }else{
+                        echo "<tr>";
+                        echo "<td><input type=checkbox class='SavoirEtre' id='Autonome' name=Autonome value=Autonome >Autonome </td>";
+                    echo "</tr>";
+                    }
+
+                    if ($ref['Reference'][$i]['Passionne'] == 1){
+                        echo "<tr>";
+                            echo "<td><input type=checkbox class='SavoirEtre' id='Passionne' name=Passionne value=Passionne checked >Passionné(e) </td>";
+                        echo "</tr>";
+                    }else{
+                        echo "<tr>";
+                        echo "<td><input type=checkbox class='SavoirEtre' id='Passionne' name=Passionne value=Passionne >Passionné(e) </td>";
+                    echo "</tr>";
+                    }
+                    
+                    if ($ref['Reference'][$i]['Reflechi'] == 1){
+                        echo "<tr>";
+                            echo "<td><input type=checkbox class='SavoirEtre' id='Reflechi' name=Reflechi value=Reflechi checked >Reflechi(e) </td>";
+                        echo "</tr>";
+                    }else{
+                        echo "<tr>";
+                        echo "<td><input type=checkbox class='SavoirEtre' id='Reflechi' name=Reflechi value=Reflechi >Reflechi(e) </td>";
+                    echo "</tr>";
+                    }
+
+                    if ($ref['Reference'][$i]['Alecoute'] == 1){
+                        echo "<tr>";
+                            echo "<td><input type=checkbox class='SavoirEtre' id='Alecoute' name=Alecoute value=Alecoute checked >A l'écoute </td>";
+                        echo "</tr>";
+                    }else{
+                        echo "<tr>";
+                        echo "<td><input type=checkbox class='SavoirEtre' id='Alecoute' name=Alecoute value=Alecoute >A l'écoute </td>";
+                    echo "</tr>";
+                    }
+
+                    if ($ref['Reference'][$i]['Organise'] == 1){
+                        echo "<tr>";
+                            echo "<td><input type=checkbox class='SavoirEtre' id='Organise' name=Organise value=Organise checked >Organisé(e) </td>";
+                        echo "</tr>";
+                    }else{
+                        echo "<tr>";
+                        echo "<td><input type=checkbox class='SavoirEtre' id='Organise' name=Organise value=Organise >Organisé(e) </td>";
+                    echo "</tr>";
+                    }
+
+                    if ($ref['Reference'][$i]['Fiable'] == 1){
+                        echo "<tr>";
+                            echo "<td><input type=checkbox class='SavoirEtre' id='Fiable' name=Fiable value=Fiable checked >Fiable </td>";
+                        echo "</tr>";
+                    }else{
+                        echo "<tr>";
+                        echo "<td><input type=checkbox class='SavoirEtre' id='Fiable' name=Fiable value=Fiable >Fiable </td>";
+                    echo "</tr>";
+                    }
+
+                    if ($ref['Reference'][$i]['Patient'] == 1){
+                        echo "<tr>";
+                            echo "<td><input type=checkbox class='SavoirEtre' id='Patient' name=Patient value=Patient checked >Patient(e) </td>";
+                        echo "</tr>";
+                    }else{
+                        echo "<tr>";
+                        echo "<td><input type=checkbox class='SavoirEtre' id='Patient' name=Patient value=Patient >Patient(e) </td>";
+                    echo "</tr>";
+                    }
+
+                    if ($ref['Reference'][$i]['Responsable'] == 1){
+                        echo "<tr>";
+                            echo "<td><input type=checkbox class='SavoirEtre' id='Responsable' name=Responsable value=Responsable checked >Responsable </td>";
+                        echo "</tr>";
+                    }else{
+                        echo "<tr>";
+                        echo "<td><input type=checkbox class='SavoirEtre' id='Responsable' name=Responsable value=Responsable >Responsable </td>";
+                    echo "</tr>";
+                    }
+
+                    if ($ref['Reference'][$i]['Sociable'] == 1){
+                        echo "<tr>";
+                            echo "<td><input type=checkbox class='SavoirEtre' id='Sociable' name=Sociable value=Sociable checked >Sociable </td>";
+                        echo "</tr>";
+                    }else{
+                        echo "<tr>";
+                        echo "<td><input type=checkbox class='SavoirEtre' id='Sociable' name=Sociable value=Sociable >Sociable </td>";
+                    echo "</tr>";
+                    }
+
+                    if ($ref['Reference'][$i]['Optimiste'] == 1){
+                        echo "<tr>";
+                            echo "<td><input type=checkbox class='SavoirEtre' id='Optimiste' name=Autonome value=Optimiste checked >Optimiste </td>";
+                        echo "</tr>";
+                    }else{
+                        echo "<tr>";
+                        echo "<td><input type=checkbox class='SavoirEtre' id='Optimiste' name=Autonome value=Optimiste >Optimiste </td>";
+                    echo "</tr>";
+                    }
+
+                    
+        
+                    echo "</table>";
+                    ?>
+                </div>
+
+                <div class="savoir-faire">
+                    <?php
+                    $ref = json_decode(file_get_contents($DATA),true);
+                    $nbref = count($ref['Reference']);
                 
-                if ($ref['Reference'][$i]['Gerer un projet'] == 1){
-                    echo "<tr>";
-                        echo "<td><input type=checkbox class='SavoirFaire' id='Gererunprojet' value=Gererunprojet checked >Gerer un projet </td>";
+                    echo "<h2>Savoirs-faire  :</h2>";
+                    echo "<table id=$i class=svf >";
+                    
+                    
+                    if ($ref['Reference'][$i]['Gerer un projet'] == 1){
+                        echo "<tr>";
+                            echo "<td><input type=checkbox class='SavoirFaire' id='Gererunprojet' value=Gererunprojet checked >Gerer un projet </td>";
+                        echo "</tr>";
+                    }else{
+                        echo "<tr>";
+                        echo "<td><input type=checkbox class='SavoirFaire' id='Gererunprojet' value=Gererunprojet >Gerer un projet </td>";
                     echo "</tr>";
-                }else{
-                    echo "<tr>";
-                    echo "<td><input type=checkbox class='SavoirFaire' id='Gererunprojet' value=Gererunprojet >Gerer un projet </td>";
-                echo "</tr>";
-                }
+                    }
 
-                if ($ref['Reference'][$i]['Parler une autre langue'] == 1){
-                    echo "<tr>";
-                        echo "<td><input type=checkbox class='SavoirFaire' id=Parleruneautrelangue value=Parleruneautre langue checked >Parler une autre langue </td>";
+                    if ($ref['Reference'][$i]['Parler une autre langue'] == 1){
+                        echo "<tr>";
+                            echo "<td><input type=checkbox class='SavoirFaire' id=Parleruneautrelangue value=Parleruneautre langue checked >Parler une autre langue </td>";
+                        echo "</tr>";
+                    }else{
+                        echo "<tr>";
+                        echo "<td><input type=checkbox class='SavoirFaire' id=Parleruneautrelangue value=Parleruneautrelangue >Parler une autre langue </td>";
                     echo "</tr>";
-                }else{
-                    echo "<tr>";
-                    echo "<td><input type=checkbox class='SavoirFaire' id=Parleruneautrelangue value=Parleruneautrelangue >Parler une autre langue </td>";
-                echo "</tr>";
-                }
-                
-                if ($ref['Reference'][$i]['Diriger une equipe'] == 1){
-                    echo "<tr>";
-                        echo "<td><input type=checkbox class='SavoirFaire' id=Dirigeruneequipe value=Dirigeruneequipe checked >Diriger une equipe </td>";
+                    }
+                    
+                    if ($ref['Reference'][$i]['Diriger une equipe'] == 1){
+                        echo "<tr>";
+                            echo "<td><input type=checkbox class='SavoirFaire' id=Dirigeruneequipe value=Dirigeruneequipe checked >Diriger une equipe </td>";
+                        echo "</tr>";
+                    }else{
+                        echo "<tr>";
+                        echo "<td><input type=checkbox class='SavoirFaire' id=Dirigeruneequipe value=Dirigeruneequipe >Diriger une equipe </td>";
                     echo "</tr>";
-                }else{
-                    echo "<tr>";
-                    echo "<td><input type=checkbox class='SavoirFaire' id=Dirigeruneequipe value=Dirigeruneequipe >Diriger une equipe </td>";
-                echo "</tr>";
-                }
+                    }
 
-                if ($ref['Reference'][$i]['Maitriser de linformatique'] == 1){
-                    echo "<tr>";
-                        echo "<td><input type=checkbox class='SavoirFaire' id=Maitriserdelinformatique value=Maitriserdelinformatique checked >Maitriser de l'informatique </td>";
+                    if ($ref['Reference'][$i]['Maitriser de linformatique'] == 1){
+                        echo "<tr>";
+                            echo "<td><input type=checkbox class='SavoirFaire' id=Maitriserdelinformatique value=Maitriserdelinformatique checked >Maitriser de l'informatique </td>";
+                        echo "</tr>";
+                    }else{
+                        echo "<tr>";
+                        echo "<td><input type=checkbox class='SavoirFaire' id=Maitriserdelinformatique value=Maitriserdelinformatique >Maitriser de l'informatique </td>";
                     echo "</tr>";
-                }else{
-                    echo "<tr>";
-                    echo "<td><input type=checkbox class='SavoirFaire' id=Maitriserdelinformatique value=Maitriserdelinformatique >Maitriser de l'informatique </td>";
-                echo "</tr>";
-                }
+                    }
 
-                if ($ref['Reference'][$i]['Savoir dessiner'] == 1){
-                    echo "<tr>";
-                        echo "<td><input type=checkbox class='SavoirFaire' id=Savoirdessiner value=Savoirdessiner checked >Savoir dessiner </td>";
+                    if ($ref['Reference'][$i]['Savoir dessiner'] == 1){
+                        echo "<tr>";
+                            echo "<td><input type=checkbox class='SavoirFaire' id=Savoirdessiner value=Savoirdessiner checked >Savoir dessiner </td>";
+                        echo "</tr>";
+                    }else{
+                        echo "<tr>";
+                        echo "<td><input type=checkbox class='SavoirFaire' id=Savoirdessiner value=Savoirdessiner >Savoir dessiner </td>";
                     echo "</tr>";
-                }else{
-                    echo "<tr>";
-                    echo "<td><input type=checkbox class='SavoirFaire' id=Savoirdessiner value=Savoirdessiner >Savoir dessiner </td>";
-                echo "</tr>";
-                }
+                    }
 
-                if ($ref['Reference'][$i]['Savoir traduire'] == 1){
-                    echo "<tr>";
-                        echo "<td><input type=checkbox class='SavoirFaire' id=Savoirtraduire value=Savoirtraduire checked >Savoir traduire </td>";
+                    if ($ref['Reference'][$i]['Savoir traduire'] == 1){
+                        echo "<tr>";
+                            echo "<td><input type=checkbox class='SavoirFaire' id=Savoirtraduire value=Savoirtraduire checked >Savoir traduire </td>";
+                        echo "</tr>";
+                    }else{
+                        echo "<tr>";
+                        echo "<td><input type=checkbox class='SavoirFaire' id=Savoirtraduire value=Savoirtraduire >Savoir traduire </td>";
                     echo "</tr>";
-                }else{
-                    echo "<tr>";
-                    echo "<td><input type=checkbox class='SavoirFaire' id=Savoirtraduire value=Savoirtraduire >Savoir traduire </td>";
-                echo "</tr>";
-                }
+                    }
 
-                if ($ref['Reference'][$i]['Organiser une conference'] == 1){
-                    echo "<tr>";
-                        echo "<td><input type=checkbox class='SavoirFaire' id=Organiseruneconference value=Organiser une conference checked >Organiser une conference </td>";
+                    if ($ref['Reference'][$i]['Organiser une conference'] == 1){
+                        echo "<tr>";
+                            echo "<td><input type=checkbox class='SavoirFaire' id=Organiseruneconference value=Organiser une conference checked >Organiser une conference </td>";
+                        echo "</tr>";
+                    }else{
+                        echo "<tr>";
+                        echo "<td><input type=checkbox class='SavoirFaire' id=Organiseruneconference value=Organiseruneconference >Organiser une conference </td>";
                     echo "</tr>";
-                }else{
-                    echo "<tr>";
-                    echo "<td><input type=checkbox class='SavoirFaire' id=Organiseruneconference value=Organiseruneconference >Organiser une conference </td>";
-                echo "</tr>";
-                }
+                    }
 
-                if ($ref['Reference'][$i]['Concevoir une formation'] == 1){
-                    echo "<tr>";
-                        echo "<td><input type=checkbox class='SavoirFaire' id=Concevoiruneformation value=Concevoiruneformation checked >Concevoir une formation </td>";
+                    if ($ref['Reference'][$i]['Concevoir une formation'] == 1){
+                        echo "<tr>";
+                            echo "<td><input type=checkbox class='SavoirFaire' id=Concevoiruneformation value=Concevoiruneformation checked >Concevoir une formation </td>";
+                        echo "</tr>";
+                    }else{
+                        echo "<tr>";
+                        echo "<td><input type=checkbox class='SavoirFaire' id=Concevoiruneformation value=Concevoiruneformation >Concevoir une formation </td>";
                     echo "</tr>";
-                }else{
-                    echo "<tr>";
-                    echo "<td><input type=checkbox class='SavoirFaire' id=Concevoiruneformation value=Concevoiruneformation >Concevoir une formation </td>";
-                echo "</tr>";
-                }
+                    }
 
-                if ($ref['Reference'][$i]['Trier des donnees'] == 1){
-                    echo "<tr>";
-                        echo "<td><input type=checkbox class='SavoirFaire' id=Trierdesdonnees value=Trierdesdonnees checked >Trier des donnees </td>";
+                    if ($ref['Reference'][$i]['Trier des donnees'] == 1){
+                        echo "<tr>";
+                            echo "<td><input type=checkbox class='SavoirFaire' id=Trierdesdonnees value=Trierdesdonnees checked >Trier des donnees </td>";
+                        echo "</tr>";
+                    }else{
+                        echo "<tr>";
+                        echo "<td><input type=checkbox class='SavoirFaire' id=Trierdesdonnees value=Trierdesdonnees >Trier des donnees </td>";
                     echo "</tr>";
-                }else{
-                    echo "<tr>";
-                    echo "<td><input type=checkbox class='SavoirFaire' id=Trierdesdonnees value=Trierdesdonnees >Trier des donnees </td>";
-                echo "</tr>";
-                }
+                    }
 
-                if ($ref['Reference'][$i]['Capacite a sorganiser'] == 1){
-                    echo "<tr>";
-                        echo "<td><input type=checkbox class='SavoirFaire' id=Capaciteàsorganiser value=Capaciteàsorganiser checked >Capacite à sorganiser </td>";
+                    if ($ref['Reference'][$i]['Capacite a sorganiser'] == 1){
+                        echo "<tr>";
+                            echo "<td><input type=checkbox class='SavoirFaire' id=Capaciteàsorganiser value=Capaciteàsorganiser checked >Capacite à sorganiser </td>";
+                        echo "</tr>";
+                    }else{
+                        echo "<tr>";
+                        echo "<td><input type=checkbox class='SavoirFaire' id=Capaciteàsorganiser value=Capaciteàsorganiser >Capacite à sorganiser </td>";
                     echo "</tr>";
-                }else{
-                    echo "<tr>";
-                    echo "<td><input type=checkbox class='SavoirFaire' id=Capaciteàsorganiser value=Capaciteàsorganiser >Capacite à sorganiser </td>";
-                echo "</tr>";
-                }
-    
-                echo "</table>";
-                ?>
+                    }
+        
+                    echo "</table>";
+                    ?>
+                </div>
             </div>
-        </div>
 
-        <div class="com">
-            <br>Commentaire
-            <input type='text' id ='Commentaire' value ="<?php echo $Commentaire; ?>" ></input>
-        </div>
+            <div class="com">
+                <br>Commentaire
+                <input type='text' id ='Commentaire' value ="<?php echo $Commentaire; ?>" ></input>
+            </div>
 
-        <div class="bouton">
-            <button  onclick="Confirmation(<?php echo ($j); ?>)" class="bc">Valider</button>
-            <button type="reset" onclick="Reinitialiser()" class="br" >Réinitialiser</button>
-        </div>   
-       
+            <div class="bouton">
+                <input type="button"  onclick="Confirmation(<?php echo ($j); ?>)" class="bc" value="Valider">
+                <button type="submit" class="invisible" >test</button>
+                <button type="reset" onclick="Reinitialiser()" class="br" >Réinitialiser</button>
+            </div>   
+        </form>
         <script>
             function Reinitialiser(){
                 document.location.href="RefModifDemande.php";

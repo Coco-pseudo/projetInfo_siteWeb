@@ -159,4 +159,7 @@ nav {
     margin-left:145px;
     cursor: pointer;
 }
+.invisible{
+    display: none;
+}
 
