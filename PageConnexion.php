@@ -56,8 +56,8 @@
                         <td colspan="2" id="FullRow">inscription?</td>
                     </tr>
                     <tr>
-                        <td><label for="1">Oui</label><input type="radio" name="indice" value="1" onclick="visible()"></td>
-                        <td><label for="0">Non</label><input type="radio" name="indice" value="0" checked onclick="invisible()"></td>
+                        <td><label for="1" class=inscri>Oui</label><input type="radio" name="indice" value="1" onclick="visible()" ></td>
+                        <td><label for="0" class=inscri>Non</label><input type="radio" name="indice" value="0" checked onclick="invisible()"></td>
                     </tr>
                     <tr>
                         <td><button type="submit" class=bt>Connexion</button></td>
