@@ -81,8 +81,11 @@ $DATA='Profil/'.$mail.'/Profil.json';
                     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                     xhr.send("b=5"+"& nom="+escape(nom)+"& prenom="+escape(prenom)+"& date="+escape(date));
                     document.location.href="Jeune.php";
-                    alert("modification enregistrée");
-                }
+                    xhr.onreadystatechange = function() {
+                    if(xhr.readyState == 4 && xhr.status==200) {
+                        document.location.href="Jeune.php"; 
+                    }
+                }                }
             }
         </script>
     </body>
