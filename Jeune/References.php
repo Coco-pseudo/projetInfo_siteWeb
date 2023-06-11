@@ -404,6 +404,7 @@ $DATA="Profil/$mail/Reference.json"; //récupere les données des références
                 
                 document.cookie="numero = "+a ;
                 open("MailRef.php");
+               
                 
                 //code pour mail fonctionnel
                 /*var Ajax = new XMLHttpRequest();

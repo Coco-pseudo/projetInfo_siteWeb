@@ -13,7 +13,7 @@ unset($_SESSION["dataC"]);
 // VARIABLES
 //
 $MailJeune = $_COOKIE['mail']; //doit prendre la valeur du mail du jeune
-$MailCon = "guedescore@cy-tech.fr";//doit être donné par le jeune
+$MailCon = $_POST['mail'];//doit être donné par le jeune
 $Data = "Profil/$MailJeune/Reference.json";
 $ref = json_decode(file_get_contents($Data),true); //contient le tableau de refs du jeune
 $Data = "Profil/$MailJeune/Profil.json";
