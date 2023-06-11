@@ -38,11 +38,7 @@
                 <?php
                 
                 $i=$tab[1];
-                if ($ref["Reference"][$i-1]["verif"]!=1){
-                    echo("test");
-                    echo ("<script> alert(\"Vous n'avez aucune demande de référence à valider actuellement\");
-                    document.location.href=\"RefRemerciement.php\";</script>");
-                }
+
                     echo "<h2>Commentaire :</h2>";
                     echo "<div class=com>";
                     if ($ref['Reference'][$i-1]['Commentaire'] != ""){
