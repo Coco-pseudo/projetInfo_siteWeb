@@ -403,7 +403,13 @@ $DATA="Profil/$mail/Reference.json"; //récupere les données des références
                 xhr.send("a=" + escape(a) +"& b=3");
                 
                 document.cookie="numero = "+a ;
-                open("MailRef.php");
+                xhr.onreadystatechange = function() {
+                    if(xhr.readyState == 4 && xhr.status==200) {
+                        open("MailRef.php");
+                        document.location.href="References.php"; 
+                        
+                    }
+                }
                
                 
                 //code pour mail fonctionnel
