@@ -386,14 +386,17 @@ $j=$_COOKIE['Reference'];
                 if (description=="" || duree=="" || milieu=="" || nomRef=="" || prenomRef=="" || EmailRef==""){
                     alert("Merci de remplir tout les champs");
                 }else{
-
-
+                    alert("modification enregistrée");
                     var xhr = new XMLHttpRequest();
                     xhr.open("POST", "AlgoModifRef.php", true);
                     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                     xhr.send("b=6"+"&a="+a+chaine1+chaineSE+chaineSF);
-                    document.location.href="References.php";
-                    alert("modification enregistrée");
+                    xhr.onreadystatechange = function() {
+                    if(xhr.readyState == 4 && xhr.status==200) {
+                        document.location.href="Reference.php"; 
+                    }
+                }
+                    
                 }
             }
             
