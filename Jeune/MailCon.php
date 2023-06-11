@@ -36,6 +36,7 @@ for($i = 0; $i<count($ref['Reference']); $i){
         $i++;//on incrémente le compteur
     }
 }
+//Contenu du mail
 $message =
 "<!DOCTYPE html>
 <html>

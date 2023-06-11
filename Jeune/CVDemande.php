@@ -356,10 +356,10 @@ if($_COOKIE['verified'] == 1){//l'utilisateur viens de se connecter avec succès
                         <input type="button" onclick="Retour()" class="br" value="Retour a vos références">
                     </div>
                     <div>
-                        <input type="submit" formaction="CVHTML.php" class="bec" value="Aperçu">
+                        <input type="submit" formaction="CVHTML.php" class="bec" value="Aperçu"> <!--Affiche en html à quoi ressemble le CV -->
                     </div>
                     <div>
-                        <input type="submit" class="bec" value="Téléchargment en pdf">
+                        <input type="submit" class="bec" value="Téléchargment en pdf"> <!--Télécharge les références validés en un CV en format pdf -->
                     </div>
                 </div>
         </form>

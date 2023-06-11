@@ -64,7 +64,7 @@ nav {
     color: violet; /* Couleur du 2eme onglets de la navbar */
 }
 .color3 {
-    color: red;
+    color: red; /* Couleur du 3eme onglets de la navbar */
 }
 
 .formulaires{
@@ -131,13 +131,3 @@ nav {
     height: 30px;
     cursor: pointer;
 }
-/* td{
-    border : 1px  solid black;
-    align-items: center;
-}
-
-div.checkbox {
-    color:red;
-    background-color: blue;
-} */
-

@@ -76,23 +76,6 @@ nav {
     width:auto;
     margin: 250px auto 50px;
 }
-/* .commentaire{
-    border-style: solid;
-    border-color: red;
-}
-.tab {
-    border-style: solid;
-    border-color: green;
-}
-.savoir-etre {
-    border-style: solid;
-    border-color: blue;
-}
-.savoir-faire {
-    border-style: solid;
-    border-color: rgb(25, 173, 218);
-} */
-
 
 .ref{
     border-style: solid;
@@ -188,13 +171,3 @@ nav {
     margin-left:14px;
     cursor: pointer;
 }
-/* td{
-    border : 1px  solid black;
-    align-items: center;
-}
-
-div.checkbox {
-    color:red;
-    background-color: blue;
-} */
-

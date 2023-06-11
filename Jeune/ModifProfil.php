@@ -22,7 +22,6 @@ $DATA='Profil/'.$mail.'/Profil.json';
         <link rel="stylesheet" type="text/css" href="ModifProfil.css">
     </head>
     
-    
     <body>
         <!-- Bannière comprenant le logo et le slogan -->
         <header>
@@ -46,7 +45,6 @@ $DATA='Profil/'.$mail.'/Profil.json';
             $email=$ref['Profil'][0]['Mail'];
         ?>
 
-        
         <div class='formulaires'>
             <table  class='prfl'>
                 <tr>
@@ -61,7 +59,6 @@ $DATA='Profil/'.$mail.'/Profil.json';
                     <td>Date de naissance</td>
                     <td><input type='date' name='date' id="Date" value="<?php echo $date; ?>"></input></td>
                 </tr>
-                <!--<tr><td>Email</td><td><input type='text' name='Email' id="Email" value="<?php //echo $email; ?>"required></input> </td></tr>-->
                 <tr >
                     <td colspan=2><button onclick=EnvoiModif() class='boutons'>Modifier</button> <button type='reset' class='boutons'>Supprimer</button></td>
                 </tr>  
@@ -72,11 +69,10 @@ $DATA='Profil/'.$mail.'/Profil.json';
             function Accueil(){
                 document.location.href="../Visiteur.php";
             }
-            function EnvoiModif(){
+            function EnvoiModif(){ //Applique les modification
                 var nom = document.getElementById("Nom").value;
                 var prenom = document.getElementById("Prenom").value;
                 var date = document.getElementById("Date").value;
-                //var email = document.getElementById("Email").value;
                 if (nom== '' || prenom ==''){
                    alert("Merci de remplir tout les champs");
                 }else{

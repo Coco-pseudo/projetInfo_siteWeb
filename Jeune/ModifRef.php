@@ -42,8 +42,6 @@ $j=$_COOKIE['Reference'];
         </nav>
         <!-- Contenu de la page -->
         <?php
-
-
         $ref = json_decode(file_get_contents($DATA),true);
         $Description=$ref['Reference'][$i]['Description'];
         $Duree=$ref['Reference'][$i]['Duree'];
@@ -187,9 +185,6 @@ $j=$_COOKIE['Reference'];
                     echo "<td><input type=checkbox class='SavoirEtre' id='Optimiste' name=Autonome value=Optimiste >Optimiste </td>";
                 echo "</tr>";
                 }
-
-                
-    
                 echo "</table>";
                 ?>
             </div>

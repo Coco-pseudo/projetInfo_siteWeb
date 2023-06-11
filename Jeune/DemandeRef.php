@@ -134,16 +134,12 @@ if($_COOKIE['verified'] == 1){//l'utilisateur viens de se connecter avec succès
                     </table>
                 </div>
                 <div class="bouton">
-                    <button type="submit" onclick="Confirmation()" class="bc">Valider</button>
+                    <button type="submit" class="bc">Valider</button>
                     <button type="reset" class="br" >Réinitialiser</button>
                 </div>
             </form>
         
         <script>
-            function Confirmation(){
-                //var str= document.getElementById("txt1").value;
-                //alert("Demande effectuée");
-            }
             function Accueil(){
                 document.location.href="../Visiteur.php";
             }
@@ -158,7 +154,6 @@ if($_COOKIE['verified'] == 1){//l'utilisateur viens de se connecter avec succès
                     return false;
             }
 
-
             //Empécher selectionner plus que 4 savoir Faire
             var checks = document.querySelectorAll(".SavoirFaire");
             var max2 = 4;
@@ -169,8 +164,6 @@ if($_COOKIE['verified'] == 1){//l'utilisateur viens de se connecter avec succès
                 if (checkedChecks.length >= max2 + 1)
                     return false;
             }
-
-
 
         </script>
     </body>

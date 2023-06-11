@@ -1,6 +1,7 @@
 <?php
 $MailJeune = $_COOKIE["mail"];
 $NumRef = $_COOKIE["numero"];
+//Contenu du mail
 $message =
 "<!DOCTYPE html>
 <html>
