@@ -355,7 +355,7 @@ if($_COOKIE['verified'] == 1){//l'utilisateur viens de se connecter avec succès
                         <input type="button" onclick="Retour()" class="br" value="Retour a vos références">
                     </div>
                     <div class="entete">
-                        Mail de Consultant
+                        Mail du Consultant
                     </div>
                     <div>
                         <input type="email" name="mail" required class="bcv">
