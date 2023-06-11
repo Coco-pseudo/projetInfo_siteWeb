@@ -401,6 +401,7 @@
                     xhr.send("b=6"+"&a="+a+chaine1+chaineSE+chaineSF);
                     //document.location.href="RefDemande.php";
                     alert("modification enregistrée");
+                }
 
                     
             }
