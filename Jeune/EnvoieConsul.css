@@ -139,7 +139,7 @@ nav {
     text-align: center;
 }
 .bcv {
-    background: linear-gradient(to right,#b90db9, rgb(240, 149, 225));
+    background: rgb(240, 177, 240);
     border-style: solid;
     border-color: violet;
     width: 180px;
