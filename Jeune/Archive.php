@@ -375,7 +375,11 @@ $DATA="Profil/$mail/Reference.json";
                 xhr.open("POST", "AlgoModifRef.php", true);
                 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xhr.send("a=" + escape(a) +"& b=2");
-                document.location.href="Archive.php";
+                xhr.onreadystatechange = function() {
+                    if(xhr.readyState == 4 && xhr.status==200) {
+                        document.location.href="Archive.php"; 
+                    }
+                }
             }
         </script>
     </body>

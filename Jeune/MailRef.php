@@ -27,7 +27,7 @@ $pro = json_decode(file_get_contents($Data),true);// contient le tableau du prof
 $NomJeune = $pro["Profil"][0]["Nom"];
 $PrenomJeune = $pro["Profil"][0]["Prenom"];
 
-
+//Contenu du mail
 $message =
 "<!DOCTYPE html>
 <html>

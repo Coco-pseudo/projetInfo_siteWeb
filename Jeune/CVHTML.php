@@ -63,10 +63,6 @@ for($i = 0; $i<count($ref['Reference']); $i){
                 echo $ref['Profil'][0]['Prenom'];
                 echo "</h3>";
             
-
-            
-            
-            
             $DATA="Profil/$mail/Reference.json";
             $ref = json_decode(file_get_contents($DATA),true);
             $nbref = count($tab)-1;
@@ -121,10 +117,7 @@ for($i = 0; $i<count($ref['Reference']); $i){
                     echo "</td>";
                 echo "</tr>";
     
-    
                 echo "</table>";
-
-
 
                 echo "<div class=savoir-etre>";
                 
@@ -132,136 +125,95 @@ for($i = 0; $i<count($ref['Reference']); $i){
                 echo "<div class=sve >";
                 
                 if ($ref['Reference'][$tab[$i]-1]['Autonome'] == 1){
-                    
                         echo "-Autonome-";
-                        
                 }
                 
                 if ($ref['Reference'][$tab[$i]-1]['Passionne'] == 1){
-                    
-                        echo "-Passionné-";
-                        
+                        echo "-Passionné-";   
                 }
                 
                 if ($ref['Reference'][$tab[$i]-1]['Reflechi'] == 1){
-                    
                         echo "-Réfléchi-";
-                        
                 }
                 
                 if ($ref['Reference'][$tab[$i]-1]['Alecoute'] == 1){
-                    
-                        echo "-A l'écoute-";
-                        
+                        echo "-A l'écoute-";   
                 }
                 
                 if ($ref['Reference'][$tab[$i]-1]['Organise'] == 1){
-                    
                         echo "-Organisé-";
-                        
                 }
                 
     
                 if ($ref['Reference'][$tab[$i]-1]['Fiable'] == 1){
-                    
                         echo "-Fiable-";
-                        
                 }
 
                 if ($ref['Reference'][$tab[$i]-1]['Patient'] == 1){
-                    
                         echo "-Patient-";
-                        
                 }
 
                 if ($ref['Reference'][$tab[$i]-1]['Responsable'] == 1){
-                    
-                        echo "-Responsable-";
-                        
+                        echo "-Responsable-"; 
                 }
 
                 if ($ref['Reference'][$tab[$i]-1]['Sociable'] == 1){
-                    
-                        echo "-Sociable-";
-                        
+                        echo "-Sociable-"; 
                 }
 
                 if ($ref['Reference'][$tab[$i]-1]['Optimiste'] == 1){
-                    
-                        echo "-Optimiste-";
-                        
+                        echo "-Optimiste-";  
                 }
     
                 echo "</div>";
-            
             
                 echo "</div>";
 
                 echo "<div class=savoir-faire>";
        
-            
                 echo "<h2>Savoirs-faire :</h2>";
                 echo "<div class=svf >";
                 
                 if ($ref['Reference'][$tab[$i]-1]['Gerer un projet'] == 1){
-                    
                         echo "-Gérer un projet-";
-                       
                 }
                 
                 if ($ref['Reference'][$tab[$i]-1]['Parler une autre langue'] == 1){
-                    
-                        echo "-Parler une autre langue-";
-                       
+                        echo "-Parler une autre langue-"; 
                 }
                 
                 if ($ref['Reference'][$tab[$i]-1]['Diriger une equipe'] == 1){
-                    
                         echo "-Diriger une equipe-";
-                        
                 }
                 
                 if ($ref['Reference'][$tab[$i]-1]['Maitriser de linformatique'] == 1){
-                    
                         echo "-Maitriser de l'informatique-";
-                        
                 }
                 
                 if ($ref['Reference'][$tab[$i]-1]['Savoir dessiner'] == 1){
-                    
                         echo "-Savoir dessiner-";
-                        
                 }
                 
     
                 if ($ref['Reference'][$tab[$i]-1]['Savoir traduire'] == 1){
-                    
                         echo "-Savoir traduire-";
-                       
+
                 }
 
                 if ($ref['Reference'][$tab[$i]-1]['Organiser une conference'] == 1){
-                    
                         echo "-Organiser une conference-";
-                       
                 }
 
                 if ($ref['Reference'][$tab[$i]-1]['Concevoir une formation'] == 1){
-                    
                         echo "-Concevoir une formation-";
-                        
                 }
 
                 if ($ref['Reference'][$tab[$i]-1]['Trier des donnees'] == 1){
-                    
                         echo "-Trier des données-";
-                        
                 }
 
                 if ($ref['Reference'][$tab[$i]-1]['Capacite a sorganiser'] == 1){
-                    
                         echo "-Capacité à s'organiser-";
-                        
                 }
     
                 echo "</div>";

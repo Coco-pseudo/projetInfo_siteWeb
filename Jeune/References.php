@@ -425,9 +425,11 @@ $DATA="Profil/$mail/Reference.json"; //récupere les données des références
                 xhr.open("POST", "AlgoModifRef.php", true);
                 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xhr.send("a=" + escape(a) +"& b=1");
-                document.location.href="References.php";
-
-            
+                xhr.onreadystatechange = function() {
+                    if(xhr.readyState == 4 && xhr.status==200) {
+                        document.location.href="References.php"; 
+                    }
+                }
             }
         </script>
     </body>

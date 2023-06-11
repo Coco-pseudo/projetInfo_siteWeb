@@ -40,6 +40,7 @@ $DATA="Profil/$mail/Profil.json";
 $ref = json_decode(file_get_contents($DATA),true);
 $nom=$ref['Profil'][0]['Nom'];
 $pnom=$ref['Profil'][0]['Prenom'];
+// Contenu HTML que vous souhaitez convertir en PDF
 $html0 = '
 <h1 style="text-align:center">Livret d\'expériences</h1>
 <h2 >' .$nom. '  ' .$pnom. '</h2>
@@ -51,7 +52,7 @@ $DATA="Profil/$mail/Reference.json";
 $ref = json_decode(file_get_contents($DATA),true);
 $nbref = count($tab)-1;
 
-// Contenu HTML que vous souhaitez convertir en PDF
+//stockage des données dans des variables
 for ($i = 1; $i <= $nbref; $i++) {
     $a=$ref['Reference'][$tab[$i]-1]['Description'];
     $b=$ref['Reference'][$tab[$i]-1]['Duree'];
@@ -167,10 +168,10 @@ for ($i = 1; $i <= $nbref; $i++) {
     }
 
 
-
-$html='<h2>Référence ' . $tab[$i] . ' :</h2>
-<div style="border-collapse: collapse; border: 1px solid black;">
-<table class="ref" >
+    // Contenu HTML que vous souhaitez convertir en PDF
+    $html='<h2>Référence ' . $tab[$i] . ' :</h2>
+    <div style="border-collapse: collapse; border: 1px solid black;">
+    <table class="ref" >
     
     <tr>
         <td> Description de l\'engagement</td>
@@ -214,8 +215,11 @@ $html='<h2>Référence ' . $tab[$i] . ' :</h2>
         </td>
     </tr>
 
-</table></div>';
+    </table></div>';
+    // Insérer le code HTML dans le PDF
     $pdf->writeHTML($html, true, false, true, false, '');
+
+    // Contenu HTML que vous souhaitez convertir en PDF
     $html2 = '<div><h3 style="text-align:center">Savoirs-être :</h3>
             <div style="text-align:center">
             ' .$e1. '' .$e2. '' .$e3. '' .$e4. '' .$e5. '' .$e6. '' .$e7. '' .$e8. '' .$e9. '' .$e10. '
@@ -224,26 +228,20 @@ $html='<h2>Référence ' . $tab[$i] . ' :</h2>
             <div style="text-align:center">
             ' .$f1. '' .$f2. '' .$f3. '' .$f4. '' .$f5. '' .$f6. '' .$f7. '' .$f8. '' .$f9. '' .$f10. '
             </div></div>';
-$pdf->writeHTML($html2, true, false, true, false, '');
-
+    // Insérer le code HTML dans le PDF
+    $pdf->writeHTML($html2, true, false, true, false, '');
+    // Contenu HTML que vous souhaitez convertir en PDF
     $html3 = '<h3 style="text-align:center">Commentaire :</h3>
     <div style="text-align:center">
     ' .$com. '
     </div>
     ';
+    // Insérer le code HTML dans le PDF
     $pdf->writeHTML($html3, true, false, true, false, '');
 
 }
-
-ob_end_clean();
-
+// Réinitialise le buffer
+ob_end_clean(); 
 // Génère le fichier PDF et le renvoie au navigateur pour téléchargement
 $pdf->Output('Votre_livret_dexperiences', 'D');
-//phpinfo();
-// $q = $_REQUEST["q"];
-// $tab = explode(" ",$q);
-// $q = strtolower($q);
-
-// var_dump($tab);
-// echo("<br>hello $q");
 ?>
