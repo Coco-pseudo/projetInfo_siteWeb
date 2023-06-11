@@ -399,7 +399,7 @@
                     xhr.open("POST", "Jeune/AlgoModifRef.php", true);
                     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                     xhr.send("b=6"+"&a="+a+chaine1+chaineSE+chaineSF);
-                    //document.location.href="RefDemande.php";
+                    document.location.href="RefDemande.php";
                     alert("modification enregistrée");
                 }
 
