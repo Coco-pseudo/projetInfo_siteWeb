@@ -6,7 +6,7 @@
     <!-- Comprend le titre de la page et la page css associé -->
     <head>
         <meta charset="utf-8">
-        <title>Jeune 6.4</title>
+        <title>Consultant - Jeune 6.4</title>
         <link rel="icon" type="image/png" href="logo.png">
         <link rel="stylesheet" type="text/css" href="ConsJeune.css">
     </head>
