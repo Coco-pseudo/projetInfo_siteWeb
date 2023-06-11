@@ -94,7 +94,7 @@ $message =
         <footer>
             <h4>Jeunes 6.4</h4>
             <h4>Ce mail à été envoyé automatiquement par Jeune6.4</h4>
-            <a href=\"Visiteur.php\">Jeune 6.4</a>
+            <a href=\"../Visiteur.php\">Jeune 6.4</a>
         </footer>
     </body>
 </html>";
