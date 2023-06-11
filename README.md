@@ -39,9 +39,6 @@ Page Jeune:
  
 
 
-Note : malgré les commandes de notre code il arrive que la page ne se recharge pas après avoir modifié le profil par exemple ou encore l’archivage. 
-Pas de panique appuyer sur F5 pour recharger votre page ou bien appuyer sur le bouton “Actualiser la page” en haut à gauche de votre navigateur.
-
 Page Référent:
 	Après avoir reçu le “mail” et cliquer sur le lien présent dans celui-ci vous pourrez voir le profil du jeune vous sollicitant ainsi que la référence vous mentionnant.
   Vous pourrez la modifier si besoin, rédiger un commentaire associé à la référence et enfin la valider. Une fois validée vous pourrez simplement visualiser la référence mais plus la modifier.
