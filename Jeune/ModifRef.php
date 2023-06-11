@@ -393,7 +393,7 @@ $j=$_COOKIE['Reference'];
                     xhr.send("b=6"+"&a="+a+chaine1+chaineSE+chaineSF);
                     xhr.onreadystatechange = function() {
                     if(xhr.readyState == 4 && xhr.status==200) {
-                        document.location.href="Reference.php"; 
+                        document.location.href="References.php"; 
                     }
                 }
                     
