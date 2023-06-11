@@ -38,7 +38,11 @@
                 <?php
                 
                 $i=$tab[1];
-
+                if ($ref["Reference"][$i-1]["verif"]!=1){
+                    echo("test");
+                    echo ("<script> alert(\"Vous n'avez aucune demande de référence à valider actuellement\");
+                    document.location.href=\"RefRemerciement.php\";</script>");
+                }
                     echo "<h2>Commentaire :</h2>";
                     echo "<div class=com>";
                     if ($ref['Reference'][$i-1]['Commentaire'] != ""){
@@ -50,8 +54,6 @@
 
                 <div class="tab">
                 <?php
-                $ref = json_decode(file_get_contents($DATA),true);
-                $nbref = count($ref['Reference']);
                     echo "<h2>Référence :</h2>";
                     echo "<table id=$i class=ref >";
                     
@@ -111,8 +113,6 @@
 
                 <div class="savoir-etre">
                 <?php
-                $ref = json_decode(file_get_contents($DATA),true);
-                $nbref = count($ref['Reference']);
                 
                     echo "<h2>Savoirs-être :</h2>";
                     echo "<table id=$i class=sve >";
@@ -214,8 +214,7 @@
 
                 <div class="savoir-faire">
                 <?php
-                $ref = json_decode(file_get_contents($DATA),true);
-                $nbref = count($ref['Reference']);
+
                 
                     echo "<h2>Savoirs-faire :</h2>";
                     echo "<table id=$i class=svf >";
